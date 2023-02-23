@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Mouse
   - Furniture
+  - Stamp
   layers:
   - Default
   - TransparentFX
