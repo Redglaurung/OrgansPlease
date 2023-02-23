@@ -19,29 +19,30 @@ public class DrawerSlideOut : MonoBehaviour
             timer-=1;
         }
         if(slideOut==false){
-            if(transform.position.y<=.89f){
+            if(transform.position.y<=1.8f){
                 transform.position = transform.position + new Vector3(0f,0.01f,0.0f);
             }
         }
         if(slideOut==true){
-            if(transform.position.y>=-2.36f){
+            if(transform.position.y>=-1.8f){
                 transform.position = transform.position - new Vector3(0f,0.01f,0.0f);
             }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision){
-        if((collision.tag == "Mouse")&&(slideOut==false)){
-            timer=100;
+        if((collision.tag == "Mouse")&&(slideOut==false)&&(timer==0)){
+            timer=600;
             slideOut=true;
             print("Yippee");
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision){
-        if((collision.tag == "Mouse")&&(slideOut ==false )){
-            timer=100;
+            
+        } else if((collision.tag == "Mouse")&&(slideOut ==true )&&(timer==0)){
+            timer=600;
             slideOut=false;
             print("Wahoooo");
         }
+    }
+    private void OnTriggerExit2D(Collider2D collision){
+        
     }
     public void MakeSlidingOut(){
         slideOut=true;

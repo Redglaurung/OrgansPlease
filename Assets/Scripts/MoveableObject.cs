@@ -36,7 +36,7 @@ public abstract class MoveableObject : MonoBehaviour
                 offset = selectedObject.transform.position - mousePosition;
             }
         }
-        if (selectedObject)
+        if ((selectedObject)&&(selectedObject.tag != "Furniture"))
         {
             selectedObject.transform.position = mousePosition + offset;
         }
