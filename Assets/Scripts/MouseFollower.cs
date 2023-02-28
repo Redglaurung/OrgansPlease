@@ -15,7 +15,7 @@ public class MouseFollower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
+        //Cursor.visible = false;
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         
     }
