@@ -8,6 +8,8 @@ public abstract class MoveableObject : MonoBehaviour
     public GameObject selectedObject;
     // Used to keep track of how much to move itself
     Vector3 offset;
+    // Used to keep track of what is being viewed
+    
 
     // Start is called before the first frame update
     void Start()

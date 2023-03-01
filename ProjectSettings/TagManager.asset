@@ -7,6 +7,8 @@ TagManager:
   - Mouse
   - Furniture
   - Stamp
+  - Pages
+  - Phone
   layers:
   - Default
   - TransparentFX
@@ -49,4 +51,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 3783619177
+    locked: 0
+  - name: Looking At
+    uniqueID: 1370559807
     locked: 0
