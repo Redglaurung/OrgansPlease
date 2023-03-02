@@ -278,6 +278,7 @@ MonoBehaviour:
   - {fileID: 1513156926}
   - {fileID: 1358502399}
   - {fileID: 0}
+  lastlookedat: {fileID: 0}
 --- !u!4 &482043313
 Transform:
   m_ObjectHideFlags: 0
@@ -651,7 +652,7 @@ GameObject:
   - component: {fileID: 892962708}
   m_Layer: 0
   m_Name: Paper1
-  m_TagString: Untagged
+  m_TagString: Pages
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1036,8 +1037,8 @@ Transform:
   m_LocalScale: {x: 2.175, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1859835441}
   - {fileID: 1959493924}
+  - {fileID: 1859835441}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
