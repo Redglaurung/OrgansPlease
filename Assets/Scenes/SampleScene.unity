@@ -272,13 +272,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15b75ac2b87f2b478d25410ea831266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedObject: {fileID: 0}
   pagesArray:
   - {fileID: 892962707}
   - {fileID: 1927811708}
   - {fileID: 1513156926}
   - {fileID: 1358502399}
   - {fileID: 0}
-  lastlookedat: {fileID: 0}
+  lastlookedat: {fileID: 482043311}
 --- !u!4 &482043313
 Transform:
   m_ObjectHideFlags: 0
@@ -777,7 +778,7 @@ Transform:
   m_GameObject: {fileID: 892962707}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.73, y: -2.27, z: 0}
-  m_LocalScale: {x: 2.8476, y: 4.2781, z: 1}
+  m_LocalScale: {x: 2.8, y: 4.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1056,7 +1057,7 @@ GameObject:
   - component: {fileID: 1358502400}
   m_Layer: 0
   m_Name: Paper4
-  m_TagString: Untagged
+  m_TagString: Pages
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1181,7 +1182,7 @@ Transform:
   m_GameObject: {fileID: 1358502399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.06, y: -2.42, z: 0}
-  m_LocalScale: {x: 2.8476, y: 4.2781, z: 1}
+  m_LocalScale: {x: 2.8, y: 4.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1436,7 +1437,7 @@ GameObject:
   - component: {fileID: 1513156927}
   m_Layer: 0
   m_Name: Paper3
-  m_TagString: Untagged
+  m_TagString: Pages
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1561,7 +1562,7 @@ Transform:
   m_GameObject: {fileID: 1513156926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.5, y: -2.29, z: 0}
-  m_LocalScale: {x: 2.8476, y: 4.2781, z: 1}
+  m_LocalScale: {x: 2.8, y: 4.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1827,7 +1828,7 @@ GameObject:
   - component: {fileID: 1927811709}
   m_Layer: 0
   m_Name: Paper2
-  m_TagString: Untagged
+  m_TagString: Pages
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1952,7 +1953,7 @@ Transform:
   m_GameObject: {fileID: 1927811708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.07, y: -2.4, z: 0}
-  m_LocalScale: {x: 2.8476, y: 4.2781, z: 1}
+  m_LocalScale: {x: 2.8, y: 4.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

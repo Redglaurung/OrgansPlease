@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PageManager : MonoBehaviour
 {
-    GameObject selectedObject;
+    public GameObject selectedObject;
     public GameObject[] pagesArray;
     public GameObject lastlookedat;
     int currentMax;
@@ -25,7 +25,7 @@ public class PageManager : MonoBehaviour
             {
                 if(targetObject.transform.gameObject.tag == "Pages"){
                     selectedObject = targetObject.transform.gameObject;
-                    //print(selectedObject.name);
+                    print(selectedObject.name);
                     if(selectedObject.name != pagesArray[3].name){
                         pagesArray[4] = pagesArray[3];
                         pagesArray[3] = null;

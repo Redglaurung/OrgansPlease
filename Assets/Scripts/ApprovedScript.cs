@@ -58,7 +58,7 @@ public class ApprovedScript : MonoBehaviour
 
     private GameObject checkTopPaper()
     {
-
+        return null;
     }
 
     private void ApplyStamp()
