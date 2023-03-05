@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class ApprovedScript : MonoBehaviour
 {
+    public SpriteRenderer myRenderer;
     public Sprite stampType;
     // public BoxCollider2D collider;
     // Start is called before the first frame update
     void Start()
     {
-        
+        myRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
@@ -34,8 +36,13 @@ public class ApprovedScript : MonoBehaviour
         // If the paper is within the ranges defined above, I will set the stamp picture to be a child of the paper.
 
         GameObject[] papers = GameObject.FindGameObjectsWithTag("Pages");
+        int highestPage = 6;
         foreach (GameObject paper in papers)
         {
+            // Check if page is the top page in the Pages Sorting Layer
+            // Make sure that we can't stamp when the page is in Looking At Mode
+            //if((paper.myRenderer.sortingOrder == 6) && (paper.myRenderer.sortingLayerName != "Looking At"))
+            
             // Check if the paper is within the ranges
             BoxCollider2D paperCollider = paper.GetComponent<BoxCollider2D>();
             Bounds paperBounds = paperCollider.bounds;

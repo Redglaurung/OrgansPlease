@@ -11,7 +11,7 @@ public class Phone : MoveableObject
     // Start is called before the first frame update
     void Start()
     {
-        SpriteRenderer myRenderer = GetComponent<SpriteRenderer>();
+        myRenderer = GetComponent<SpriteRenderer>();
         defaultScale = transform.localScale;
         doubleScale = new Vector3(transform.localScale.x * 2, transform.localScale.y * 2, transform.localScale.z);
     }
@@ -24,13 +24,13 @@ public class Phone : MoveableObject
     }
 
     public void StartLookingAt(){
-        myRenderer = GetComponent<SpriteRenderer>();
+        // myRenderer = GetComponent<SpriteRenderer>();
         myRenderer.sortingLayerName = "Looking At";
         transform.localScale = doubleScale;
         canvasCanvas.sortingLayerName = "Looking At";
     }
     public void StopLookingAt(){
-        myRenderer = GetComponent<SpriteRenderer>();
+        // myRenderer = GetComponent<SpriteRenderer>();
         myRenderer.sortingLayerName = "Pages";
         transform.localScale = defaultScale;
         canvasCanvas.sortingLayerName = "Pages";
