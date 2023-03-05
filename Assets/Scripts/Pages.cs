@@ -12,7 +12,7 @@ public class Pages : MoveableObject
     void Start()
     {
         SpriteRenderer myRenderer = GetComponent<SpriteRenderer>();
-        print(myRenderer.sortingOrder);
+        // print(myRenderer.sortingOrder);
     }
 
     // Update is called once per frame
