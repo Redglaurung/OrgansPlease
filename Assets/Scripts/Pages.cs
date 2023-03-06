@@ -8,10 +8,14 @@ public class Pages : MoveableObject
     public Canvas canvasCanvas;
     public int layer;
     public SpriteRenderer myRenderer;
+    Vector3 defaultScale;
+    Vector3 doubleScale;
     // Start is called before the first frame update
     void Start()
     {
         myRenderer = GetComponent<SpriteRenderer>();
+        defaultScale = transform.localScale;
+        doubleScale = new Vector3(transform.localScale.x * 2, transform.localScale.y * 2, transform.localScale.z);
         // print(myRenderer.sortingOrder);
     }
 
@@ -31,13 +35,13 @@ public class Pages : MoveableObject
     public void StartLookingAt(){
         // myRenderer = GetComponent<SpriteRenderer>();
         myRenderer.sortingLayerName = "Looking At";
-        transform.localScale = new Vector3(5.6f,8.4f,1.0f);
+        transform.localScale = doubleScale;
         canvasCanvas.sortingLayerName = "Looking At";
     }
     public void StopLookingAt(){
         // myRenderer = GetComponent<SpriteRenderer>();
         myRenderer.sortingLayerName = "Pages";
-        transform.localScale = new Vector3(2.8f,4.2f,1.0f);
+        transform.localScale = defaultScale;
         canvasCanvas.sortingLayerName = "Pages";
     }
 }
