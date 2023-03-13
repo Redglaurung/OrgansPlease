@@ -46,4 +46,15 @@ public class Phone : MoveableObject
         definitions.gameObject.SetActive(true);
     }
 
+    public void GoToMenu() {
+        mainScreen.gameObject.SetActive(true);
+        definitions.gameObject.SetActive(false);
+        //email.gameObject.SetActive(false);
+    }
+
+    public void GoToEmail() {
+        mainScreen.gameObject.SetActive(false);
+        email.gameObject.SetActive(true);
+    }
+
 }
