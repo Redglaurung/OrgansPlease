@@ -49,7 +49,7 @@ public class Phone : MoveableObject
     public void GoToMenu() {
         mainScreen.gameObject.SetActive(true);
         definitions.gameObject.SetActive(false);
-        //email.gameObject.SetActive(false);
+        email.gameObject.SetActive(false);
     }
 
     public void GoToEmail() {
