@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Phone : MoveableObject
 {
     public Canvas canvasCanvas;
+    public Image mainScreen;
+    public Image email;
+    public Image definitions;
+
     SpriteRenderer myRenderer;
     Vector3 defaultScale;
     Vector3 doubleScale;
@@ -34,6 +39,11 @@ public class Phone : MoveableObject
         myRenderer.sortingLayerName = "Pages";
         transform.localScale = defaultScale;
         canvasCanvas.sortingLayerName = "Pages";
+    }
+
+    public void GoToDefinitions() {
+        mainScreen.gameObject.SetActive(false);
+        definitions.gameObject.SetActive(true);
     }
 
 }
