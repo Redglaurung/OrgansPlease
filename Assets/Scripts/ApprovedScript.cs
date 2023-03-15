@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Some things to note:
+// 1. the bounding box intersects method also take into account Z-levels
+// 2. Physics2D.OverlapPoint works in a way that if more than one Collider overlaps
+// a point, then the one returned will be the one with the LOWEST Z coordinate value
 public class ApprovedScript : MonoBehaviour
 {
     public SpriteRenderer myRenderer;
@@ -30,17 +34,12 @@ public class ApprovedScript : MonoBehaviour
         Bounds stampBounds = stampCollider.bounds;
         // Debug.Log(bound.extents);
         // Debug.Log(gameObject.transform.position);
-        //float widthLeft = gameObject.transform.position.x - bound.extents.x;   // width1 and width2 will give me the
-        //float widthRight = gameObject.transform.position.x + bound.extents.x;   // the x-range which the stamp exists at
-
-        //float heightBottom = gameObject.transform.position.y - bound.extents.y;  // height1 and height 2 will give me the
-        //float heightTop = gameObject.transform.position.y + bound.extents.y;  // y-range which the stamp exists at
-
+        
         // If the paper is within the ranges defined above, I will set the stamp picture to be a child of the paper.
 
         GameObject[] papers = GameObject.FindGameObjectsWithTag("Pages");
-        Debug.Log("This is stampBounds.max " + stampBounds.max);
-        Debug.Log("This is stampBounds.min " + stampBounds.min);
+        Debug.Log("This is stampBounds.max " + stampBounds.max);        // stampBounds.max is the top right corner of the Stamp
+        Debug.Log("This is stampBounds.min " + stampBounds.min);        // stampBounds.min is the bottom left corner of the Stamp
         // int highestPage = 6;
         foreach (GameObject paper in papers)
         {
@@ -60,15 +59,12 @@ public class ApprovedScript : MonoBehaviour
 
             if (intersection.x > 0 && intersection.y > 0)       // Both intersection.x and intersection.y should be positive because negative width and height shouldn't result in an area
             {
-                if (stampBounds.Intersects(paperBounds))
+                Debug.Log("Paper is intersecting with the stamper!");       
+                float area = intersection.x * intersection.y;
+                if (area > 3)
                 {
-                    Debug.Log("Paper is intersecting with the stamper!");
-                    float area = intersection.x * intersection.y;
-                    if (area > 3)
-                    {
-                        Debug.Log("This is the paper: " + paper + "and this is my area: " + area);
-                        ApplyStamp(paper);
-                    }
+                    Debug.Log("This is the paper: " + paper + "and this is my area: " + area);
+                    ApplyStamp(paper);
                 }
 
                 
@@ -85,15 +81,15 @@ public class ApprovedScript : MonoBehaviour
     {
         Debug.Log("Stamped Approved!");
         GameObject approvedStamp = new GameObject("Approved Stamp Picture");
-        Vector3 stampPosition = approvedStamp.transform.position;
         approvedStamp.transform.SetParent(paper.transform);
+        approvedStamp.transform.localPosition = new Vector3(0f, 0f, 0f);
         SpriteRenderer stampRenderer = approvedStamp.AddComponent<SpriteRenderer>();
+        stampRenderer.sortingLayerName = "Pages";
+        stampRenderer.sortingOrder = 8;
         stampRenderer.sprite = stampType;
         approvedStamp.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
-        Debug.Log("This is the current position: " + approvedStamp.transform.position);
-        stampPosition.x = -9;
-        stampPosition.y = 3;
+        Debug.Log("This is the stamp's current local position: " + approvedStamp.transform.localPosition);
+        Debug.Log("This is the paper's position: " + paper.transform.position);
         
-
     }
 }
