@@ -36,7 +36,7 @@ public class PageManager : MonoBehaviour
                         }
                     }
                         pagesArray[3]= pagesArray[currentMax];
-                        pagesArray[3].SendMessage("LayerUpdate",6);
+                        pagesArray[3].SendMessage("LayerUpdate",9);
                         for(int i=currentMax+1; i<3;i++){
                             pagesArray[i-1]=pagesArray[i];
                             pagesArray[i-1].SendMessage("LayerUpdate",i-2);

@@ -30,18 +30,37 @@ public class Pages : MoveableObject
         //print(myRenderer.sortingOrder);
         //print(layer);
         myRenderer.sortingOrder = layer;
-        canvasCanvas.sortingOrder = layer + 1;
+        canvasCanvas.sortingOrder = layer + 1; 
+        if (gameObject.transform.childCount == 2)
+        {
+            Transform stamp = gameObject.transform.GetChild(1);
+            SpriteRenderer stampRenderer = stamp.GetComponent<SpriteRenderer>();
+            stampRenderer.sortingOrder = layer + 2;
+        }
     }
     public void StartLookingAt(){
         // myRenderer = GetComponent<SpriteRenderer>();
         myRenderer.sortingLayerName = "Looking At";
         transform.localScale = doubleScale;
         canvasCanvas.sortingLayerName = "Looking At";
+        if (gameObject.transform.childCount == 2)
+        {
+            Transform stamp = gameObject.transform.GetChild(1);
+            SpriteRenderer stampRenderer = stamp.GetComponent<SpriteRenderer>();
+            stampRenderer.sortingLayerName = "Looking At";
+        }
     }
     public void StopLookingAt(){
         // myRenderer = GetComponent<SpriteRenderer>();
         myRenderer.sortingLayerName = "Pages";
         transform.localScale = defaultScale;
         canvasCanvas.sortingLayerName = "Pages";
+        if (gameObject.transform.childCount == 2)
+        {
+            Transform stamp = gameObject.transform.GetChild(1);
+            SpriteRenderer stampRenderer = stamp.GetComponent<SpriteRenderer>();
+            stampRenderer.sortingLayerName = "Pages";
+        }
+
     }
 }
