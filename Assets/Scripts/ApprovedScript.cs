@@ -47,7 +47,7 @@ public class ApprovedScript : MonoBehaviour
             // Make sure that we can't stamp when the page is in Looking At Mode
             //if((paper.myRenderer.sortingOrder == 6) && (paper.myRenderer.sortingLayerName != "Looking At"))
             
-            // Check if the paper is within the ranges
+            // Check if the paper is within the 
             BoxCollider2D paperCollider = paper.GetComponent<BoxCollider2D>();
             Bounds paperBounds = paperCollider.bounds;
 
@@ -59,15 +59,17 @@ public class ApprovedScript : MonoBehaviour
 
             if (intersection.x > 0 && intersection.y > 0)       // Both intersection.x and intersection.y should be positive because negative width and height shouldn't result in an area
             {
-                Debug.Log("Paper is intersecting with the stamper!");       
-                float area = intersection.x * intersection.y;
-                if (area > 3)
+                Debug.Log("Paper is intersecting with the stamper!");
+                SpriteRenderer paperRenderer = paper.GetComponent<SpriteRenderer>();
+                if (paperRenderer.sortingOrder == 10 && paperRenderer.sortingLayerName != "Looking At")
                 {
-                    Debug.Log("This is the paper: " + paper + "and this is my area: " + area);
-                    ApplyStamp(paper);
+                    float area = intersection.x * intersection.y;
+                    if (area > 3)
+                    {
+                        Debug.Log("This is the paper: " + paper + "and this is my area: " + area);
+                        ApplyStamp(paper);
+                    }
                 }
-
-                
             }
         }
     }
@@ -85,7 +87,7 @@ public class ApprovedScript : MonoBehaviour
         approvedStamp.transform.localPosition = new Vector3(0f, 0f, 0f);
         SpriteRenderer stampRenderer = approvedStamp.AddComponent<SpriteRenderer>();
         stampRenderer.sortingLayerName = "Pages";
-        paper.SendMessage("LayerUpdate", 9);
+        paper.SendMessage("LayerUpdate", 10);
         stampRenderer.sprite = stampType;
         approvedStamp.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
         //Debug.Log("This is the stamp's current local position: " + approvedStamp.transform.localPosition);
