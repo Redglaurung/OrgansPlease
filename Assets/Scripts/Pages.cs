@@ -33,9 +33,9 @@ public class Pages : MoveableObject
         canvasCanvas.sortingOrder = layer + 1; 
         if (gameObject.transform.childCount == 2)
         {
-            Transform stamp = gameObject.transform.GetChild(1);
+            Transform stamp = gameObject.transform.GetChild(0);
             SpriteRenderer stampRenderer = stamp.GetComponent<SpriteRenderer>();
-            stampRenderer.sortingOrder = layer + 2;
+            stampRenderer.sortingOrder = layer + 1;
         }
     }
     public void StartLookingAt(){
@@ -45,7 +45,7 @@ public class Pages : MoveableObject
         canvasCanvas.sortingLayerName = "Looking At";
         if (gameObject.transform.childCount == 2)
         {
-            Transform stamp = gameObject.transform.GetChild(1);
+            Transform stamp = gameObject.transform.GetChild(0);
             SpriteRenderer stampRenderer = stamp.GetComponent<SpriteRenderer>();
             stampRenderer.sortingLayerName = "Looking At";
         }
@@ -57,7 +57,7 @@ public class Pages : MoveableObject
         canvasCanvas.sortingLayerName = "Pages";
         if (gameObject.transform.childCount == 2)
         {
-            Transform stamp = gameObject.transform.GetChild(1);
+            Transform stamp = gameObject.transform.GetChild(0);
             SpriteRenderer stampRenderer = stamp.GetComponent<SpriteRenderer>();
             stampRenderer.sortingLayerName = "Pages";
         }

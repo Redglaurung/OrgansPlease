@@ -88,6 +88,7 @@ public class ApprovedScript : MonoBehaviour
             Debug.Log("Stamped Approved!");
             GameObject approvedStamp = new GameObject("Approved Stamp Picture");
             approvedStamp.transform.SetParent(paper.transform);
+            approvedStamp.transform.SetAsFirstSibling();
             approvedStamp.transform.localPosition = new Vector3(0f, 0f, 0f);
             SpriteRenderer stampRenderer = approvedStamp.AddComponent<SpriteRenderer>();
             stampRenderer.sortingLayerName = "Pages";
