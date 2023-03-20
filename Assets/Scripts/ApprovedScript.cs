@@ -81,19 +81,24 @@ public class ApprovedScript : MonoBehaviour
 
     private void ApplyStamp(GameObject paper)
     {
-        Debug.Log("Stamped Approved!");
-        GameObject approvedStamp = new GameObject("Approved Stamp Picture");
-        approvedStamp.transform.SetParent(paper.transform);
-        approvedStamp.transform.localPosition = new Vector3(0f, 0f, 0f);
-        SpriteRenderer stampRenderer = approvedStamp.AddComponent<SpriteRenderer>();
-        stampRenderer.sortingLayerName = "Pages";
-        paper.SendMessage("LayerUpdate", 10);
-        stampRenderer.sprite = stampType;
-        approvedStamp.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
-        //Debug.Log("This is the stamp's current local position: " + approvedStamp.transform.localPosition);
-        //Debug.Log("This is the paper's position: " + paper.transform.position);
-        //Debug.Log("This is the paper's children's index 0: " + paper.transform.GetChild(0));
-        //Debug.Log("This is the paper's children's index 1: " + paper.transform.GetChild(1));
-        //Debug.Log("This is the paper's child count: " + paper.transform.childCount);
+        if (paper.transform.childCount >= 2)
+        {
+            Debug.Log("Already been stamped. Can't stamp.");
+        } else {
+            Debug.Log("Stamped Approved!");
+            GameObject approvedStamp = new GameObject("Approved Stamp Picture");
+            approvedStamp.transform.SetParent(paper.transform);
+            approvedStamp.transform.localPosition = new Vector3(0f, 0f, 0f);
+            SpriteRenderer stampRenderer = approvedStamp.AddComponent<SpriteRenderer>();
+            stampRenderer.sortingLayerName = "Pages";
+            paper.SendMessage("LayerUpdate", 10);
+            stampRenderer.sprite = stampType;
+            approvedStamp.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
+            //Debug.Log("This is the stamp's current local position: " + approvedStamp.transform.localPosition);
+            //Debug.Log("This is the paper's position: " + paper.transform.position);
+            //Debug.Log("This is the paper's children's index 0: " + paper.transform.GetChild(0));
+            //Debug.Log("This is the paper's children's index 1: " + paper.transform.GetChild(1));
+            //Debug.Log("This is the paper's child count: " + paper.transform.childCount);
+        }
     }
 }

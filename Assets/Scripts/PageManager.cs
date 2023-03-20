@@ -33,9 +33,9 @@ public class PageManager : MonoBehaviour
                             if(selectedObject.name == pagesArray[i].name){
                                 currentMax = i;
                                 break;
+                            }
                         }
-                    }
-                        pagesArray[3]= pagesArray[currentMax];
+                        pagesArray[3] = pagesArray[currentMax];
                         pagesArray[3].SendMessage("LayerUpdate", 10);
                         for(int i=currentMax+1; i<3;i++){
                             pagesArray[i-1]=pagesArray[i];
