@@ -1816,6 +1816,7 @@ MonoBehaviour:
   canvasCanvas: {fileID: 1934346360}
   layer: 0
   myRenderer: {fileID: 892962710}
+  isStamped: 0
 --- !u!212 &892962710
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2953,6 +2954,7 @@ MonoBehaviour:
   canvasCanvas: {fileID: 2112849458}
   layer: 0
   myRenderer: {fileID: 0}
+  isStamped: 0
 --- !u!212 &1358502402
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3580,6 +3582,7 @@ MonoBehaviour:
   canvasCanvas: {fileID: 706277371}
   layer: 0
   myRenderer: {fileID: 0}
+  isStamped: 0
 --- !u!212 &1513156929
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4447,6 +4450,7 @@ MonoBehaviour:
   canvasCanvas: {fileID: 1510618449}
   layer: 0
   myRenderer: {fileID: 0}
+  isStamped: 0
 --- !u!212 &1927811711
 SpriteRenderer:
   m_ObjectHideFlags: 0

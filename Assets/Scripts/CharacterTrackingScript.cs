@@ -53,10 +53,24 @@ public class CharacterTrackingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //GameObject[] papers = GameObject.FindGameObjectsWithTag("Pages");
-        //foreach (GameObject paper in papers) {
-        //    if (paper.)
-        //}
+        GameObject[] papers = GameObject.FindGameObjectsWithTag("Pages");
+        foreach (GameObject paper in papers)
+        {
+            Pages paperScript = paper.GetComponent<Pages>();
+            if (paperScript.isStamped)
+            {
+                //Debug.Log(paper + " is stamped!");
+                if (paper.name == "Paper1") // Esmeralda
+                {
+                    oldest += 1;
+                    neitherIncome += 1;
+                    // Debug.Log("neitherIncome has value: " + neitherIncome);
+                    midKnown++;
+                    potGood += 1;
+                    longWait += 1;
+                }
+            }
+        }
     }
 
     // If something is stamped add it to the count according to the page content.
