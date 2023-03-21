@@ -95,6 +95,8 @@ public class ApprovedScript : MonoBehaviour
             paper.SendMessage("LayerUpdate", 10);
             stampRenderer.sprite = stampType;
             approvedStamp.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
+            Pages paperScript = paper.GetComponent<Pages>();
+            paperScript.setStamped();
             //Debug.Log("This is the stamp's current local position: " + approvedStamp.transform.localPosition);
             //Debug.Log("This is the paper's position: " + paper.transform.position);
             //Debug.Log("This is the paper's children's index 0: " + paper.transform.GetChild(0));

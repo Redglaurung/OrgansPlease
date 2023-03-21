@@ -10,12 +10,14 @@ public class Pages : MoveableObject
     public SpriteRenderer myRenderer;
     Vector3 defaultScale;
     Vector3 doubleScale;
+    public bool isStamped;
     // Start is called before the first frame update
     void Start()
     {
         myRenderer = GetComponent<SpriteRenderer>();
         defaultScale = transform.localScale;
         doubleScale = new Vector3(transform.localScale.x * 2, transform.localScale.y * 2, transform.localScale.z);
+        isStamped = false;
         // print(myRenderer.sortingOrder);
     }
 
@@ -61,6 +63,11 @@ public class Pages : MoveableObject
             SpriteRenderer stampRenderer = stamp.GetComponent<SpriteRenderer>();
             stampRenderer.sortingLayerName = "Pages";
         }
+    }
 
+    public void setStamped()
+    {
+        // There are no takebacks after stamping. It's one and done.
+        isStamped = true;
     }
 }
