@@ -61,7 +61,7 @@ public class ApprovedScript : MonoBehaviour
             {
                 Debug.Log("Paper is intersecting with the stamper!");
                 SpriteRenderer paperRenderer = paper.GetComponent<SpriteRenderer>();
-                if (paperRenderer.sortingOrder == 10 && paperRenderer.sortingLayerName != "Looking At")
+                if (paperRenderer.sortingOrder == 6 && paperRenderer.sortingLayerName != "Looking At")
                 {
                     float area = intersection.x * intersection.y;
                     if (area > 6)
