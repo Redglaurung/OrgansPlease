@@ -4,78 +4,78 @@ using UnityEngine;
 
 public class CharacterTrackingScript : MonoBehaviour
 {
-    // Categories to think about:
-    // Neither oldest or youngest
-    // Oldest
-    // Youngest
-    // Highest income
-    // Lowest income
-    // Neither highest or lowest income
-    // Not well-known
-    // Well-known (extremely)
-    // Well-known (moderately)
-    // No good
-    // Potential good
-    // Guaranteed good
-    // Longest on waitlist
-    // Shortest on waitlist
-
-    // Day 1
-        // Page 1 Esmeralda
-        // Page 2 Jinnie
-        // Page 3 Mathias
-        // Page 4 Jack
-
-    int currLevel = 1;
-
-    int oldest = 0;
-    int youngest = 0;
-    int highestIncome = 0;
-    int lowestIncome = 0;
-    int neitherIncome = 0;
-    int notKnown = 0;
-    int midKnown = 0;
-    int wellKnown = 0;
-    int noGood = 0;
-    int potGood = 0;
-    int guarGood = 0;
-    int longWait = 0;
-    int shortWait = 0;
-
-
+    SummaryTrackingScript summary;
+    private bool chosen = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        summary = gameObject.GetComponent<SummaryTrackingScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        // So long as no paper has been chosen/stamped, loop through all the papers
+            // If GameObject's name is Paper1, then change using Esmeralda's data
+            // If GameObject'2 name is Paper2, then change using Jinnie's data, etc.
+
+        // Once one paper has been chosen/stamped, this level is over.
+
+
         GameObject[] papers = GameObject.FindGameObjectsWithTag("Pages");
-        foreach (GameObject paper in papers)
+        if (chosen == false)
         {
-            Pages paperScript = paper.GetComponent<Pages>();
-            if (paperScript.isStamped)
+            foreach (GameObject paper in papers)
             {
-                //Debug.Log(paper + " is stamped!");
-                if (paper.name == "Paper1") // Esmeralda
+                Pages paperScript = paper.GetComponent<Pages>();
+                if (paperScript.isStamped)
                 {
-                    oldest += 1;
-                    neitherIncome += 1;
-                    // Debug.Log("neitherIncome has value: " + neitherIncome);
-                    midKnown++;
-                    potGood += 1;
-                    longWait += 1;
+                    chosen = true;
+                    if (paper.name == "Paper1") // Esmeralda
+                    {
+                        summary.oldest += 1;
+                        summary.neitherIncome += 1;
+                        summary.midKnown += 1;
+                        summary.potGood += 1;
+                        summary.longWait += 1;
+                    }
+
+                    if (paper.name == "Paper2")     // Jinnie
+                    {
+                        summary.youngest += 1;
+                        summary.lowestIncome += 1;
+                        summary.notKnown += 1;
+                        summary.noGood += 1;
+                        summary.shortWait += 1;
+                    }
+
+                    if (paper.name == "Paper3") // Mathias
+                    {
+                        summary.neitherAge += 1;
+                        summary.neitherIncome += 1;
+                        summary.wellKnown += 1;
+                        summary.guarGood += 1;
+                        summary.neitherWait += 1;
+                    }
+
+                    if (paper.name == "Paper4") // Jack
+                    {
+                        summary.neitherAge += 1;
+                        summary.highestIncome += 1;
+                        summary.wellKnown += 1;
+                        summary.noGood += 1;
+                        summary.longWait += 1;
+                    }
                 }
             }
         }
     }
 
-    // If something is stamped add it to the count according to the page content.
-    // If GameObject's name is Paper1, then change using Esmeralda's points
-    // If GameObject'2 name is Paper2, then change using Jinnie's points, etc.
 
-
+    public bool isChosen()
+    {
+        return chosen;
+    }
 }

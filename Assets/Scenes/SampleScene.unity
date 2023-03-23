@@ -2887,7 +2887,7 @@ GameObject:
   - component: {fileID: 1334460430}
   - component: {fileID: 1334460429}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: SoundManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4577,8 +4577,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1757318318}
   - component: {fileID: 1757318317}
+  - component: {fileID: 1757318319}
   m_Layer: 0
-  m_Name: CharacterTracker
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4611,6 +4612,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1757318319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757318316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ee9854af19cce4d9ff678cfd419d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oldest: 0
+  youngest: 0
+  neitherAge: 0
+  highestIncome: 0
+  lowestIncome: 0
+  neitherIncome: 0
+  notKnown: 0
+  midKnown: 0
+  wellKnown: 0
+  noGood: 0
+  potGood: 0
+  guarGood: 0
+  longWait: 0
+  shortWait: 0
+  neitherWait: 0
+  sameLevel: 1
 --- !u!1 &1927811708
 GameObject:
   m_ObjectHideFlags: 0
