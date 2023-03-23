@@ -13,12 +13,13 @@ public class ApprovedScript : MonoBehaviour
     public float stampScale;
     public float stampX;
     public float stampY;
+    CharacterTrackingScript character;
     // public BoxCollider2D collider;
     // Start is called before the first frame update
     void Start()
     {
         myRenderer = GetComponent<SpriteRenderer>();
-
+        character = GameObject.Find("GameManager").GetComponent<CharacterTrackingScript>();
     }
 
     // Update is called once per frame
@@ -81,9 +82,9 @@ public class ApprovedScript : MonoBehaviour
 
     private void ApplyStamp(GameObject paper)
     {
-        if (paper.transform.childCount >= 2)
+        if ((paper.transform.childCount >= 2) || character.isChosen())
         {
-            Debug.Log("Already been stamped. Can't stamp.");
+            Debug.Log("Can't stamp. Already been stamped or a paper has been chosen already!");
         } else {
             Debug.Log("Stamped Approved!");
             GameObject approvedStamp = new GameObject("Approved Stamp Picture");
@@ -92,7 +93,7 @@ public class ApprovedScript : MonoBehaviour
             approvedStamp.transform.localPosition = new Vector3(0f, 0f, 0f);
             SpriteRenderer stampRenderer = approvedStamp.AddComponent<SpriteRenderer>();
             stampRenderer.sortingLayerName = "Pages";
-            paper.SendMessage("LayerUpdate", 10);
+            paper.SendMessage("LayerUpdate", 6);
             stampRenderer.sprite = stampType;
             approvedStamp.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
             Pages paperScript = paper.GetComponent<Pages>();
