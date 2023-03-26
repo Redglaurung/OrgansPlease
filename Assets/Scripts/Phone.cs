@@ -9,22 +9,35 @@ public class Phone : MoveableObject
     public Image mainScreen;
     public Image email;
     public Image definitions;
+    public Image emailButton;
+    public Sprite emailNotification;
+    public Sprite emailNormal;
+    AudioSource notifSound;
 
     SpriteRenderer myRenderer;
     Vector3 defaultScale;
     Vector3 doubleScale;
+    int timer;
     // Start is called before the first frame update
     void Start()
     {
         myRenderer = GetComponent<SpriteRenderer>();
         defaultScale = transform.localScale;
         doubleScale = new Vector3(transform.localScale.x * 2, transform.localScale.y * 2, transform.localScale.z);
+        timer = 1000;
+        notifSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         MoveObject();
+        if(timer>=1){timer--;}
+        else if(timer == 0){
+            emailButton.sprite = emailNotification;
+            timer=-1;
+            notifSound.Play();
+        }
         
     }
 
@@ -55,6 +68,7 @@ public class Phone : MoveableObject
     public void GoToEmail() {
         mainScreen.gameObject.SetActive(false);
         email.gameObject.SetActive(true);
+        emailButton.sprite = emailNormal;
     }
 
 }
