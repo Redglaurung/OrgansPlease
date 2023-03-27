@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: abf7e386e7741234f96cd4f0076578f6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Freeroad Light
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f97c437391c70e441867b0bc8179fc05, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
