@@ -692,7 +692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &546041517
 RectTransform:
   m_ObjectHideFlags: 0
@@ -814,12 +814,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Assignments - Day 1
+  m_text: 'Day 1 Assignments
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cd9138fbed2cb6d46a57bf805f1bb38d, type: 2}
+  m_sharedMaterial: {fileID: -6621369506881567751, guid: cd9138fbed2cb6d46a57bf805f1bb38d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3195,7 +3195,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000099955, y: -0.051}
+  m_AnchoredPosition: {x: -0.00000079055, y: -0.12}
   m_SizeDelta: {x: 2.6243, y: 1.4032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1258304291
@@ -3218,13 +3218,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kidney arrived from donor Michael West. The Kidney is in good condition
-    and can be held up to 24 hours before preservation is no longer possible. On
-    your desk are four patient profiles who all match well with the kidney. Please
-    select a candidate by the end of the day.
+  m_text: 'Hello Doctor,
+
+
+    Kidney arrived from donor Michael West. The Kidney
+    is in good condition and can be held up to 24 hours before preservation is no
+    longer possible. On your desk are four patient profiles who all match well with
+    the kidney. Please select a candidate by the end of the day.
+
+
+    Sincerely,
+
+    [Boss
+    Name]'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28e4ddfc2aa6aa94c8d2a67e2f601d61, type: 2}
+  m_sharedMaterial: {fileID: 8859443406748993096, guid: 28e4ddfc2aa6aa94c8d2a67e2f601d61, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3750,8 +3759,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a265b3ec69d74fa4487000015ef96d45, type: 2}
+  m_sharedMaterial: {fileID: 5924583304171097505, guid: a265b3ec69d74fa4487000015ef96d45, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5546,7 +5555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2083988173
 RectTransform:
   m_ObjectHideFlags: 0
