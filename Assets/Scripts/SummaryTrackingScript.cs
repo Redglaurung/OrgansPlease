@@ -44,11 +44,16 @@ public class SummaryTrackingScript : MonoBehaviour
     public int neitherWait = 0;
 
     public bool sameLevel = true;
+    public bool gameOver = true;
     CharacterTrackingScript character;
+    public GameObject barChart;
+    public Sprite bar;
     // Start is called before the first frame update
     void Start()
     {
         character = gameObject.GetComponent<CharacterTrackingScript>();
+        barChart = GameObject.Find("BarChartExample");
+        gameOver = true;
     }
 
     // Update is called once per frame
@@ -65,7 +70,27 @@ public class SummaryTrackingScript : MonoBehaviour
                 Debug.Log("This is the midKnown var: " + midKnown);
                 Debug.Log("This is the potGood var: " + potGood);
                 Debug.Log("This is the longWait var: " + longWait);
+                if (gameOver == true)
+                {
+                    // Draw Bar Chart code goes in here
+                    drawBarChart();
+                }
             }
+        }
+    }
+
+    public void drawBarChart()
+    {
+        // Will create a bar with a length dependent on the value of the variable youngest
+        if (youngest >= 0)
+        {
+            GameObject square = new GameObject("BarYoungest");
+            square.transform.SetParent(barChart.transform);
+            SpriteRenderer squareRenderer = square.AddComponent<SpriteRenderer>();
+            squareRenderer.sprite = bar;
+            squareRenderer.color = Color.red;
+            squareRenderer.sortingLayerName = "Testing Layer";
+            square.transform.localScale = new Vector3(youngest, 1, 1);
         }
     }
 }

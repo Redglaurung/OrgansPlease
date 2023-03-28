@@ -9,6 +9,7 @@ TagManager:
   - Stamp
   - Pages
   - Phone
+  - BarChart
   layers:
   - Default
   - TransparentFX
@@ -54,4 +55,7 @@ TagManager:
     locked: 0
   - name: Looking At
     uniqueID: 1370559807
+    locked: 0
+  - name: Testing Layer
+    uniqueID: 2758610071
     locked: 0
