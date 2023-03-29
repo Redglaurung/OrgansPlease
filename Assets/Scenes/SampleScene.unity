@@ -799,7 +799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &482043312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,7 +833,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -3251,6 +3251,13 @@ MonoBehaviour:
   audioSources:
   - {fileID: 1334460427}
   - {fileID: 1334460429}
+  selectedObject: {fileID: 0}
+  pagesArray:
+  - {fileID: 892962707}
+  - {fileID: 1927811708}
+  - {fileID: 1513156926}
+  - {fileID: 1358502399}
+  lastlookedat: {fileID: 1334460426}
 --- !u!1 &1358502399
 GameObject:
   m_ObjectHideFlags: 0
@@ -3398,7 +3405,7 @@ Transform:
   m_Children:
   - {fileID: 2112849461}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1462747624
 GameObject:
@@ -4804,7 +4811,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1757318319
 MonoBehaviour:
