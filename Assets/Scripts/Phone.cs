@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Phone : MoveableObject
+public class Phone : MonoBehaviour
 {
     public Canvas canvasCanvas;
     public Image mainScreen;
@@ -32,7 +32,6 @@ public class Phone : MoveableObject
     // Update is called once per frame
     void Update()
     {
-        MoveObject();
         if(timer>=1){timer--;}
         else if(timer == 0){
             emailButton.sprite = emailNotification;
@@ -43,13 +42,11 @@ public class Phone : MoveableObject
     }
 
     public void StartLookingAt(){
-        // myRenderer = GetComponent<SpriteRenderer>();
         myRenderer.sortingLayerName = "Looking At";
         transform.localScale = doubleScale;
         canvasCanvas.sortingLayerName = "Looking At";
     }
     public void StopLookingAt(){
-        // myRenderer = GetComponent<SpriteRenderer>();
         myRenderer.sortingLayerName = "Pages";
         transform.localScale = defaultScale;
         canvasCanvas.sortingLayerName = "Pages";

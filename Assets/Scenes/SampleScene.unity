@@ -783,58 +783,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474284604}
   m_CullTransparentMesh: 1
---- !u!1 &482043311
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 482043313}
-  - component: {fileID: 482043312}
-  m_Layer: 0
-  m_Name: PageManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &482043312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482043311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f15b75ac2b87f2b478d25410ea831266, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedObject: {fileID: 0}
-  pagesArray:
-  - {fileID: 892962707}
-  - {fileID: 1927811708}
-  - {fileID: 1513156926}
-  - {fileID: 1358502399}
-  - {fileID: 0}
-  lastlookedat: {fileID: 482043311}
---- !u!4 &482043313
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482043311}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8490071, y: 1.7792928, z: -0.13935608}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,7 +1919,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bf060881705824999b9e7b99831512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedObject: {fileID: 0}
   canvasCanvas: {fileID: 1934346360}
   layer: 0
   myRenderer: {fileID: 0}
@@ -2292,7 +2239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3fb49ba2e36c9449b9f3e5c6a41796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedObject: {fileID: 0}
   canvasCanvas: {fileID: 144328764}
   mainScreen: {fileID: 725811639}
   email: {fileID: 1055118596}
@@ -2300,6 +2246,7 @@ MonoBehaviour:
   emailButton: {fileID: 870559664}
   emailNotification: {fileID: 21300000, guid: a8f12ec9a1f02e04998d2ea18683c1b9, type: 3}
   emailNormal: {fileID: 21300000, guid: 528037cef2736254fb32a8799209f704, type: 3}
+  pageManager: {fileID: 1334460426}
 --- !u!212 &895046095
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3023,7 +2970,7 @@ GameObject:
   - component: {fileID: 1334460430}
   - component: {fileID: 1334460429}
   m_Layer: 0
-  m_Name: SoundManager
+  m_Name: SceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3138,7 +3085,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1334460429
 AudioSource:
@@ -3257,7 +3204,9 @@ MonoBehaviour:
   - {fileID: 1927811708}
   - {fileID: 1513156926}
   - {fileID: 1358502399}
+  - {fileID: 0}
   lastlookedat: {fileID: 1334460426}
+  movingObject: {fileID: 0}
 --- !u!1 &1358502399
 GameObject:
   m_ObjectHideFlags: 0
@@ -3334,7 +3283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bf060881705824999b9e7b99831512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedObject: {fileID: 0}
   canvasCanvas: {fileID: 2112849458}
   layer: 0
   myRenderer: {fileID: 0}
@@ -3881,7 +3829,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bf060881705824999b9e7b99831512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedObject: {fileID: 0}
   canvasCanvas: {fileID: 706277371}
   layer: 0
   myRenderer: {fileID: 0}
@@ -5135,7 +5082,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bf060881705824999b9e7b99831512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedObject: {fileID: 0}
   canvasCanvas: {fileID: 1510618449}
   layer: 0
   myRenderer: {fileID: 0}
@@ -5542,7 +5488,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2044656037
 GameObject:
@@ -5821,7 +5767,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2124825283
 GameObject:

@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pages : MoveableObject
+public class Pages : MonoBehaviour
 {
-    //public GameObject canvas;
     public Canvas canvasCanvas;
     public int layer;
     public SpriteRenderer myRenderer;
@@ -18,19 +17,14 @@ public class Pages : MoveableObject
         defaultScale = transform.localScale;
         doubleScale = new Vector3(transform.localScale.x * 2, transform.localScale.y * 2, transform.localScale.z);
         isStamped = false;
-        // print(myRenderer.sortingOrder);
     }
 
     // Update is called once per frame
     void Update()
     {
-       MoveObject();
          
     }
     public void LayerUpdate(int layer){
-        // myRenderer = GetComponent<SpriteRenderer>();
-        //print(myRenderer.sortingOrder);
-        //print(layer);
         myRenderer.sortingOrder = layer;
         canvasCanvas.sortingOrder = layer + 1; 
         if (gameObject.transform.childCount == 2)
@@ -41,7 +35,6 @@ public class Pages : MoveableObject
         }
     }
     public void StartLookingAt(){
-        // myRenderer = GetComponent<SpriteRenderer>();
         myRenderer.sortingLayerName = "Looking At";
         transform.localScale = doubleScale;
         canvasCanvas.sortingLayerName = "Looking At";
@@ -53,7 +46,6 @@ public class Pages : MoveableObject
         }
     }
     public void StopLookingAt(){
-        // myRenderer = GetComponent<SpriteRenderer>();
         myRenderer.sortingLayerName = "Pages";
         transform.localScale = defaultScale;
         canvasCanvas.sortingLayerName = "Pages";
