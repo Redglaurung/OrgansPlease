@@ -12,6 +12,7 @@ public class Phone : MoveableObject
     public Image emailButton;
     public Sprite emailNotification;
     public Sprite emailNormal;
+    public GameObject pageManager;
     AudioSource notifSound;
 
     SpriteRenderer myRenderer;
@@ -57,12 +58,16 @@ public class Phone : MoveableObject
     public void GoToDefinitions() {
         mainScreen.gameObject.SetActive(false);
         definitions.gameObject.SetActive(true);
+        StartLookingAt();
+        pageManager.SendMessage("AllPapersDown");
     }
 
     public void GoToMenu() {
         mainScreen.gameObject.SetActive(true);
         definitions.gameObject.SetActive(false);
         email.gameObject.SetActive(false);
+        StartLookingAt();
+        pageManager.SendMessage("AllPapersDown");
     }
 
     public void GoToEmail() {

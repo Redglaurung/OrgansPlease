@@ -76,5 +76,10 @@ public class PageManager : MonoBehaviour
     }
     public void StopLookingAt(){
 
+    }
+    public void AllPapersDown(){
+        for(int i=0; i<5; i++){
+            pagesArray[i].SendMessage("StopLookingAt");
+        }
     } 
 }
