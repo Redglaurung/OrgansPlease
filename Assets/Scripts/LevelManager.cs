@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneManager : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
     public AudioSource[] audioSources;
     int timer;
@@ -17,6 +17,8 @@ public class SceneManager : MonoBehaviour
     // Used to keep track of how much to move itself
     Vector3 offset;
 
+    public bool hasPages;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,7 @@ public class SceneManager : MonoBehaviour
     void Update()
     {
         ManageSound();
-        ManagePages();
+        if (hasPages) ManagePages();
         MoveObject();
     }
 
@@ -111,8 +113,10 @@ public class SceneManager : MonoBehaviour
 
     }
     public void AllPapersDown(){
-        for(int i=0; i<5; i++){
-            pagesArray[i].SendMessage("StopLookingAt");
+        if (hasPages) {
+            for(int i=0; i<5; i++){
+                pagesArray[i].SendMessage("StopLookingAt");
+            }
         }
     } 
 

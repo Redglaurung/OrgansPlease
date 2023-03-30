@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Phone : MonoBehaviour
 {
@@ -73,4 +74,7 @@ public class Phone : MonoBehaviour
         emailButton.sprite = emailNormal;
     }
 
+    public void GoToFinalScene() {
+        SceneManager.LoadScene("EndingFeedback");
+    }
 }
