@@ -190,6 +190,50 @@ public class SummaryTrackingScript : MonoBehaviour
                     TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
                     currentText.SetText(neitherAge.ToString());
                 }
+                if(DataArray[i].name == "HighPay Data"){
+                    TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
+                    currentText.SetText(highestIncome.ToString());
+                }
+                if(DataArray[i].name == "LowPay Data"){
+                    TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
+                    currentText.SetText(lowestIncome.ToString());
+                }
+                if(DataArray[i].name == "PayNeither Data"){
+                    TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
+                    currentText.SetText(neitherIncome.ToString());
+                }
+                if(DataArray[i].name == "WellKnown Data"){
+                    TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
+                    currentText.SetText(wellKnown.ToString());
+                }
+                if(DataArray[i].name == "Obscure Data"){
+                    TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
+                    currentText.SetText(notKnown.ToString());
+                }
+                if(DataArray[i].name == "LongestWait Data"){
+                    TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
+                    currentText.SetText(longWait.ToString());
+                }
+                if(DataArray[i].name == "ShortestWait Data"){
+                    TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
+                    currentText.SetText(shortWait.ToString());
+                }
+                if(DataArray[i].name == "WaitNeither Data"){
+                    TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
+                    currentText.SetText(neitherWait.ToString());
+                }
+                if(DataArray[i].name == "HistoryGood Data"){
+                    TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
+                    currentText.SetText(guarGood.ToString());
+                }
+                if(DataArray[i].name == "FutureGood Data"){
+                    TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
+                    currentText.SetText(potGood.ToString());
+                }
+                if(DataArray[i].name == "NeitherGood Data"){
+                    TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
+                    currentText.SetText(noGood.ToString());
+                }
             }
            
     }
