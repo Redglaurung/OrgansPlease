@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class SummaryTrackingScript : MonoBehaviour
 {
@@ -107,9 +108,18 @@ public class SummaryTrackingScript : MonoBehaviour
     public void makeFeedbackSheet() {
             GameObject[] DataArray = GameObject.FindGameObjectsWithTag ("Data");
             for (int i = 0; i < DataArray.Length; i++) {
-                if(DataArray[i].name == "OldestData"){
+                if(DataArray[i].name == "Oldest Data"){
                     TextMeshPro currentText = DataArray[i].GetComponent<TextMeshPro>();
-                    
+                    currentText.SetText(oldest.ToString());
+                    //currentText.text=oldest.ToString();
+                }
+                if(DataArray[i].name == "Youngest Data"){
+                    TextMeshPro currentText = DataArray[i].GetComponent<TextMeshPro>();
+                    currentText.text=youngest.ToString();
+                }
+                if(DataArray[i].name == "AgeNeither Data"){
+                    TextMeshPro currentText = DataArray[i].GetComponent<TextMeshPro>();
+                    currentText.text=neitherAge.ToString();
                 }
             }
            
