@@ -146,7 +146,17 @@ public class LevelManager : MonoBehaviour
 
 
     void TapObject() {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Collider2D targetObject = Physics2D.OverlapPoint(mousePosition);
+
+        // Get Bigger
+        if (targetObject) {
+            if((targetObject.transform.gameObject.tag == "Pages") || (targetObject.transform.gameObject.tag == "Phone")){
+                selectedObject = targetObject.transform.gameObject;
+                selectedObject.SendMessage("StartLookingAt");
+            }
         Debug.Log("TapObject");
+        }
     }
 
     /** Movement Script */
