@@ -129,6 +129,7 @@ public class LevelManager : MonoBehaviour
 
 
     void TapObject() {
+        bool justExpanded = false;
         Debug.Log("TapObject");
 
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -142,8 +143,12 @@ public class LevelManager : MonoBehaviour
                     selectedObject.SendMessage("StartLookingAt");
                     lastlookedat.SendMessage("StopLookingAt");
                     lastlookedat=selectedObject;
+                    justExpanded = true;
                 }
             }
+        }
+        if (!justExpanded) {
+            lastlookedat.SendMessage("StopLookingAt");
         }
     }
 
