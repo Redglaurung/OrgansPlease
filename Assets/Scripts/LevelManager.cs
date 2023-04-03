@@ -28,6 +28,7 @@ public class LevelManager : MonoBehaviour
     {
         audioTimer = 2000;
         tapStartTime = -1;
+        lastlookedat=gameObject;
     }
 
     // Update is called once per frame
@@ -35,7 +36,7 @@ public class LevelManager : MonoBehaviour
     {
         ManageSound();
         if (hasPages) LayerPages();
-        HandleTaps();
+        MouseClickTimer();
     }
 
 
@@ -44,7 +45,6 @@ public class LevelManager : MonoBehaviour
     void ManageSound() {
         if((audioTimer >= 1)&&(audioTimer<=2000)){audioTimer--;}
         else if(audioTimer < 1){
-            print("go");
             audioSources[1].Play();
             audioTimer = 3000;
         }
@@ -63,7 +63,6 @@ public class LevelManager : MonoBehaviour
             if (targetObject) {
                 if(targetObject.transform.gameObject.tag == "Pages"){
                     selectedObject = targetObject.transform.gameObject;
-                    print(selectedObject.name);
                     if(selectedObject.name != pagesArray[3].name){
                         pagesArray[4] = pagesArray[3];
                         pagesArray[3] = null;
@@ -93,24 +92,6 @@ public class LevelManager : MonoBehaviour
                 }
             }   
         } 
-        // Right Click
-    //     else if(Input.GetMouseButtonDown(1)){
-    //     Collider2D targetObject = Physics2D.OverlapPoint(mousePosition);
-    //     if (targetObject) {
-    //         if((targetObject.transform.gameObject.tag == "Pages") || (targetObject.transform.gameObject.tag == "Phone")){
-    //             selectedObject = targetObject.transform.gameObject;
-    //             print(selectedObject.name);
-    //             if(selectedObject != lastlookedat){
-    //                 selectedObject.SendMessage("StartLookingAt");
-    //                 lastlookedat.SendMessage("StopLookingAt");
-    //                 lastlookedat=selectedObject;
-    //             } else {
-    //                 selectedObject.SendMessage("StopLookingAt");
-    //                 lastlookedat=gameObject;
-    //             }
-    //         }
-    //     }
-    // }
     }
 
     public void StopLookingAt(){
@@ -124,28 +105,32 @@ public class LevelManager : MonoBehaviour
         }
     } 
 
-    void HandleTaps() {
+    void MouseClickTimer() {
         // Left click start
         if (Input.GetMouseButtonDown(0)) {
             tapStartTime = Time.time;
         }
+
+        // Increment time
         if (tapStartTime != -1) {
            tapTimer = Time.time - tapStartTime; 
+           if (tapTimer > 0.1) DragObject();
         }
 
         // Left click end
         if (Input.GetMouseButtonUp(0))
         {
-            if (tapTimer < 0.1) TapObject();
+            if (tapTimer <= 0.1) TapObject();
             tapStartTime = -1;
+            tapTimer = 0;
             movingObject = null;
         }
-        if (tapStartTime != -1 && tapTimer > 0.1) DragObject();
-
     }
 
 
     void TapObject() {
+        Debug.Log("TapObject");
+
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Collider2D targetObject = Physics2D.OverlapPoint(mousePosition);
 
@@ -159,7 +144,6 @@ public class LevelManager : MonoBehaviour
                     lastlookedat=selectedObject;
                 }
             }
-        Debug.Log("TapObject");
         }
     }
 
@@ -169,6 +153,7 @@ public class LevelManager : MonoBehaviour
     * Picks up and moves the object with the mouse
     */
     void DragObject() {
+        Debug.Log("DragObject");
         // Code from: https://gamedevbeginner.com/how-to-move-an-object-with-the-mouse-in-unity-in-2d/
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Collider2D targetObject = Physics2D.OverlapPoint(mousePosition);
