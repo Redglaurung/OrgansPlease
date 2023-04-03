@@ -109,17 +109,17 @@ public class SummaryTrackingScript : MonoBehaviour
             GameObject[] DataArray = GameObject.FindGameObjectsWithTag ("Data");
             for (int i = 0; i < DataArray.Length; i++) {
                 if(DataArray[i].name == "Oldest Data"){
-                    TextMeshPro currentText = DataArray[i].GetComponent<TextMeshPro>();
+                    TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
                     currentText.SetText(oldest.ToString());
                     //currentText.text=oldest.ToString();
                 }
                 if(DataArray[i].name == "Youngest Data"){
-                    TextMeshPro currentText = DataArray[i].GetComponent<TextMeshPro>();
-                    currentText.text=youngest.ToString();
+                    TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
+                    currentText.SetText(youngest.ToString());
                 }
                 if(DataArray[i].name == "AgeNeither Data"){
-                    TextMeshPro currentText = DataArray[i].GetComponent<TextMeshPro>();
-                    currentText.text=neitherAge.ToString();
+                    TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
+                    currentText.SetText(neitherAge.ToString());
                 }
             }
            
