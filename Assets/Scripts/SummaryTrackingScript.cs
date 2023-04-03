@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SummaryTrackingScript : MonoBehaviour
 {
@@ -45,12 +46,14 @@ public class SummaryTrackingScript : MonoBehaviour
 
     public bool sameLevel = true;
     public bool gameOver = true;
+    bool ranFeedback = false;
     CharacterTrackingScript character;
     public GameObject barChart;
     public Sprite bar;
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         character = gameObject.GetComponent<CharacterTrackingScript>();
         barChart = GameObject.Find("BarChartExample");
         gameOver = true;
@@ -59,6 +62,14 @@ public class SummaryTrackingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("'"))
+        {
+            SceneManager.LoadScene("EndingFeedback");
+        }
+        if((SceneManager.GetActiveScene().name == "EndingFeedback") && (!ranFeedback)){
+                makeFeedbackSheet();
+                ranFeedback=true;
+        }
         if (sameLevel == true)
         {
             if (character.isChosen())
@@ -92,5 +103,11 @@ public class SummaryTrackingScript : MonoBehaviour
             squareRenderer.sortingLayerName = "Testing Layer";
             square.transform.localScale = new Vector3(youngest, 1, 1);
         }
+    }
+    public void makeFeedbackSheet() {
+            GameObject[] DataArray = GameObject.FindGameObjectsWithTag ("Data");
+            for (int i = 0; i < DataArray.Length; i++) {
+                print(DataArray[i].name);
+            }
     }
 }
