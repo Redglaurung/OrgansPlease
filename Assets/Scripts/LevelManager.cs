@@ -153,7 +153,11 @@ public class LevelManager : MonoBehaviour
         if (targetObject) {
             if((targetObject.transform.gameObject.tag == "Pages") || (targetObject.transform.gameObject.tag == "Phone")){
                 selectedObject = targetObject.transform.gameObject;
-                selectedObject.SendMessage("StartLookingAt");
+                if(selectedObject != lastlookedat){
+                    selectedObject.SendMessage("StartLookingAt");
+                    lastlookedat.SendMessage("StopLookingAt");
+                    lastlookedat=selectedObject;
+                }
             }
         Debug.Log("TapObject");
         }
