@@ -107,7 +107,11 @@ public class SummaryTrackingScript : MonoBehaviour
     public void makeFeedbackSheet() {
             GameObject[] DataArray = GameObject.FindGameObjectsWithTag ("Data");
             for (int i = 0; i < DataArray.Length; i++) {
-                print(DataArray[i].name);
+                if(DataArray[i].name == "OldestData"){
+                    TextMeshPro currentText = DataArray[i].GetComponent<TextMeshPro>();
+                    
+                }
             }
+           
     }
 }
