@@ -51,6 +51,9 @@ public class SummaryTrackingScript : MonoBehaviour
     CharacterTrackingScript character;
     public GameObject barChart;
     public Sprite bar;
+
+    private string sceneName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,11 +61,21 @@ public class SummaryTrackingScript : MonoBehaviour
         character = gameObject.GetComponent<CharacterTrackingScript>();
         barChart = GameObject.Find("BarChartExample");
         gameOver = true;
+        oldest = 1;
+        youngest = 3;
+        neitherAge = 4;
     }
 
     // Update is called once per frame
     void Update()
     {
+        sceneName = gameObject.scene.name;
+        if (sameLevel == true && gameOver == true && sceneName == "EndingFeedback")
+        {
+            // Draw Bar Chart code goes in here
+            drawBarChart();
+            sameLevel = false;
+        }
         if (Input.GetKeyDown("'"))
         {
             SceneManager.LoadScene("EndingFeedback");
@@ -71,39 +84,95 @@ public class SummaryTrackingScript : MonoBehaviour
                 makeFeedbackSheet();
                 ranFeedback=true;
         }
-        if (sameLevel == true)
-        {
-            if (character.isChosen())
-            {
-                sameLevel = false;
-                // Some print statements for Paper1 (Esmeralda)
-                Debug.Log("This is the oldest var: " + oldest);
-                Debug.Log("This is the neitherIncome var: " + neitherIncome);
-                Debug.Log("This is the midKnown var: " + midKnown);
-                Debug.Log("This is the potGood var: " + potGood);
-                Debug.Log("This is the longWait var: " + longWait);
-                if (gameOver == true)
-                {
-                    // Draw Bar Chart code goes in here
-                    drawBarChart();
-                }
-            }
-        }
+        //if (sameLevel == true)
+        //{
+        //    if (character.isChosen())
+        //    {
+        //        sameLevel = false;
+        //        // Some print statements for Paper1 (Esmeralda)
+        //        Debug.Log("This is the oldest var: " + oldest);
+        //        Debug.Log("This is the neitherIncome var: " + neitherIncome);
+        //        Debug.Log("This is the midKnown var: " + midKnown);
+        //        Debug.Log("This is the potGood var: " + potGood);
+        //        Debug.Log("This is the longWait var: " + longWait);
+        //        if (gameOver == true)
+        //        {
+        //            // Draw Bar Chart code goes in here
+        //            drawBarChart();
+        //        }
+        //    }
+        //}
     }
 
     public void drawBarChart()
     {
         // Will create a bar with a length dependent on the value of the variable youngest
-        if (youngest >= 0)
+        ArrayList ageCategory = new ArrayList()
         {
-            GameObject square = new GameObject("BarYoungest");
+            oldest,
+            youngest,
+            neitherAge
+        };
+
+        Debug.Log("This is oldest: " + ageCategory[0]);
+        Debug.Log("This is youngest: " + ageCategory[1]);
+        Debug.Log("This is neitherAge: " + ageCategory[2]);
+
+        ArrayList incomeCategory = new ArrayList()
+        {
+            highestIncome,
+            lowestIncome,
+            neitherIncome
+        };
+
+        ArrayList knownCategory = new ArrayList()
+        {
+            wellKnown,
+            notKnown,
+            midKnown
+        };
+
+        ArrayList futureGoodCategory = new ArrayList()
+        {
+            guarGood,
+            noGood,
+            potGood
+        };
+
+        ArrayList waitCategory = new ArrayList()
+        {
+            longWait,
+            shortWait,
+            neitherWait
+        };
+
+
+        int colorTracker = 0;   // The current colors are 1 = Red, 2 = Green, and 3 = Gray
+        foreach (int tracker in ageCategory)
+        {
+            GameObject barChart = GameObject.Find("AgeBarChart");
+            GameObject square = new GameObject("Bar");
             square.transform.SetParent(barChart.transform);
             SpriteRenderer squareRenderer = square.AddComponent<SpriteRenderer>();
             squareRenderer.sprite = bar;
-            squareRenderer.color = Color.red;
+            if (colorTracker == 0)
+            {
+                squareRenderer.color = Color.red;
+                colorTracker++;
+            } else if (colorTracker == 1)
+            {
+                squareRenderer.color = Color.green;
+                colorTracker++;
+            } else
+            {
+                squareRenderer.color = Color.gray;
+            }
             squareRenderer.sortingLayerName = "Testing Layer";
-            square.transform.localScale = new Vector3(youngest, 1, 1);
+            square.transform.localScale = new Vector3(tracker, 1, 1);
+
         }
+
+        colorTracker = 0;
     }
     public void makeFeedbackSheet() {
             GameObject[] DataArray = GameObject.FindGameObjectsWithTag ("Data");
