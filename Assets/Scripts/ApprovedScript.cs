@@ -65,7 +65,7 @@ public class ApprovedScript : MonoBehaviour
                 if (paperRenderer.sortingOrder == 6 && paperRenderer.sortingLayerName != "Looking At")
                 {
                     float area = intersection.x * intersection.y;
-                    if (area > 6)
+                    if (area > 3)
                     {
                         Debug.Log("This is the paper: " + paper + "and this is my area: " + area);
                         ApplyStamp(paper);
