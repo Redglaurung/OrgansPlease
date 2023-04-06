@@ -9,13 +9,17 @@ public class Pages : MonoBehaviour
     public SpriteRenderer myRenderer;
     Vector3 defaultScale;
     Vector3 doubleScale;
+    Quaternion defaultRotation;
+    Quaternion zeroRotation;
     public bool isStamped;
     // Start is called before the first frame update
     void Start()
     {
         myRenderer = GetComponent<SpriteRenderer>();
         defaultScale = transform.localScale;
+        defaultRotation = transform.localRotation;
         doubleScale = new Vector3(transform.localScale.x * 2, transform.localScale.y * 2, transform.localScale.z);
+        zeroRotation = new Quaternion(0,0,0,0);
         isStamped = false;
     }
 
@@ -36,6 +40,7 @@ public class Pages : MonoBehaviour
     }
     public void StartLookingAt(){
         myRenderer.sortingLayerName = "Looking At";
+        transform.localRotation = zeroRotation;
         transform.localScale = doubleScale;
         canvasCanvas.sortingLayerName = "Looking At";
         if (gameObject.transform.childCount == 2)
@@ -48,6 +53,7 @@ public class Pages : MonoBehaviour
     public void StopLookingAt(){
         myRenderer.sortingLayerName = "Pages";
         transform.localScale = defaultScale;
+        transform.localRotation = defaultRotation;
         canvasCanvas.sortingLayerName = "Pages";
         if (gameObject.transform.childCount == 2)
         {
