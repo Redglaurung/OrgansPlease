@@ -22,7 +22,8 @@ public class LevelManager : MonoBehaviour
     bool tap;
     double tapTimer;
     double tapStartTime;
-    double TAP_TIME = 0.1;
+    double TAP_TIME = 0.125;
+    Collider2D targetObject;
 
     // Start is called before the first frame update
     void Start()
@@ -60,10 +61,10 @@ public class LevelManager : MonoBehaviour
      Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     // Layering of pages
     if (Input.GetMouseButtonDown(0)) {
-            Collider2D targetObject = Physics2D.OverlapPoint(mousePosition);
-            if (targetObject) {
-                if(targetObject.transform.gameObject.tag == "Pages"){
-                    selectedObject = targetObject.transform.gameObject;
+            Collider2D targetObj = Physics2D.OverlapPoint(mousePosition);
+            if (targetObj) {
+                if(targetObj.transform.gameObject.tag == "Pages"){
+                    selectedObject = targetObj.transform.gameObject;
                     if(selectedObject.name != pagesArray[3].name){
                         pagesArray[4] = pagesArray[3];
                         pagesArray[3] = null;
@@ -109,7 +110,9 @@ public class LevelManager : MonoBehaviour
     void MouseClickTimer() {
         // Left click start
         if (Input.GetMouseButtonDown(0)) {
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             tapStartTime = Time.time;
+            targetObject = Physics2D.OverlapPoint(mousePosition);
         }
 
         // Increment time
@@ -125,6 +128,7 @@ public class LevelManager : MonoBehaviour
             tapStartTime = -1;
             tapTimer = 0;
             movingObject = null;
+            targetObject = null;
         }
     }
 
@@ -133,16 +137,16 @@ public class LevelManager : MonoBehaviour
         Debug.Log("TapObject");
 
         bool justExpanded = false;
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Collider2D targetObject = Physics2D.OverlapPoint(mousePosition);
+        // Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // targetObject = Physics2D.OverlapPoint(mousePosition);
         selectedObject = null;
 
-        Debug.Log("TargetObject: " + targetObject.transform.gameObject.name);
+        if (targetObject) Debug.Log("targetObj: " + targetObject.transform.gameObject.name);
 
         // Get Bigger
         if (targetObject) {
             if((targetObject.transform.gameObject.tag == "Pages") || (targetObject.transform.gameObject.tag == "Phone")){
-                selectedObject = targetObject.transform.gameObject;
+                lselectedObject = targetObject.transform.gameObject;
                 if(selectedObject != lastlookedat){
                     selectedObject.SendMessage("StartLookingAt");
                     lastlookedat.SendMessage("StopLookingAt");
@@ -152,7 +156,10 @@ public class LevelManager : MonoBehaviour
             }
         }
         if (!justExpanded) {
-            if (selectedObject != lastlookedat) lastlookedat.SendMessage("StopLookingAt");
+            if (selectedObject != lastlookedat) {
+                lastlookedat.SendMessage("StopLookingAt");
+                // lastlookedat = null;
+            }
         }
     }
 
@@ -165,7 +172,7 @@ public class LevelManager : MonoBehaviour
         Debug.Log("DragObject");
         // Code from: https://gamedevbeginner.com/how-to-move-an-object-with-the-mouse-in-unity-in-2d/
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Collider2D targetObject = Physics2D.OverlapPoint(mousePosition);
+        // targetObject = Physics2D.OverlapPoint(mousePosition);
         if (movingObject == null && targetObject)
         {
             movingObject = targetObject.transform.gameObject;
