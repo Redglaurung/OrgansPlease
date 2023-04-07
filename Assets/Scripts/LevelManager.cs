@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
     bool tap;
     double tapTimer;
     double tapStartTime;
+    double TAP_TIME = 0.1;
 
     // Start is called before the first frame update
     void Start()
@@ -114,13 +115,13 @@ public class LevelManager : MonoBehaviour
         // Increment time
         if (tapStartTime != -1) {
            tapTimer = Time.time - tapStartTime; 
-           if (tapTimer > 0.1) DragObject();
+           if (tapTimer > TAP_TIME) DragObject();
         }
 
         // Left click end
         if (Input.GetMouseButtonUp(0))
         {
-            if (tapTimer <= 0.1) TapObject();
+            if (tapTimer <= TAP_TIME) TapObject();
             tapStartTime = -1;
             tapTimer = 0;
             movingObject = null;
@@ -130,10 +131,9 @@ public class LevelManager : MonoBehaviour
 
     void TapObject() {
         bool justExpanded = false;
-        Debug.Log("TapObject");
-
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Collider2D targetObject = Physics2D.OverlapPoint(mousePosition);
+        selectedObject = null;
 
         // Get Bigger
         if (targetObject) {
@@ -148,7 +148,7 @@ public class LevelManager : MonoBehaviour
             }
         }
         if (!justExpanded) {
-            lastlookedat.SendMessage("StopLookingAt");
+            if (selectedObject != lastlookedat) lastlookedat.SendMessage("StopLookingAt");
         }
     }
 
