@@ -267,8 +267,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1.8
-  m_fontSizeBase: 1.8
+  m_fontSize: 2
+  m_fontSizeBase: 2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 40
+  m_lineSpacing: 100
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -748,7 +748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Time on waitlist: </b> 4 years'
+  m_text: "<b>Time on waitlist: </b> \n4 years"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -775,8 +775,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2
-  m_fontSizeBase: 2
+  m_fontSize: 3
+  m_fontSizeBase: 3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -787,7 +787,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 100
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -842,7 +842,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.9, y: 10.42}
+  m_AnchoredPosition: {x: -16.9, y: 7.7}
   m_SizeDelta: {x: 2.41, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!1 &474284604
@@ -1048,7 +1048,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.95, y: 14.91}
+  m_AnchoredPosition: {x: -15.95, y: 16.6}
   m_SizeDelta: {x: 2.41, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!114 &565339270
@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Occupation: </b> Office Assistant'
+  m_text: "<b>Occupation: </b> Office \nAssistant"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -1098,8 +1098,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2
-  m_fontSizeBase: 2
+  m_fontSize: 3
+  m_fontSizeBase: 3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1110,7 +1110,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 100
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -2073,7 +2073,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.05, y: 18.22}
+  m_AnchoredPosition: {x: -16.05, y: 22.2}
   m_SizeDelta: {x: 2.41, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!114 &874744698
@@ -2123,8 +2123,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2
-  m_fontSizeBase: 2
+  m_fontSize: 3
+  m_fontSizeBase: 3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2344,8 +2344,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892962707}
   m_LocalRotation: {x: 0.007108489, y: 0.124851696, z: 0.10329513, w: 0.9867581}
-  m_LocalPosition: {x: 5.29, y: -1.38, z: 5.35}
-  m_LocalScale: {x: 0.15573858, y: 0.18402715, z: 1}
+  m_LocalPosition: {x: 5.71, y: -1.38, z: 5.35}
+  m_LocalScale: {x: 0.25, y: 0.31, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1934346357}
@@ -2729,7 +2729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.08, y: 21.72}
+  m_AnchoredPosition: {x: -13.08, y: 28.43}
   m_SizeDelta: {x: 6.98, y: 7.87}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!114 &916513506
@@ -2779,8 +2779,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2
-  m_fontSizeBase: 2
+  m_fontSize: 3
+  m_fontSizeBase: 3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2894,8 +2894,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2
-  m_fontSizeBase: 2
+  m_fontSize: 3
+  m_fontSizeBase: 3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2961,7 +2961,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.05, y: 18.22}
+  m_AnchoredPosition: {x: -16.05, y: 21.2}
   m_SizeDelta: {x: 2.41, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!1 &960723173
@@ -4082,7 +4082,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358502399}
   m_LocalRotation: {x: 0.080452405, y: -0.004921722, z: -0.060862746, w: 0.99488646}
-  m_LocalPosition: {x: -0.19, y: -2.49, z: 4.82}
+  m_LocalPosition: {x: 4.82, y: -2.49, z: 4.82}
   m_LocalScale: {x: 0.25, y: 0.31, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4193,10 +4193,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Description: Jinnie graduated high school as valedictorianm but couldn''t
-    afford to go to a prestigious university due to financial problems. After a few
-    years at a community college and a few more at a state university, she earned
-    her degree and has begun moving up the ranks.'
+  m_text: Jinnie graduated high school as valedictorian but couldn't afford to go
+    to a prestigious university due to financial problems. After a few years at a
+    community college and a few more at a state university, she earned her degree
+    and has begun moving up the ranks.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -4223,8 +4223,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1.8
-  m_fontSizeBase: 1.8
+  m_fontSize: 2
+  m_fontSizeBase: 2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4235,7 +4235,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 40
+  m_lineSpacing: 100
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -4770,7 +4770,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1513156926}
   m_LocalRotation: {x: 0.10955076, y: 0.0176435, z: 0.15802227, w: 0.9811811}
-  m_LocalPosition: {x: 2.88, y: -1.75, z: 5.2}
+  m_LocalPosition: {x: 4.94, y: -1.75, z: 5.2}
   m_LocalScale: {x: 0.25, y: 0.31, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5401,7 +5401,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Occupation: </b> Accountant for the State'
+  m_text: "<b>Occupation: </b> Accountant \nfor the State"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -5428,8 +5428,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2
-  m_fontSizeBase: 2
+  m_fontSize: 3
+  m_fontSizeBase: 3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5440,7 +5440,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 100
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -5495,7 +5495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.95, y: 14.91}
+  m_AnchoredPosition: {x: -15.95, y: 16.08}
   m_SizeDelta: {x: 2.41, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!1 &1660791742
@@ -5668,7 +5668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.08, y: 21.72}
+  m_AnchoredPosition: {x: -13.08, y: 30.93}
   m_SizeDelta: {x: 6.98, y: 7.87}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!114 &1715457175
@@ -5691,7 +5691,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <b>Name:</b> Esmeralda De La Paz
+  m_text: "<b>Name:</b> Esmeralda \nDe La Paz"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -5718,8 +5718,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2
-  m_fontSizeBase: 2
+  m_fontSize: 3
+  m_fontSizeBase: 3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5730,7 +5730,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 40
+  m_lineSpacing: 100
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -6289,7 +6289,7 @@ Transform:
   m_GameObject: {fileID: 1927811708}
   m_LocalRotation: {x: 0.05791243, y: 0.008047935, z: 0.13740908, w: 0.98878723}
   m_LocalPosition: {x: 6.5, y: -2.15, z: 5.01}
-  m_LocalScale: {x: 0.1557386, y: 0.1840272, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.31, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1510618452}
@@ -7345,7 +7345,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.9, y: 10.42}
+  m_AnchoredPosition: {x: -16.9, y: 7.4}
   m_SizeDelta: {x: 2.41, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!114 &2128773303
@@ -7368,7 +7368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Time on waitlist: </b> 2 years'
+  m_text: "<b>Time on waitlist: </b> \n2 years"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -7395,8 +7395,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2
-  m_fontSizeBase: 2
+  m_fontSize: 3
+  m_fontSizeBase: 3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7407,7 +7407,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 100
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
