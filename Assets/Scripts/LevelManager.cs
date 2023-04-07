@@ -130,10 +130,14 @@ public class LevelManager : MonoBehaviour
 
 
     void TapObject() {
+        Debug.Log("TapObject");
+
         bool justExpanded = false;
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Collider2D targetObject = Physics2D.OverlapPoint(mousePosition);
         selectedObject = null;
+
+        Debug.Log("TargetObject: " + targetObject.transform.gameObject.name);
 
         // Get Bigger
         if (targetObject) {
