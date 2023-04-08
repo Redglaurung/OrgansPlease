@@ -22,8 +22,9 @@ public class LevelManager : MonoBehaviour
     bool tap;
     double tapTimer;
     double tapStartTime;
-    double TAP_TIME = 0.125;
+    double TAP_TIME = 0.125; 
     Collider2D targetObject;
+    Collider2D expandedObject;
 
     // Start is called before the first frame update
     void Start()
@@ -96,9 +97,6 @@ public class LevelManager : MonoBehaviour
         } 
     }
 
-    public void StopLookingAt(){
-
-    }
     public void AllPapersDown(){
         if (hasPages) {
             for(int i=0; i<5; i++){
@@ -132,33 +130,19 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-
     void TapObject() {
         Debug.Log("TapObject");
 
-        bool justExpanded = false;
-        // Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // targetObject = Physics2D.OverlapPoint(mousePosition);
-        selectedObject = null;
-
-        if (targetObject) Debug.Log("targetObj: " + targetObject.transform.gameObject.name);
-
-        // Get Bigger
-        if (targetObject) {
+        if (expandedObject == null && targetObject) {
             if((targetObject.transform.gameObject.tag == "Pages") || (targetObject.transform.gameObject.tag == "Phone")){
-                selectedObject = targetObject.transform.gameObject;
-                if(selectedObject != lastlookedat){
-                    selectedObject.SendMessage("StartLookingAt");
-                    lastlookedat.SendMessage("StopLookingAt");
-                    lastlookedat=selectedObject;
-                    justExpanded = true;
-                }
-            }
+                targetObject.transform.gameObject.SendMessage("StartLookingAt");
+                expandedObject = targetObject;
+            } 
         }
-        if (!justExpanded) {
-            if (selectedObject != lastlookedat) {
-                lastlookedat.SendMessage("StopLookingAt");
-                // lastlookedat = null;
+        else if (expandedObject != null) {
+            if (targetObject != expandedObject) {
+                expandedObject.transform.gameObject.SendMessage("StopLookingAt");
+                expandedObject = null;
             }
         }
     }
@@ -172,7 +156,6 @@ public class LevelManager : MonoBehaviour
         Debug.Log("DragObject");
         // Code from: https://gamedevbeginner.com/how-to-move-an-object-with-the-mouse-in-unity-in-2d/
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // targetObject = Physics2D.OverlapPoint(mousePosition);
         if (movingObject == null && targetObject)
         {
             movingObject = targetObject.transform.gameObject;
