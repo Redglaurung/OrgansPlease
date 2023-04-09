@@ -72,4 +72,7 @@ public class Pages : MonoBehaviour
     public void StartMovement(){
         gameObject.tag = "Pages";
     }
+    public void StopMovement(){
+        gameObject.tag = "Furniture";
+    }
 }
