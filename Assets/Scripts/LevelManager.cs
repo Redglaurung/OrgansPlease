@@ -164,6 +164,8 @@ public class LevelManager : MonoBehaviour
         if ((movingObject)&&(movingObject.tag != "Furniture"))
         {
             movingObject.transform.position = mousePosition + offset;
+        } else {
+            print("oof");
         }
     }
 
