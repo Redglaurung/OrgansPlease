@@ -8,7 +8,7 @@ public class Pages : MonoBehaviour
     public int layer;
     public SpriteRenderer myRenderer;
     Vector3 defaultScale;
-    Vector3 doubleScale;
+    Vector3 scaledUp;
     public bool isStamped;
 
     // Used for Start/Stop looking at
@@ -21,7 +21,7 @@ public class Pages : MonoBehaviour
         myRenderer = GetComponent<SpriteRenderer>();
         defaultScale = transform.localScale;
         defaultRotation = transform.localRotation;
-        doubleScale = new Vector3(transform.localScale.x * 2, transform.localScale.y * 2, transform.localScale.z);
+        scaledUp = new Vector3(transform.localScale.x * 1.5f, transform.localScale.y * 1.5f, transform.localScale.z);
         isStamped = false;
     }
 
@@ -43,7 +43,7 @@ public class Pages : MonoBehaviour
     public void StartLookingAt(){
         myRenderer.sortingLayerName = "Looking At";
         transform.localRotation = new Quaternion(0,0,0,0);
-        transform.localScale = doubleScale;
+        transform.localScale = scaledUp;
         canvasCanvas.sortingLayerName = "Looking At";
         if (gameObject.transform.childCount == 2)
         {

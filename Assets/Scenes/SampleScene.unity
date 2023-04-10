@@ -4137,6 +4137,7 @@ MonoBehaviour:
   stamper: {fileID: 652610044}
   movingObject: {fileID: 0}
   hasPages: 1
+  mainCamera: {fileID: 519420031}
 --- !u!1 &1358502399
 GameObject:
   m_ObjectHideFlags: 0

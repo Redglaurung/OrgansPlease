@@ -26,6 +26,8 @@ public class LevelManager : MonoBehaviour
     Collider2D targetObject;
     Collider2D expandedObject;
 
+    public Camera mainCamera;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -130,8 +132,6 @@ public class LevelManager : MonoBehaviour
     }
 
     void TapObject() {
-        Debug.Log("TapObject");
-
         if (expandedObject == null && targetObject) {
             if((targetObject.transform.gameObject.tag == "Pages") || (targetObject.transform.gameObject.tag == "Phone")){
                 targetObject.transform.gameObject.SendMessage("StartLookingAt");
@@ -155,7 +155,6 @@ public class LevelManager : MonoBehaviour
     * Picks up and moves the object with the mouse
     */
     void DragObject() {
-        Debug.Log("DragObject");
         // Code from: https://gamedevbeginner.com/how-to-move-an-object-with-the-mouse-in-unity-in-2d/
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (movingObject == null && targetObject)
@@ -165,10 +164,21 @@ public class LevelManager : MonoBehaviour
         }
         if ((movingObject)&&(movingObject.tag != "Furniture"))
         {
+            Vector3 oldPos = movingObject.transform.position;
             movingObject.transform.position = mousePosition + offset;
-        } else {
-            print("oof");
-        }
+            checkOutOfBounds(oldPos);
+        } 
+    }
+
+    void checkOutOfBounds(Vector3 oldPos) {
+        float xMin = mainCamera.transform.position.x - (mainCamera.orthographicSize * 16/9);
+        float xMax = mainCamera.transform.position.x + (mainCamera.orthographicSize * 16/9);
+        float yMin = mainCamera.transform.position.y - (mainCamera.orthographicSize);
+        float yMax = mainCamera.transform.position.y + (mainCamera.orthographicSize);
+            if (movingObject.transform.position.x < xMin || movingObject.transform.position.x > xMax) 
+                movingObject.transform.position = new Vector3(oldPos.x, movingObject.transform.position.y, movingObject.transform.position.z);
+            if (movingObject.transform.position.y < yMin || movingObject.transform.position.y > yMax)
+                movingObject.transform.position = new Vector3(movingObject.transform.position.x, oldPos.y, movingObject.transform.position.z);
     }
 
 
