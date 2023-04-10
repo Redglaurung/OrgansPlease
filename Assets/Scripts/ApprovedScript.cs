@@ -14,18 +14,30 @@ public class ApprovedScript : MonoBehaviour
     public Sprite stampType;
     public Sprite readystampType;
     public float stampScale;
+    SpriteRenderer readiedstampRenderer;
     public float stampX;
     public float stampY;
     bool readied;
     bool rising;
-    int timer;
+    int uptimer;
+    int downtimer;
+    bool canStamp;
     CharacterTrackingScript character;
     // public BoxCollider2D collider;
     // Start is called before the first frame update
     void Start()
     {
-        
+        readiedStamp = new GameObject("Approved Stamp Picture");
+        readiedStamp.transform.SetParent(gameObject.transform);
+        readiedStamp.transform.localPosition = new Vector3(0f, 0f, 0f);
+        readiedStamp.transform.localScale = new Vector3(1f,1f,1f);
+        readiedstampRenderer = readiedStamp.AddComponent<SpriteRenderer>();
+        readiedstampRenderer.sortingLayerName = "Stamper";
+        readiedstampRenderer.sortingOrder = 3;
+        canStamp=false;
         readied = false;
+        uptimer = -1;
+        downtimer = -1;
         myRenderer = GetComponent<SpriteRenderer>();
         character = GameObject.Find("GameManager").GetComponent<CharacterTrackingScript>();
     }
@@ -33,27 +45,34 @@ public class ApprovedScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((timer>=0)&&(readied)){
-            timer--;
+        if((uptimer>=0)&&(readied)){
+            uptimer--;
             transform.position += new Vector3(0f,0.1f,0f);
             readiedStamp.transform.position -= new Vector3(0f,0.1f,0f);
         }
+         if((downtimer>=0)&&(!readied)){
+             downtimer--;
+             transform.position -= new Vector3(0f,0.1f,0f);
+             readiedStamp.transform.position += new Vector3(0f,0.1f,0f);
+         }
     }
 
     public void ClickedOn(){
-        if(readied){
+        if((readied)&&(uptimer==-1)){
+            if(!canStamp){
+                readiedstampRenderer.sprite = null;
+                downtimer=20;
+                readied=false;
+            }
 
         }
-        if(!readied){
-            readiedStamp = new GameObject("Approved Stamp Picture");
-            readiedStamp.transform.SetParent(gameObject.transform);
-            timer=20;
-            readiedStamp.transform.localPosition = new Vector3(0f, 0f, 0f);
+        if((!readied)&&(downtimer==-1)){
+            
+            uptimer=20;
+            
             readied=true;
-            SpriteRenderer stampRenderer = readiedStamp.AddComponent<SpriteRenderer>();
-            stampRenderer.sortingLayerName = "Stamper";
-            stampRenderer.sortingOrder = 3;
-            stampRenderer.sprite = readystampType;
+            
+            readiedstampRenderer.sprite = readystampType;
         }
     }
 }

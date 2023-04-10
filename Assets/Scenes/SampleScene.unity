@@ -1442,7 +1442,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRenderer: {fileID: 0}
   Files: {fileID: 154610837}
-  stampType: {fileID: 21300000, guid: 4fd2cc9243284fe4899809d7534631f3, type: 3}
+  stampType: {fileID: 21300000, guid: cde423977819d1e409b9a9fcd3e6a83c, type: 3}
+  readystampType: {fileID: 21300000, guid: 70bfcc2c4f361d34bb4f235957fd8e64, type: 3}
   stampScale: 0
   stampX: 0
   stampY: 0
@@ -2682,7 +2683,6 @@ MonoBehaviour:
   emailButton: {fileID: 870559664}
   emailNotification: {fileID: 21300000, guid: a8f12ec9a1f02e04998d2ea18683c1b9, type: 3}
   emailNormal: {fileID: 21300000, guid: 528037cef2736254fb32a8799209f704, type: 3}
-  pageManager: {fileID: 1334460426}
 --- !u!212 &895046095
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4134,7 +4134,7 @@ MonoBehaviour:
   - {fileID: 1513156926}
   - {fileID: 1358502399}
   - {fileID: 0}
-  lastlookedat: {fileID: 1334460426}
+  stamper: {fileID: 652610044}
   movingObject: {fileID: 0}
   hasPages: 1
 --- !u!1 &1358502399
