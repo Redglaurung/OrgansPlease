@@ -13,7 +13,7 @@ public class Phone : MonoBehaviour
     public Image emailButton;
     public Sprite emailNotification;
     public Sprite emailNormal;
-    public GameObject pageManager;
+    // public GameObject pageManager;
     AudioSource notifSound;
 
     SpriteRenderer myRenderer;
@@ -56,8 +56,7 @@ public class Phone : MonoBehaviour
     public void GoToDefinitions() {
         mainScreen.gameObject.SetActive(false);
         definitions.gameObject.SetActive(true);
-        StartLookingAt();
-        // pageManager.SendMessage("AllPapersDown");
+        StartLookingAt(); // TODO: Probably unnecessary, if not needs to communicate w/ levelManager
     }
 
     public void GoToMenu() {
@@ -65,7 +64,6 @@ public class Phone : MonoBehaviour
         definitions.gameObject.SetActive(false);
         email.gameObject.SetActive(false);
         StartLookingAt();
-        // pageManager.SendMessage("AllPapersDown");
     }
 
     public void GoToEmail() {

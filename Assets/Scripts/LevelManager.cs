@@ -9,7 +9,6 @@ public class LevelManager : MonoBehaviour
 
     public GameObject selectedObject;
     public GameObject[] pagesArray;
-    public GameObject lastlookedat;
     int currentMax;
 
     // Used to keep track of itself in MoveObject()
@@ -31,7 +30,6 @@ public class LevelManager : MonoBehaviour
     {
         audioTimer = 2000;
         tapStartTime = -1;
-        lastlookedat=gameObject;
     }
 
     // Update is called once per frame
