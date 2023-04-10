@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
 
     public GameObject selectedObject;
     public GameObject[] pagesArray;
+    public GameObject stamper;
     int currentMax;
 
     // Used to keep track of itself in MoveObject()
@@ -142,6 +143,9 @@ public class LevelManager : MonoBehaviour
                 expandedObject.transform.gameObject.SendMessage("StopLookingAt");
                 expandedObject = null;
             }
+        }
+        if(targetObject.tag == "Stamp"){
+            stamper.SendMessage("ClickedOn");
         }
     }
 
