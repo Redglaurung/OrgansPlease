@@ -20,6 +20,10 @@ public class Phone : MonoBehaviour
     Vector3 defaultScale;
     Vector3 doubleScale;
     int timer;
+
+    // Used for Start/Stop looking at
+    Vector3 actualLocation;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -46,31 +50,35 @@ public class Phone : MonoBehaviour
         myRenderer.sortingLayerName = "Looking At";
         transform.localScale = doubleScale;
         canvasCanvas.sortingLayerName = "Looking At";
+
+        // Move to center
+        actualLocation = transform.position;
+        transform.position = Vector3.zero;
     }
     public void StopLookingAt(){
         myRenderer.sortingLayerName = "Pages";
         transform.localScale = defaultScale;
         canvasCanvas.sortingLayerName = "Pages";
+
+        // Move back from center
+        transform.position = actualLocation;
     }
 
     public void GoToDefinitions() {
         mainScreen.gameObject.SetActive(false);
         definitions.gameObject.SetActive(true);
-        StartLookingAt(); // TODO: Probably unnecessary, if not needs to communicate w/ levelManager
     }
 
     public void GoToMenu() {
         mainScreen.gameObject.SetActive(true);
         definitions.gameObject.SetActive(false);
         email.gameObject.SetActive(false);
-        StartLookingAt();
     }
 
     public void GoToEmail() {
         mainScreen.gameObject.SetActive(false);
         email.gameObject.SetActive(true);
         emailButton.sprite = emailNormal;
-        StartLookingAt();
     }
 
     public void GoToFinalScene() {
