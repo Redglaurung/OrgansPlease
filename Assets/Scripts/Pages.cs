@@ -68,4 +68,11 @@ public class Pages : MonoBehaviour
         // There are no takebacks after stamping. It's one and done.
         isStamped = true;
     }
+
+    public void StartMovement(){
+        gameObject.tag = "Pages";
+    }
+    public void StopMovement(){
+        gameObject.tag = "Furniture";
+    }
 }
