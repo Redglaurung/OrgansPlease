@@ -10,6 +10,7 @@ public class ApprovedScript : MonoBehaviour
 {
     public SpriteRenderer myRenderer;
     public GameObject Files;
+    public GameObject[] pagesArray;
     GameObject readiedStamp;
     public Sprite stampType;
     public Sprite readystampType;
@@ -27,7 +28,7 @@ public class ApprovedScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        readiedStamp = new GameObject("Approved Stamp Picture");
+        readiedStamp = new GameObject("Readied Stamp Picture");
         readiedStamp.transform.SetParent(gameObject.transform);
         readiedStamp.transform.localPosition = new Vector3(0f, 0f, 0f);
         readiedStamp.transform.localScale = new Vector3(1f,1f,1f);
@@ -55,6 +56,9 @@ public class ApprovedScript : MonoBehaviour
              transform.position -= new Vector3(0f,0.1f,0f);
              readiedStamp.transform.position += new Vector3(0f,0.1f,0f);
          }
+        if(readied){
+            CheckStamping();
+        }
     }
 
     public void ClickedOn(){
@@ -75,6 +79,26 @@ public class ApprovedScript : MonoBehaviour
             readiedstampRenderer.sprite = readystampType;
         }
     }
+
+    public void CheckStamping(){
+        Vector3[] readiedCorners = GetVertexes(readiedStamp);
+        Vector3[][] pageLocations;
+        for(int i=0;i<3;i++){
+            print(i);
+            pageLocations[i][] = GetVertexes(pagesArray[i]);
+        }
+    }
+    Vector3[] GetVertexes(GameObject thing){
+        Vector3[] verts = new Vector3[4];        // Array that will contain the BOX Collider Vertices
+        BoxCollider b = thing.GetComponent<BoxCollider>();
+ 
+        verts[0] = b.center + new Vector3(b.size.x, -b.size.y, b.size.z) * 0.5f;
+        verts[1] = b.center + new Vector3(-b.size.x, -b.size.y, b.size.z) * 0.5f;
+        verts[2] = b.center + new Vector3(-b.size.x, -b.size.y, -b.size.z) * 0.5f;
+        verts[3] = b.center + new Vector3(b.size.x, -b.size.y, -b.size.z) * 0.5f;
+        return verts;
+    }
+
 }
 //     [ContextMenu("Pressed on me")]
 //     public void OnMouseDown()
