@@ -49,7 +49,6 @@ public class SummaryTrackingScript : MonoBehaviour
     public bool gameOver = true;
     bool ranFeedback = false;
     CharacterTrackingScript character;
-    public GameObject barChart;
     public Sprite bar;
 
     private string sceneName;
@@ -59,18 +58,32 @@ public class SummaryTrackingScript : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         character = gameObject.GetComponent<CharacterTrackingScript>();
-        barChart = GameObject.Find("BarChartExample");
         gameOver = true;
         oldest = 1;
-        youngest = 3;
-        neitherAge = 4;
+        youngest = 2;
+        neitherAge = 3;
+
+        highestIncome = 2;
+        lowestIncome = 4;
+        neitherIncome = 5;
+
+        wellKnown = 1;
+        notKnown = 1;
+        midKnown = 1;
+
+        guarGood = 1;
+        noGood = 1;
+        potGood = 1;
+        longWait = 1;
+        shortWait = 1;
+        neitherWait = 1;
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        sceneName = gameObject.scene.name;
-        if (sameLevel == true && gameOver == true && sceneName == "EndingFeedback")
+        if (sameLevel == true && gameOver == true && SceneManager.GetActiveScene().name == "EndingFeedback")
         {
             // Draw Bar Chart code goes in here
             drawBarChart();
@@ -84,6 +97,8 @@ public class SummaryTrackingScript : MonoBehaviour
                 makeFeedbackSheet();
                 ranFeedback=true;
         }
+
+        // Uncomment back into code after the bar chart code is working.
         //if (sameLevel == true)
         //{
         //    if (character.isChosen())
@@ -113,10 +128,6 @@ public class SummaryTrackingScript : MonoBehaviour
             youngest,
             neitherAge
         };
-
-        Debug.Log("This is oldest: " + ageCategory[0]);
-        Debug.Log("This is youngest: " + ageCategory[1]);
-        Debug.Log("This is neitherAge: " + ageCategory[2]);
 
         ArrayList incomeCategory = new ArrayList()
         {
@@ -148,31 +159,87 @@ public class SummaryTrackingScript : MonoBehaviour
 
 
         int colorTracker = 0;   // The current colors are 1 = Red, 2 = Green, and 3 = Gray
-        foreach (int tracker in ageCategory)
-        {
-            GameObject barChart = GameObject.Find("AgeBarChart");
-            GameObject square = new GameObject("Bar");
-            square.transform.SetParent(barChart.transform);
-            SpriteRenderer squareRenderer = square.AddComponent<SpriteRenderer>();
-            squareRenderer.sprite = bar;
-            if (colorTracker == 0)
-            {
-                squareRenderer.color = Color.red;
-                colorTracker++;
-            } else if (colorTracker == 1)
-            {
-                squareRenderer.color = Color.green;
-                colorTracker++;
-            } else
-            {
-                squareRenderer.color = Color.gray;
-            }
-            squareRenderer.sortingLayerName = "Testing Layer";
-            square.transform.localScale = new Vector3(tracker, 1, 1);
+        //float squareY = 0f;
+        float yScale = 0.5f;
 
-        }
+        GameObject ageObject = GameObject.Find("Age");
+        Transform ageObjectSquare = ageObject.transform.Find("Square");
 
+        GameObject mainScreen = ageObject.transform.parent.gameObject;
+        GameObject viewPort = mainScreen.transform.parent.gameObject;
+        GameObject scrollView = viewPort.transform.parent.gameObject;
+        Debug.Log("This is the position of " + scrollView + ": " + scrollView.transform.position);
+        Debug.Log("This is the position of " + viewPort + ": " + viewPort.transform.position);
+        Debug.Log("This is the position of Main Screen: " + mainScreen.transform.position);
+        Vector3 offset = scrollView.transform.position + viewPort.transform.localPosition + mainScreen.transform.localPosition;
+
+
+
+        //Debug.Log("The position of ageObjectSquarePosition is: " + ageObjectSquarePosition);
+
+        GameObject payObject = GameObject.Find("Pay");
+        Transform payObjectSquare = payObject.transform.Find("Square");
+        //Debug.Log("This is the position of payObject: " + payObject.transform.position);
+ 
+        
+
+
+
+        GameObject notorietyObject = GameObject.Find("Notoriety");
+        Transform notorietyObjectSquare = notorietyObject.transform.Find("Square");
+        //Debug.Log("The position of notorietyObjectSquarePosition is: " + notorietyObjectSquarePosition);
+
+        GameObject waitObject = GameObject.Find("Waitlist");
+        Transform waitObjectSquare = waitObject.transform.Find("Square");
+
+        GameObject philObject = GameObject.Find("Philanthropy");
+        Transform philObjectSquare = philObject.transform.Find("Square");
+
+
+        Vector3 ageObjectSquarePosition = offset + ageObject.transform.localPosition + ageObjectSquare.transform.localPosition;
+        Vector3 payObjectSquarePosition = offset + payObject.transform.localPosition + payObjectSquare.transform.localPosition;
+        Vector3 notorietyObjectSquarePosition = offset + notorietyObject.transform.localPosition + notorietyObjectSquare.transform.localPosition;
+        Vector3 waitObjectSquarePosition = offset + waitObject.transform.localPosition + waitObjectSquare.transform.localPosition;
+        Vector3 philObjectSquarePosition = offset + philObject.transform.localPosition + philObjectSquare.transform.localPosition;
+
+
+
+        //Debug.Log("This is the offset: " + offset.y);
+        //Debug.Log("Age Object Square is at: " + ageObjectSquarePosition.y);
+        //Debug.Log("Pay Object Square is at: " + payObjectSquarePosition.y);
+        float agePosition = ageObjectSquarePosition.y - ((ageObjectSquarePosition.y - payObjectSquarePosition.y) / 2) + yScale;
+        float payPosition = payObjectSquarePosition.y - ((payObjectSquarePosition.y - notorietyObjectSquarePosition.y)/2);
+        //Debug.Log("This is the ageObjectSquarePositionVector " + ageObjectSquarePosition);
+        Debug.Log("This is the payObjectSquarePositionVector " + payObjectSquarePosition);
+        Debug.Log("This is the notorietyObjectSquarePositionVector " + notorietyObjectSquarePosition);
+        Debug.Log("This is the waitObjectSquarePositionVector " + waitObjectSquarePosition);
+
+        float notorietyPosition = notorietyObjectSquarePosition.y - ((notorietyObjectSquarePosition.y - waitObjectSquarePosition.y) / 2) - yScale/2 - yScale;
+        Debug.Log("This is notorietyPosition: " + notorietyPosition);
+
+        float waitPosition = waitObjectSquarePosition.y - ((waitObjectSquarePosition.y - philObjectSquarePosition.y) / 2);
+
+        //barChart.transform.SetParent(ageObject.transform);
+        //barChart.transform.position = new Vector3(-3, -5, 0);
+        //float squareY = agePosition;
+
+        GameObject ageChart = new GameObject("Age Chart");
+        GameObject payChart = new GameObject("Pay Chart");
+        GameObject notorietyChart = new GameObject("Notoriety Chart");
+        GameObject waitChart = new GameObject("Wait Chart");
+
+        GameObject ageYoungestText = ageObject.transform.Find("Youngest Data").gameObject;
+        
+
+        makeCategoryChart(ageObject, ageCategory, ageChart, ageYoungestText.transform.position.y, yScale, colorTracker);
         colorTracker = 0;
+        //squareY = 0;
+        makeCategoryChart(payObject, incomeCategory, payChart, payPosition, yScale, colorTracker);
+        makeCategoryChart(notorietyObject, knownCategory, notorietyChart, notorietyPosition, yScale, colorTracker);
+        makeCategoryChart(waitObject, waitCategory, waitChart, waitPosition, yScale, colorTracker);
+
+
+
     }
     public void makeFeedbackSheet() {
             GameObject[] DataArray = GameObject.FindGameObjectsWithTag ("Data");
@@ -236,5 +303,44 @@ public class SummaryTrackingScript : MonoBehaviour
                 }
             }
            
+    }
+
+    public void makeCategoryChart(GameObject parentObject, ArrayList category, GameObject chart, float chartYPosition, float yScale, int colorTracker)
+    {
+        chart.transform.SetParent(parentObject.transform);
+        float squareY = 0;
+        foreach (int tracker in category)
+        {
+            GameObject square = new GameObject("Bar");
+            square.transform.SetParent(chart.transform);
+            float squareX = 0.5f * (tracker - 1);
+            square.transform.position = new Vector3(squareX, squareY, 0);
+
+            squareY = squareY - yScale;
+
+            SpriteRenderer squareRenderer = square.AddComponent<SpriteRenderer>();
+            squareRenderer.sprite = bar;
+            if (colorTracker == 0)
+            {
+                squareRenderer.color = Color.red;
+                colorTracker++;
+            }
+            else if (colorTracker == 1)
+            {
+                squareRenderer.color = Color.green;
+                colorTracker++;
+            }
+            else
+            {
+                squareRenderer.color = Color.gray;
+            }
+            squareRenderer.sortingLayerName = "Testing Layer";
+            square.transform.localScale = new Vector3(tracker, yScale, 1);
+
+            //Debug.Log("This is the position of this square: " + square.transform.position
+        }
+        chart.transform.localPosition = new Vector3(0, chartYPosition, 0);
+        //Debug.Log("This is the chartYPosition " + chartYPosition);
+        //Debug.Log("This is the chart's transform: " + chart.transform.position);
     }
 }
