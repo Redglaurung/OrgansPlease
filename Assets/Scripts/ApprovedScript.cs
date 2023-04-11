@@ -14,8 +14,10 @@ public class ApprovedScript : MonoBehaviour
     GameObject readiedStamp;
     public Sprite stampType;
     public Sprite readystampType;
+    public Sprite YesreadystampType;
     public float stampScale;
     SpriteRenderer readiedstampRenderer;
+    BoxCollider2D readiedstampCollider;
     public float stampX;
     public float stampY;
     bool readied;
@@ -33,6 +35,10 @@ public class ApprovedScript : MonoBehaviour
         readiedStamp.transform.localPosition = new Vector3(0f, 0f, 0f);
         readiedStamp.transform.localScale = new Vector3(1f,1f,1f);
         readiedstampRenderer = readiedStamp.AddComponent<SpriteRenderer>();
+        //readiedstampRenderer.sprite = readystampType;
+        readiedstampCollider = readiedStamp.AddComponent<BoxCollider2D>();
+        //readiedstampCollider.size = new Vector2(7.34f,3.91f);
+        //readiedstampRenderer.sprite = null;
         readiedstampRenderer.sortingLayerName = "Stamper";
         readiedstampRenderer.sortingOrder = 3;
         canStamp=false;
@@ -41,6 +47,7 @@ public class ApprovedScript : MonoBehaviour
         downtimer = -1;
         myRenderer = GetComponent<SpriteRenderer>();
         character = GameObject.Find("GameManager").GetComponent<CharacterTrackingScript>();
+        //readiedStamp.transform.localPosition = transform.localPosition;
     }
 
     // Update is called once per frame
@@ -71,7 +78,7 @@ public class ApprovedScript : MonoBehaviour
 
         }
         if((!readied)&&(downtimer==-1)){
-            
+            //readiedStamp.transform.localPosition = transform.localPosition;
             uptimer=20;
             
             readied=true;
@@ -81,21 +88,42 @@ public class ApprovedScript : MonoBehaviour
     }
 
     public void CheckStamping(){
-        Vector3[] readiedCorners = GetVertexes(readiedStamp);
-        Vector3[][] pageLocations;
-        for(int i=0;i<3;i++){
-            print(i);
-            pageLocations[i][] = GetVertexes(pagesArray[i]);
+        Vector2[] readiedCorners = GetVertexes(readiedStamp);
+        Vector2[][] pageLocations;
+        pageLocations = new Vector2[4][];
+        int count = 0;
+        for(int i=0;i<4;i++){
+            pageLocations[i] = GetVertexes(pagesArray[i]);
         }
+        for(int i=0;i<4;i++){
+            if((readiedCorners[0].x <= pageLocations[i][0].x) && (readiedCorners[0].y <= pageLocations[i][0].y)){
+                if((readiedCorners[1].x <= pageLocations[i][1].x) && (readiedCorners[1].y >= pageLocations[i][1].y)){
+                    if((readiedCorners[2].x >= pageLocations[i][2].x) && (readiedCorners[2].y >= pageLocations[i][2].y)){
+                        if((readiedCorners[3].x >= pageLocations[i][3].x) && (readiedCorners[3].y <= pageLocations[i][3].y)){
+                            count=1;
+                        }
+                    }
+                }
+            }
+        }
+        if(count == 1){
+            canStamp=true;
+            readiedstampRenderer.sprite = YesreadystampType;
+        } else {
+            canStamp=false;
+            readiedstampRenderer.sprite = readystampType;
+        }
+
     }
-    Vector3[] GetVertexes(GameObject thing){
-        Vector3[] verts = new Vector3[4];        // Array that will contain the BOX Collider Vertices
-        BoxCollider b = thing.GetComponent<BoxCollider>();
+    Vector2[] GetVertexes(GameObject thing){
+        Vector2[] verts = new Vector2[4];        // Array that will contain the BOX Collider Vertices
+        BoxCollider2D b = thing.GetComponent<BoxCollider2D>();
  
-        verts[0] = b.center + new Vector3(b.size.x, -b.size.y, b.size.z) * 0.5f;
-        verts[1] = b.center + new Vector3(-b.size.x, -b.size.y, b.size.z) * 0.5f;
-        verts[2] = b.center + new Vector3(-b.size.x, -b.size.y, -b.size.z) * 0.5f;
-        verts[3] = b.center + new Vector3(b.size.x, -b.size.y, -b.size.z) * 0.5f;
+        Bounds box = b.bounds;
+        verts[0] = new Vector2( box.max.x, box.max.y); // or do = b.max for upper right
+        verts[1] = new Vector2( box.max.x, box.min.y); // for lower right
+        verts[2] = new Vector2( box.min.x, box.min.y); // = b.min for lower left
+        verts[3] = new Vector2( box.min.x, box.max.y);    //for upper left
         return verts;
     }
 
