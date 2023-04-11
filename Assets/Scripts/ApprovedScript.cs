@@ -32,15 +32,16 @@ public class ApprovedScript : MonoBehaviour
     {
         readiedStamp = new GameObject("Readied Stamp Picture");
         readiedStamp.transform.SetParent(gameObject.transform);
-        readiedStamp.transform.localPosition = new Vector3(0f, 0f, 0f);
+        readiedStamp.transform.localPosition = new Vector3(0f, 0f, 2f);
         readiedStamp.transform.localScale = new Vector3(1f,1f,1f);
         readiedstampRenderer = readiedStamp.AddComponent<SpriteRenderer>();
+        readiedStamp.tag = "Furniture";
         //readiedstampRenderer.sprite = readystampType;
         readiedstampCollider = readiedStamp.AddComponent<BoxCollider2D>();
-        //readiedstampCollider.size = new Vector2(7.34f,3.91f);
+        readiedstampCollider.size = new Vector2(10f,5f);
         //readiedstampRenderer.sprite = null;
-        readiedstampRenderer.sortingLayerName = "Stamper";
-        readiedstampRenderer.sortingOrder = 3;
+        readiedstampRenderer.sortingLayerName = "Pages";
+        readiedstampRenderer.sortingOrder = 10;
         canStamp=false;
         readied = false;
         uptimer = -1;
