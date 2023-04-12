@@ -38,7 +38,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ManageSound();
+        // ManageSound();
         if (hasPages) LayerPages();
         MouseClickTimer();
     }

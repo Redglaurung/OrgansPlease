@@ -3921,7 +3921,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 17cff00a669f94743b94e93e1ae9cb0e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a6500d60025e79b4d9fdb6440bc8d43a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4029,7 +4029,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334460426}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 65babec36a9fdbc40930bc637d77264b, type: 3}
@@ -6133,7 +6133,6 @@ MonoBehaviour:
   neitherWait: 0
   sameLevel: 1
   gameOver: 1
-  barChart: {fileID: 0}
   bar: {fileID: 7482667652216324306, guid: 7b7c299f0b41db64da268037672162d1, type: 3}
 --- !u!1 &1769905632
 GameObject:
