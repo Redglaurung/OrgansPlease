@@ -23,12 +23,15 @@ public class ApprovedScript : MonoBehaviour
     bool readied;
     bool currentlyStamping;
     bool rising;
+    string searchingforName;
+    string currentName;
     int uptimer;
     int downtimer;
     bool canStamp;
     Collider2D targetObject;
     GameObject targetPaper;
     CharacterTrackingScript character;
+    Collider2D chosenTarget;
     // public BoxCollider2D collider;
     // Start is called before the first frame update
     void Start()
@@ -102,34 +105,63 @@ public class ApprovedScript : MonoBehaviour
     }
 
     public void CheckStamping(){
-        Vector2[] readiedCorners = GetVertexes(readiedStamp);
-        Vector2[][] pageLocations;
-        pageLocations = new Vector2[4][];
-        int count = 0;
+        Vector2[] stampcorners = GetVertexes(this.gameObject);
+        int count=1;
+        
+        
         for(int i=0;i<4;i++){
-            pageLocations[i] = GetVertexes(pagesArray[i]);
-        }
-        for(int i=0;i<4;i++){
-            if((readiedCorners[0].x <= pageLocations[i][0].x) && (readiedCorners[0].y <= pageLocations[i][0].y)){
-                if((readiedCorners[1].x <= pageLocations[i][1].x) && (readiedCorners[1].y >= pageLocations[i][1].y)){
-                    if((readiedCorners[2].x >= pageLocations[i][2].x) && (readiedCorners[2].y >= pageLocations[i][2].y)){
-                        if((readiedCorners[3].x >= pageLocations[i][3].x) && (readiedCorners[3].y <= pageLocations[i][3].y)){
-                            count=1;
-                        }
-                    }
+            Vector3 Stampposition = new Vector3 (stampcorners[i].x, stampcorners[i].y-2.5f, 0f);
+            chosenTarget = Physics2D.OverlapPoint(Stampposition);
+            if(chosenTarget){
+                currentName = chosenTarget.transform.gameObject.name;
+                //print(currentName);
+                if(i == 0){
+                    searchingforName = currentName;
+                } else if(searchingforName != currentName){
+                    count=0;
                 }
+            } else {
+                count=0;
             }
         }
-        Vector3 Stampposition = new Vector3 (transform.position.x, transform.position.y-2, transform.position.y);
-        targetObject = Physics2D.OverlapPoint(Stampposition);
-        //print(targetObject.transform.gameObject.tag);
-        if((count == 1) && (targetObject.transform.gameObject.tag == "Pages")){
+        //print(count);
+        if((count == 1) && (chosenTarget.transform.gameObject.tag == "Pages")){
             canStamp=true;
             readiedstampRenderer.sprite = YesreadystampType;
+            targetPaper = chosenTarget.transform.gameObject;
         } else {
             canStamp=false;
             readiedstampRenderer.sprite = readystampType;
+            targetPaper = null;
         }
+        // Vector2[] readiedCorners = GetVertexes(readiedStamp);
+        // Vector2[][] pageLocations;
+        // pageLocations = new Vector2[4][];
+        // int count = 0;
+        // for(int i=0;i<4;i++){
+        //     pageLocations[i] = GetVertexes(pagesArray[i]);
+        // }
+        // for(int i=0;i<4;i++){
+        //     if((readiedCorners[0].x <= pageLocations[i][0].x) && (readiedCorners[0].y <= pageLocations[i][0].y)){
+        //         if((readiedCorners[1].x <= pageLocations[i][1].x) && (readiedCorners[1].y >= pageLocations[i][1].y)){
+        //             if((readiedCorners[2].x >= pageLocations[i][2].x) && (readiedCorners[2].y >= pageLocations[i][2].y)){
+        //                 if((readiedCorners[3].x >= pageLocations[i][3].x) && (readiedCorners[3].y <= pageLocations[i][3].y)){
+        //                     count=1;
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+        // Vector3 Stampposition = new Vector3 (transform.position.x, transform.position.y-2, transform.position.z);
+        // targetObject = Physics2D.OverlapPoint(Stampposition);
+        // //print(targetObject.transform.gameObject.tag);
+        // if((count == 1) && (targetObject.transform.gameObject.tag == "Pages")){
+        //     canStamp=true;
+        //     readiedstampRenderer.sprite = YesreadystampType;
+        // } else {
+        //     canStamp=false;
+        //     readiedstampRenderer.sprite = readystampType;
+        // }
 
     }
     Vector2[] GetVertexes(GameObject thing){
@@ -145,8 +177,6 @@ public class ApprovedScript : MonoBehaviour
     }
 
 public void ApplyStamp() {
-    targetObject = Physics2D.OverlapPoint(transform.position);
-    targetPaper = targetObject.transform.gameObject;
     if ((targetPaper.transform.childCount >= 2) || character.isChosen())
          {
              Debug.Log("Can't stamp. Already been stamped or a paper has been chosen already!");
@@ -160,7 +190,8 @@ public void ApplyStamp() {
              stampRenderer.sortingLayerName = "Pages";
              targetPaper.SendMessage("LayerUpdate", 6);
              stampRenderer.sprite = stampType;
-             approvedStamp.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
+             approvedStamp.transform.localScale = new Vector3(1.5f,1.5f,1.5f);
+             approvedStamp.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles);
              Pages paperScript = targetPaper.GetComponent<Pages>();
              paperScript.setStamped();
              Files.SendMessage("Chosen");

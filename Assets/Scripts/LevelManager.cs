@@ -148,8 +148,10 @@ public class LevelManager : MonoBehaviour
                 expandedObject = null;
             }
         }
-        if(targetObject.tag == "Stamp"){
-            stamper.SendMessage("ClickedOn");
+        if(targetObject){
+            if(targetObject.tag == "Stamp"){
+                stamper.SendMessage("ClickedOn");
+            }
         }
     }
 
