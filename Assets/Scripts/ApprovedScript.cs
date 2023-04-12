@@ -36,10 +36,10 @@ public class ApprovedScript : MonoBehaviour
         readiedStamp.transform.localScale = new Vector3(1f,1f,1f);
         readiedstampRenderer = readiedStamp.AddComponent<SpriteRenderer>();
         readiedStamp.tag = "Furniture";
-        //readiedstampRenderer.sprite = readystampType;
+        readiedstampRenderer.sprite = readystampType;
         readiedstampCollider = readiedStamp.AddComponent<BoxCollider2D>();
         readiedstampCollider.size = new Vector2(10f,5f);
-        //readiedstampRenderer.sprite = null;
+        readiedstampRenderer.sprite = null;
         readiedstampRenderer.sortingLayerName = "Pages";
         readiedstampRenderer.sortingOrder = 10;
         canStamp=false;
@@ -75,7 +75,10 @@ public class ApprovedScript : MonoBehaviour
                 readiedstampRenderer.sprite = null;
                 downtimer=20;
                 readied=false;
+            } else if (canStamp){
+                
             }
+            
 
         }
         if((!readied)&&(downtimer==-1)){

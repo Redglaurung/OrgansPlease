@@ -95,6 +95,10 @@ public class LevelManager : MonoBehaviour
                     }
                 }
             }   
+        }
+        for(int i=0;i<4;i++){
+            float zcalculator = 8 - 2 * i;
+            pagesArray[i].transform.position = new Vector3(pagesArray[i].transform.position.x , pagesArray[i].transform.position.y ,zcalculator);
         } 
     }
 
