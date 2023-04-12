@@ -34,6 +34,8 @@ public class ApprovedScript : MonoBehaviour
     Collider2D chosenTarget;
 
     public Animator animator;
+    public AudioSource stampPressSound;
+
     // public BoxCollider2D collider;
     // Start is called before the first frame update
     void Start()
@@ -180,26 +182,27 @@ public class ApprovedScript : MonoBehaviour
 
 public void ApplyStamp() {
     if ((targetPaper.transform.childCount >= 2) || character.isChosen())
-         {
-             Debug.Log("Can't stamp. Already been stamped or a paper has been chosen already!");
-         } else {
-             Debug.Log("Stamped Approved!");
-             GameObject approvedStamp = new GameObject("Approved Stamp Picture");
-             approvedStamp.transform.SetParent(targetPaper.transform);
-             approvedStamp.transform.SetAsFirstSibling();
-             approvedStamp.transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
-             SpriteRenderer stampRenderer = approvedStamp.AddComponent<SpriteRenderer>();
-             stampRenderer.sortingLayerName = "Pages";
-             targetPaper.SendMessage("LayerUpdate", 6);
-             stampRenderer.sprite = stampType;
-             approvedStamp.transform.localScale = new Vector3(1.5f,1.5f,1.5f);
-             approvedStamp.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles);
-             Pages paperScript = targetPaper.GetComponent<Pages>();
-             paperScript.setStamped();
-             Files.SendMessage("Chosen");
+        {
+            Debug.Log("Can't stamp. Already been stamped or a paper has been chosen already!");
+        } else {
+            Debug.Log("Stamped Approved!");
+            GameObject approvedStamp = new GameObject("Approved Stamp Picture");
+            approvedStamp.transform.SetParent(targetPaper.transform);
+            approvedStamp.transform.SetAsFirstSibling();
+            approvedStamp.transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+            SpriteRenderer stampRenderer = approvedStamp.AddComponent<SpriteRenderer>();
+            stampRenderer.sortingLayerName = "Pages";
+            targetPaper.SendMessage("LayerUpdate", 6);
+            stampRenderer.sprite = stampType;
+            approvedStamp.transform.localScale = new Vector3(1.5f,1.5f,1.5f);
+            approvedStamp.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles);
+            Pages paperScript = targetPaper.GetComponent<Pages>();
+            paperScript.setStamped();
+            Files.SendMessage("Chosen");
 
-             animator.SetBool("Stamped", true);
-         }
+            animator.SetBool("Stamped", true);
+            stampPressSound.Play();
+        }
 
 }
 
