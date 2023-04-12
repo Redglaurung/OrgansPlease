@@ -21,10 +21,13 @@ public class ApprovedScript : MonoBehaviour
     public float stampX;
     public float stampY;
     bool readied;
+    bool currentlyStamping;
     bool rising;
     int uptimer;
     int downtimer;
     bool canStamp;
+    Collider2D targetObject;
+    GameObject targetPaper;
     CharacterTrackingScript character;
     // public BoxCollider2D collider;
     // Start is called before the first frame update
@@ -32,7 +35,7 @@ public class ApprovedScript : MonoBehaviour
     {
         readiedStamp = new GameObject("Readied Stamp Picture");
         readiedStamp.transform.SetParent(gameObject.transform);
-        readiedStamp.transform.localPosition = new Vector3(0f, 0f, 2f);
+        readiedStamp.transform.localPosition = new Vector3(0f, 0f, 10f);
         readiedStamp.transform.localScale = new Vector3(1f,1f,1f);
         readiedstampRenderer = readiedStamp.AddComponent<SpriteRenderer>();
         readiedStamp.tag = "Furniture";
@@ -43,6 +46,7 @@ public class ApprovedScript : MonoBehaviour
         readiedstampRenderer.sortingLayerName = "Pages";
         readiedstampRenderer.sortingOrder = 10;
         canStamp=false;
+        currentlyStamping=false;
         readied = false;
         uptimer = -1;
         downtimer = -1;
@@ -63,6 +67,9 @@ public class ApprovedScript : MonoBehaviour
              downtimer--;
              transform.position -= new Vector3(0f,0.1f,0f);
              readiedStamp.transform.position += new Vector3(0f,0.1f,0f);
+             if((downtimer == 0) && (currentlyStamping)){
+                ApplyStamp();
+             }
          }
         if(readied){
             CheckStamping();
@@ -76,7 +83,10 @@ public class ApprovedScript : MonoBehaviour
                 downtimer=20;
                 readied=false;
             } else if (canStamp){
-                
+                downtimer=20;
+                readied=false;
+                readiedstampRenderer.sprite = null;
+                currentlyStamping = true;
             }
             
 
@@ -110,7 +120,10 @@ public class ApprovedScript : MonoBehaviour
                 }
             }
         }
-        if(count == 1){
+        Vector3 Stampposition = new Vector3 (transform.position.x, transform.position.y-2, transform.position.y);
+        targetObject = Physics2D.OverlapPoint(Stampposition);
+        //print(targetObject.transform.gameObject.tag);
+        if((count == 1) && (targetObject.transform.gameObject.tag == "Pages")){
             canStamp=true;
             readiedstampRenderer.sprite = YesreadystampType;
         } else {
@@ -130,6 +143,11 @@ public class ApprovedScript : MonoBehaviour
         verts[3] = new Vector2( box.min.x, box.max.y);    //for upper left
         return verts;
     }
+
+public void ApplyStamp() {
+    targetObject = Physics2D.OverlapPoint(transform.position);
+
+}
 
 }
 //     [ContextMenu("Pressed on me")]
