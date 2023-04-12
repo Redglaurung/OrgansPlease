@@ -1309,6 +1309,7 @@ GameObject:
   - component: {fileID: 652610046}
   - component: {fileID: 652610045}
   - component: {fileID: 652610048}
+  - component: {fileID: 652610049}
   m_Layer: 0
   m_Name: Stamp
   m_TagString: Stamp
@@ -1453,6 +1454,27 @@ MonoBehaviour:
   stampScale: 0
   stampX: 0
   stampY: 0
+  animator: {fileID: 652610049}
+--- !u!95 &652610049
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652610044}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8f7fa6701593f064d87256be8f00ffc0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &653212697
 GameObject:
   m_ObjectHideFlags: 0

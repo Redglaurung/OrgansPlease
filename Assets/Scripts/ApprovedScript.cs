@@ -32,6 +32,8 @@ public class ApprovedScript : MonoBehaviour
     GameObject targetPaper;
     CharacterTrackingScript character;
     Collider2D chosenTarget;
+
+    public Animator animator;
     // public BoxCollider2D collider;
     // Start is called before the first frame update
     void Start()
@@ -195,6 +197,8 @@ public void ApplyStamp() {
              Pages paperScript = targetPaper.GetComponent<Pages>();
              paperScript.setStamped();
              Files.SendMessage("Chosen");
+
+             animator.SetBool("Stamped", true);
          }
 
 }
