@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    // Used in ManageSound
     public AudioSource[] audioSources;
     int audioTimer;
 
+    // Used for page layering
     public GameObject selectedObject;
     public GameObject[] pagesArray;
-    public GameObject stamper;
     int currentMax;
 
-    // Used to keep track of itself in MoveObject()
-    public GameObject movingObject;
-    // Used to keep track of how much to move itself
-    Vector3 offset;
-
-    public bool hasPages;
-
-    bool tap;
+    // Used to handle both Dragging and Tapping objects
     double tapTimer;
     double tapStartTime;
     double TAP_TIME = 0.125; 
     Collider2D targetObject;
-    Collider2D expandedObject;
 
+    // Used in MouseTap
+    Collider2D expandedObject;
+    public GameObject stamper;
+
+    // Used in MouseDrag
+    public GameObject movingObject;
+    Vector3 offset;
     public Camera mainCamera;
 
     // Start is called before the first frame update
@@ -39,13 +39,17 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         // ManageSound();
-        if (hasPages) LayerPages();
+        if (pagesArray.Length > 0) LayerPages();
         MouseClickTimer();
     }
 
+    /** Sound Management Script */
 
-/** Sound Management Script */
-
+    /**
+    * Currently unused code (commented out in Update), used before new single audio file was created to start music late
+    *
+    * TODO: Delete upon agreement on new sounds
+    */
     void ManageSound() {
         if((audioTimer >= 1)&&(audioTimer<=2000)){audioTimer--;}
         else if(audioTimer < 1){
@@ -54,10 +58,11 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    /** Layer Management Script */
 
-/** Page Management Script */
-
-    // Update is called once per frame
+    /**
+    * Shuffles the page layers as a page is clicked on
+    */
     void LayerPages()
     {
      Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -102,14 +107,11 @@ public class LevelManager : MonoBehaviour
         } 
     }
 
-    public void AllPapersDown(){
-        if (hasPages) {
-            for(int i=0; i<5; i++){
-                pagesArray[i].SendMessage("StopLookingAt");
-            }
-        }
-    } 
+    /** Mouse Taps and Drags */
 
+    /**
+    * Times any mouse clicks to determine if a tap ro drag happened, and calls the appropriate method
+    */
     void MouseClickTimer() {
         // Left click start
         if (Input.GetMouseButtonDown(0)) {
@@ -121,13 +123,13 @@ public class LevelManager : MonoBehaviour
         // Increment time
         if (tapStartTime != -1) {
            tapTimer = Time.time - tapStartTime; 
-           if (tapTimer > TAP_TIME) DragObject();
+           if (tapTimer > TAP_TIME) MouseDrag();
         }
 
         // Left click end
         if (Input.GetMouseButtonUp(0))
         {
-            if (tapTimer <= TAP_TIME) TapObject();
+            if (tapTimer <= TAP_TIME) MouseTap();
             tapStartTime = -1;
             tapTimer = 0;
             movingObject = null;
@@ -135,19 +137,29 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void TapObject() {
+    /**
+    * Handles a mouse tap
+    *
+    * A phone or page will be expanded
+    * Expanded phones or pages will be put down
+    * A stamper will be picked up
+    */
+    void MouseTap() {
+        // Expands a page or phone to the center
         if (expandedObject == null && targetObject) {
             if((targetObject.transform.gameObject.tag == "Pages") || (targetObject.transform.gameObject.tag == "Phone")){
                 targetObject.transform.gameObject.SendMessage("StartLookingAt");
                 expandedObject = targetObject;
             } 
         }
+        // Puts down an expanded page or phone
         else if (expandedObject != null) {
             if (targetObject != expandedObject) {
                 expandedObject.transform.gameObject.SendMessage("StopLookingAt");
                 expandedObject = null;
             }
         }
+        // Picks up/puts down the stamper
         if(targetObject){
             if(targetObject.tag == "Stamp"){
                 stamper.SendMessage("ClickedOn");
@@ -155,12 +167,10 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    /** Movement Script */
-
     /**
-    * Picks up and moves the object with the mouse
+    * Picks up and moves an object with the mouse
     */
-    void DragObject() {
+    void MouseDrag() {
         // Code from: https://gamedevbeginner.com/how-to-move-an-object-with-the-mouse-in-unity-in-2d/
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (movingObject == null && targetObject)
@@ -172,20 +182,24 @@ public class LevelManager : MonoBehaviour
         {
             Vector3 oldPos = movingObject.transform.position;
             movingObject.transform.position = mousePosition + offset;
-            checkOutOfBounds(oldPos);
+            keepInBounds(oldPos);
         } 
     }
 
-    void checkOutOfBounds(Vector3 oldPos) {
-        float xMin = mainCamera.transform.position.x - (mainCamera.orthographicSize * 16/9);
+    /**
+    * A helper function for MouseDrag
+    * Checks if the object is out of bounds and moves it back appropriately if so
+    */
+    void keepInBounds(Vector3 oldPos) {
+        float xMin = mainCamera.transform.position.x - (mainCamera.orthographicSize * 16/9); // 16/9 used for 16:9 screen scale - if we allow window size changes will need to change
         float xMax = mainCamera.transform.position.x + (mainCamera.orthographicSize * 16/9);
         float yMin = mainCamera.transform.position.y - (mainCamera.orthographicSize);
         float yMax = mainCamera.transform.position.y + (mainCamera.orthographicSize);
-            if (movingObject.transform.position.x < xMin || movingObject.transform.position.x > xMax) 
-                movingObject.transform.position = new Vector3(oldPos.x, movingObject.transform.position.y, movingObject.transform.position.z);
-            if (movingObject.transform.position.y < yMin || movingObject.transform.position.y > yMax)
-                movingObject.transform.position = new Vector3(movingObject.transform.position.x, oldPos.y, movingObject.transform.position.z);
+        // If out of bounds horizontally
+        if (movingObject.transform.position.x < xMin || movingObject.transform.position.x > xMax) 
+            movingObject.transform.position = new Vector3(oldPos.x, movingObject.transform.position.y, movingObject.transform.position.z);
+        // If out of bounds vertically
+        if (movingObject.transform.position.y < yMin || movingObject.transform.position.y > yMax)
+            movingObject.transform.position = new Vector3(movingObject.transform.position.x, oldPos.y, movingObject.transform.position.z);
     }
-
-
 }

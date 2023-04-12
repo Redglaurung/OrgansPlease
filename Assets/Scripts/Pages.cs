@@ -5,15 +5,15 @@ using UnityEngine;
 public class Pages : MonoBehaviour
 {
     public Canvas canvasCanvas;
-    public int layer;
     public SpriteRenderer myRenderer;
-    Vector3 defaultScale;
-    Vector3 scaledUp;
-    public bool isStamped;
 
     // Used for Start/Stop looking at
     Quaternion defaultRotation;
+    Vector3 defaultScale;
+    Vector3 scaledUp;
     Vector3 actualLocation;
+
+    public bool isStamped;
 
     // Start is called before the first frame update
     void Start()
@@ -40,10 +40,12 @@ public class Pages : MonoBehaviour
             stampRenderer.sortingOrder = layer + 1;
         }
     }
+
+    /**
+    * Expands the page and moves it to the center at a larger scale for readability
+    */
     public void StartLookingAt(){
         myRenderer.sortingLayerName = "Looking At";
-        transform.localRotation = new Quaternion(0,0,0,0);
-        transform.localScale = scaledUp;
         canvasCanvas.sortingLayerName = "Looking At";
         if (gameObject.transform.childCount == 2)
         {
@@ -53,13 +55,17 @@ public class Pages : MonoBehaviour
         }
 
         // Move to center
+        transform.localRotation = new Quaternion(0,0,0,0);
+        transform.localScale = scaledUp;
         actualLocation = transform.position;
         transform.position = Vector3.zero;
     }
+
+    /**
+    * Contracts the page and moves it back to where it was before
+    */
     public void StopLookingAt(){
         myRenderer.sortingLayerName = "Pages";
-        transform.localScale = defaultScale;
-        transform.localRotation = defaultRotation;
         canvasCanvas.sortingLayerName = "Pages";
         if (gameObject.transform.childCount == 2)
         {
@@ -69,6 +75,8 @@ public class Pages : MonoBehaviour
         }
 
         // Move back from center
+        transform.localScale = defaultScale;
+        transform.localRotation = defaultRotation;
         transform.position = actualLocation;
     }
 

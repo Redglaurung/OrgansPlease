@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+* TODO: Do we need this?
+*/
 public class DrawerSlideOut : MonoBehaviour
 {
     public bool slideOut = false;

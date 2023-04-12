@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+* TODO: Do we need this?
+*/
 public class DeniedScript : MonoBehaviour
 {
     public Sprite stampType;
