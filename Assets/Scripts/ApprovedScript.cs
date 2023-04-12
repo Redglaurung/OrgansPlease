@@ -146,6 +146,25 @@ public class ApprovedScript : MonoBehaviour
 
 public void ApplyStamp() {
     targetObject = Physics2D.OverlapPoint(transform.position);
+    targetPaper = targetObject.transform.gameObject;
+    if ((targetPaper.transform.childCount >= 2) || character.isChosen())
+         {
+             Debug.Log("Can't stamp. Already been stamped or a paper has been chosen already!");
+         } else {
+             Debug.Log("Stamped Approved!");
+             GameObject approvedStamp = new GameObject("Approved Stamp Picture");
+             approvedStamp.transform.SetParent(targetPaper.transform);
+             approvedStamp.transform.SetAsFirstSibling();
+             approvedStamp.transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+             SpriteRenderer stampRenderer = approvedStamp.AddComponent<SpriteRenderer>();
+             stampRenderer.sortingLayerName = "Pages";
+             targetPaper.SendMessage("LayerUpdate", 6);
+             stampRenderer.sprite = stampType;
+             approvedStamp.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
+             Pages paperScript = targetPaper.GetComponent<Pages>();
+             paperScript.setStamped();
+             Files.SendMessage("Chosen");
+         }
 
 }
 
