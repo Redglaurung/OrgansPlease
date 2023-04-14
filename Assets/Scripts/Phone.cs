@@ -22,6 +22,7 @@ public class Phone : MonoBehaviour
     // Used for phone screen transitions
     public Image mainScreen;
     public Image email;
+    public Image topPanel;
     public Image definitions;
     public Image emailButton;
     public ScrollRect scrollRect;
@@ -75,21 +76,24 @@ public class Phone : MonoBehaviour
     }
 
     /**
-    * Called when the definitions button is pressed
-    */
-    public void GoToDefinitions() {
-        definitions.gameObject.SetActive(true);
-        mainScreen.gameObject.SetActive(false);
-        scrollRect.content = definitions.rectTransform;
-    }
-
-    /**
     * Called when a back button is pressed
     */
     public void GoToMenu() {
         mainScreen.gameObject.SetActive(true);
         definitions.gameObject.SetActive(false);
         email.gameObject.SetActive(false);
+        topPanel.gameObject.SetActive(false);
+    }
+
+    /**
+    * Called when the definitions button is pressed
+    */
+    public void GoToDefinitions() {
+        definitions.gameObject.SetActive(true);
+        topPanel.gameObject.SetActive(true);
+        mainScreen.gameObject.SetActive(false);
+        
+        scrollRect.content = definitions.rectTransform;
     }
 
     /**
@@ -97,7 +101,9 @@ public class Phone : MonoBehaviour
     */
     public void GoToEmail() {
         email.gameObject.SetActive(true);
+        topPanel.gameObject.SetActive(true);
         mainScreen.gameObject.SetActive(false);
+
         emailButton.sprite = emailNormal;
         scrollRect.content = email.rectTransform;
     }
