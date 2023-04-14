@@ -24,6 +24,7 @@ public class Phone : MonoBehaviour
     public Image email;
     public Image definitions;
     public Image emailButton;
+    public ScrollRect scrollRect;
     
     // Start is called before the first frame update
     void Start()
@@ -79,6 +80,7 @@ public class Phone : MonoBehaviour
     public void GoToDefinitions() {
         definitions.gameObject.SetActive(true);
         mainScreen.gameObject.SetActive(false);
+        scrollRect.content = definitions.rectTransform;
     }
 
     /**
@@ -97,6 +99,7 @@ public class Phone : MonoBehaviour
         email.gameObject.SetActive(true);
         mainScreen.gameObject.SetActive(false);
         emailButton.sprite = emailNormal;
+        scrollRect.content = email.rectTransform;
     }
 
     /**

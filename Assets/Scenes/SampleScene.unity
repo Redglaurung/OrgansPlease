@@ -3079,6 +3079,7 @@ MonoBehaviour:
   email: {fileID: 1055118596}
   definitions: {fileID: 1842732846}
   emailButton: {fileID: 870559664}
+  scrollRect: {fileID: 2124825285}
 --- !u!212 &895046095
 SpriteRenderer:
   m_ObjectHideFlags: 0
