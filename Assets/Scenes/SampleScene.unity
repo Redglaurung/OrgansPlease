@@ -2558,7 +2558,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasCanvas: {fileID: 1934346360}
-  layer: 0
   myRenderer: {fileID: 0}
   isStamped: 0
 --- !u!212 &892962710
@@ -2621,7 +2620,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892962707}
   m_LocalRotation: {x: 0.007108489, y: 0.124851696, z: 0.10329513, w: 0.9867581}
-  m_LocalPosition: {x: 6.35, y: 1.31, z: 5.35}
+  m_LocalPosition: {x: 6.71, y: 0.51, z: 5.35}
   m_LocalScale: {x: 0.25, y: 0.31, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2802,13 +2801,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3fb49ba2e36c9449b9f3e5c6a41796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emailNotification: {fileID: 21300000, guid: a8f12ec9a1f02e04998d2ea18683c1b9, type: 3}
+  emailNormal: {fileID: 21300000, guid: 528037cef2736254fb32a8799209f704, type: 3}
   canvasCanvas: {fileID: 144328764}
   mainScreen: {fileID: 725811639}
   email: {fileID: 1055118596}
   definitions: {fileID: 1842732846}
   emailButton: {fileID: 870559664}
-  emailNotification: {fileID: 21300000, guid: a8f12ec9a1f02e04998d2ea18683c1b9, type: 3}
-  emailNormal: {fileID: 21300000, guid: 528037cef2736254fb32a8799209f704, type: 3}
 --- !u!212 &895046095
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4262,7 +4261,6 @@ MonoBehaviour:
   - {fileID: 0}
   stamper: {fileID: 652610044}
   movingObject: {fileID: 0}
-  hasPages: 1
   mainCamera: {fileID: 519420031}
 --- !u!1 &1358502399
 GameObject:
@@ -4296,7 +4294,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasCanvas: {fileID: 2112849458}
-  layer: 0
   myRenderer: {fileID: 0}
   isStamped: 0
 --- !u!212 &1358502402
@@ -4984,7 +4981,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasCanvas: {fileID: 706277371}
-  layer: 0
   myRenderer: {fileID: 0}
   isStamped: 0
 --- !u!212 &1513156929
@@ -6585,7 +6581,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasCanvas: {fileID: 1510618449}
-  layer: 0
   myRenderer: {fileID: 0}
   isStamped: 0
 --- !u!212 &1927811711
