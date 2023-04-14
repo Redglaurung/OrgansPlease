@@ -44,7 +44,7 @@ public class Folder : MonoBehaviour
         if(characterChosen){
             for(int i=0; i<4; i++){
                         float distance = Vector2.Distance(pagesArray[i].transform.position, transform.position);
-                        print(distance);
+                        //print(distance);
                         if((distance <= 6.5f) && (pagesArray[i].tag != "Furniture")){
                                 pagesArray[i].SendMessage("StopMovement");
                                 int count=0;
