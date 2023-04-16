@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
 
     // Used for page layering
     public GameObject selectedObject;
+    public GameObject Greyout;
     public GameObject[] pagesArray;
     int currentMax;
 
@@ -145,11 +146,15 @@ public class LevelManager : MonoBehaviour
     * A stamper will be picked up
     */
     void MouseTap() {
+        if(targetObject){
+            print(targetObject.transform.gameObject.name);
+        }
         // Expands a page or phone to the center
         if (expandedObject == null && targetObject) {
             if((targetObject.transform.gameObject.tag == "Pages") || (targetObject.transform.gameObject.tag == "Phone")){
                 targetObject.transform.gameObject.SendMessage("StartLookingAt");
                 expandedObject = targetObject;
+                Greyout.transform.position = new Vector3(0f,0f,-3f);
             } 
         }
         // Puts down an expanded page or phone
@@ -157,6 +162,7 @@ public class LevelManager : MonoBehaviour
             if (targetObject != expandedObject) {
                 expandedObject.transform.gameObject.SendMessage("StopLookingAt");
                 expandedObject = null;
+                Greyout.transform.position = new Vector3(28f,0f,-3f);
             }
         }
         // Picks up/puts down the stamper

@@ -67,8 +67,12 @@ public class ApprovedScript : MonoBehaviour
     {
         if((uptimer>=0)&&(readied)){
             uptimer--;
-            transform.position += new Vector3(0f,0.1f,0f);
-            readiedStamp.transform.position -= new Vector3(0f,0.1f,0f);
+            if(transform.position.y <=4){
+                transform.position += new Vector3(0f,0.1f,0f);
+                readiedStamp.transform.position -= new Vector3(0f,0.1f,0f);
+            } else {
+                readiedStamp.transform.position -= new Vector3(0f,0.1f,0f);
+            }
         }
          if((downtimer>=0)&&(!readied)){
              downtimer--;

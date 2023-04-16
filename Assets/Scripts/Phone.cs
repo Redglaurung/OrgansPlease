@@ -56,6 +56,7 @@ public class Phone : MonoBehaviour
     public void StartLookingAt(){
         myRenderer.sortingLayerName = "Looking At";
         canvasCanvas.sortingLayerName = "Looking At";
+        transform.position = new Vector3 (transform.position.x, transform.position.y, -1f);
 
         // Move to center
         transform.localScale = doubleScale;
@@ -69,6 +70,7 @@ public class Phone : MonoBehaviour
     public void StopLookingAt(){
         myRenderer.sortingLayerName = "Pages";
         canvasCanvas.sortingLayerName = "Pages";
+        transform.position = new Vector3 (transform.position.x, transform.position.y, 0f);
 
         // Move back from center
         transform.localScale = defaultScale;
