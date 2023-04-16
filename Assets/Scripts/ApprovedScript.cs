@@ -190,6 +190,7 @@ public void ApplyStamp() {
             Debug.Log("Can't stamp. Already been stamped or a paper has been chosen already!");
         } else {
             Debug.Log("Stamped Approved!");
+            
             GameObject approvedStamp = new GameObject("Approved Stamp Picture");
             approvedStamp.transform.SetParent(targetPaper.transform);
             approvedStamp.transform.SetAsFirstSibling();
@@ -206,6 +207,12 @@ public void ApplyStamp() {
 
             animator.SetBool("Stamped", true);
             stampPressSound.Play();
+            
+            for(int i=0;i<4;i++){
+                if(pagesArray[i].name != targetPaper.name){
+                    pagesArray[i].SendMessage("IsRejected");
+                }
+            }
         }
 
 }

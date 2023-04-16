@@ -18,7 +18,7 @@ public class Folder : MonoBehaviour
         opened = false;
         characterChosen = false;
         dayEnding = false;
-        timer = 100;
+        timer = 500;
     }
 
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class Folder : MonoBehaviour
                                         count++;
                                     }
                                 }
-                                if(count >= 4){
+                                if(count >= 3){
                                     EndDay();
                                 } else {
                                     count = 0;

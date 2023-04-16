@@ -2755,6 +2755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasCanvas: {fileID: 1934346360}
   myRenderer: {fileID: 0}
+  FolderBottom: {fileID: 1769905632}
   isStamped: 0
 --- !u!212 &892962710
 SpriteRenderer:
@@ -4606,6 +4607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasCanvas: {fileID: 2112849458}
   myRenderer: {fileID: 0}
+  FolderBottom: {fileID: 1769905632}
   isStamped: 0
 --- !u!212 &1358502402
 SpriteRenderer:
@@ -5294,6 +5296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasCanvas: {fileID: 706277371}
   myRenderer: {fileID: 0}
+  FolderBottom: {fileID: 1769905632}
   isStamped: 0
 --- !u!212 &1513156929
 SpriteRenderer:
@@ -6890,6 +6893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasCanvas: {fileID: 1510618449}
   myRenderer: {fileID: 0}
+  FolderBottom: {fileID: 1769905632}
   isStamped: 0
 --- !u!212 &1927811711
 SpriteRenderer:

@@ -13,11 +13,18 @@ public class Pages : MonoBehaviour
     Vector3 scaledUp;
     Vector3 actualLocation;
 
+    //activated if rejected
+    bool rejected;
+    float speed;
+    public GameObject FolderBottom;
+
     public bool isStamped;
 
     // Start is called before the first frame update
     void Start()
     {
+        rejected = false;
+        speed = .02f;
         myRenderer = GetComponent<SpriteRenderer>();
         defaultScale = transform.localScale;
         defaultRotation = transform.localRotation;
@@ -28,7 +35,13 @@ public class Pages : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         
+         if(rejected){
+            
+            float step = speed * Time.deltaTime;
+
+            // move sprite towards the target location
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3 (7f,1f,transform.position.z), speed);
+        }
     }
     public void LayerUpdate(int layer){
         myRenderer.sortingOrder = layer;
@@ -39,6 +52,7 @@ public class Pages : MonoBehaviour
             SpriteRenderer stampRenderer = stamp.GetComponent<SpriteRenderer>();
             stampRenderer.sortingOrder = layer + 1;
         }
+        
     }
 
     /**
@@ -94,5 +108,9 @@ public class Pages : MonoBehaviour
     }
     public void StopMovement(){
         gameObject.tag = "Furniture";
+    }
+    public void IsRejected(){
+        rejected=true;
+        //print("yep");
     }
 }
