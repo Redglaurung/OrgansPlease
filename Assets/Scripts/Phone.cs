@@ -56,12 +56,13 @@ public class Phone : MonoBehaviour
     public void StartLookingAt(){
         myRenderer.sortingLayerName = "Looking At";
         canvasCanvas.sortingLayerName = "Looking At";
-        transform.position = new Vector3 (transform.position.x, transform.position.y, -1f);
+        
 
         // Move to center
         transform.localScale = doubleScale;
         actualLocation = transform.position;
         transform.position = Vector3.zero;
+        transform.position = new Vector3 (transform.position.x, transform.position.y, -4f);
     }
 
     /**

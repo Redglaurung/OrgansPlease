@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class LevelManager : MonoBehaviour
     // Used for page layering
     public GameObject selectedObject;
     public GameObject Greyout;
+    public GameObject emailButton;
+    public GameObject dictButton;
+    public GameObject backButton;
     public GameObject[] pagesArray;
     int currentMax;
 
@@ -103,8 +107,11 @@ public class LevelManager : MonoBehaviour
             }   
         }
         for(int i=0;i<4;i++){
-            float zcalculator = 8 - 2 * i;
-            pagesArray[i].transform.position = new Vector3(pagesArray[i].transform.position.x , pagesArray[i].transform.position.y ,zcalculator);
+            SpriteRenderer pageRenderer = pagesArray[i].GetComponent<SpriteRenderer>();
+            if(pageRenderer.sortingLayerName != "Looking At"){
+                float zcalculator = 8 - 2 * i;
+                pagesArray[i].transform.position = new Vector3(pagesArray[i].transform.position.x , pagesArray[i].transform.position.y ,zcalculator);
+            }
         } 
     }
 
@@ -155,6 +162,17 @@ public class LevelManager : MonoBehaviour
                 targetObject.transform.gameObject.SendMessage("StartLookingAt");
                 expandedObject = targetObject;
                 Greyout.transform.position = new Vector3(0f,0f,-3f);
+                if(targetObject.transform.gameObject.tag != "Phone"){
+                    if(emailButton.activeSelf){
+                        emailButton.GetComponent<Button>().interactable = false;
+                    }
+                    if(dictButton.activeSelf){
+                        dictButton.GetComponent<Button>().interactable = false;
+                    }
+                    if(backButton.activeSelf){
+                        backButton.GetComponent<Button>().interactable = false;
+                    }
+                }
             } 
         }
         // Puts down an expanded page or phone
@@ -163,6 +181,15 @@ public class LevelManager : MonoBehaviour
                 expandedObject.transform.gameObject.SendMessage("StopLookingAt");
                 expandedObject = null;
                 Greyout.transform.position = new Vector3(28f,0f,-3f);
+                if(emailButton.activeSelf){
+                    emailButton.GetComponent<Button>().interactable = true;
+                }
+                if(dictButton.activeSelf){
+                    dictButton.GetComponent<Button>().interactable = true;
+                }
+                if(backButton.activeSelf){
+                    backButton.GetComponent<Button>().interactable = true;
+                }
             }
         }
         // Picks up/puts down the stamper

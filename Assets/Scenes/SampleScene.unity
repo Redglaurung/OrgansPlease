@@ -4561,6 +4561,9 @@ MonoBehaviour:
   - {fileID: 1334460429}
   selectedObject: {fileID: 0}
   Greyout: {fileID: 1890012792}
+  emailButton: {fileID: 870559663}
+  dictButton: {fileID: 1747756829}
+  backButton: {fileID: 353701137}
   pagesArray:
   - {fileID: 892962707}
   - {fileID: 1927811708}
