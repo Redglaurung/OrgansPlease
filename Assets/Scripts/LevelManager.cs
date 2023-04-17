@@ -153,6 +153,7 @@ public class LevelManager : MonoBehaviour
     * A stamper will be picked up
     */
     void MouseTap() {
+        Debug.Log("MouseTap obj: " + targetObject.name);
         if(targetObject){
             print(targetObject.transform.gameObject.name);
         }
@@ -199,6 +200,11 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
+
+    // public void ManualTap(GameObject targObj) {
+    //     targetObject = targObj;
+    //     MouseTap();
+    // }
 
     /**
     * Picks up and moves an object with the mouse

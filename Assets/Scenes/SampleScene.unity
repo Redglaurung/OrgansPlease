@@ -3007,6 +3007,7 @@ MonoBehaviour:
   definitions: {fileID: 1842732846}
   emailButton: {fileID: 870559664}
   scrollRect: {fileID: 2124825285}
+  levelManager: {fileID: 1334460426}
 --- !u!212 &895046095
 SpriteRenderer:
   m_ObjectHideFlags: 0

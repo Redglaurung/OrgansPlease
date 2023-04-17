@@ -26,6 +26,7 @@ public class Phone : MonoBehaviour
     public Image definitions;
     public Image emailButton;
     public ScrollRect scrollRect;
+    public GameObject levelManager;
     
     // Start is called before the first frame update
     void Start()
@@ -86,6 +87,8 @@ public class Phone : MonoBehaviour
         definitions.gameObject.SetActive(false);
         email.gameObject.SetActive(false);
         topPanel.gameObject.SetActive(false);
+
+        levelManager.SendMessage("MouseTap");
     }
 
     /**
