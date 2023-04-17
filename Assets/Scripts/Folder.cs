@@ -7,6 +7,7 @@ public class Folder : MonoBehaviour
 {
     public SpriteRenderer myRenderer;
     public GameObject[] pagesArray;
+    public GameObject GreyOut;
     bool opened;
     bool characterChosen;
     bool dayEnding;
@@ -75,6 +76,7 @@ public class Folder : MonoBehaviour
     }
     public void EndDay(){
         dayEnding = true;
+        GreyOut.SendMessage("FadeOut");
         transform.localScale = new Vector3(1f,1f,1f);
         transform.position = new Vector3(7.09f,0.34f,0f);
         myRenderer.sortingLayerName = "Stamper";

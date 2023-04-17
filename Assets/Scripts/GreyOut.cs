@@ -32,6 +32,7 @@ public class GreyOut : MonoBehaviour
                 transform.position = new Vector3(26f,.5f,-3f);
             }
         } else if(fadeout){
+            transform.position = new Vector3(0f,0f,-6f);
             if(opacity <=.999){
                 opacity+=.001f;
                 myRenderer.color = new Color(0f,0f,0f,opacity);
