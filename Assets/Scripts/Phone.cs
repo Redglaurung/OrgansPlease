@@ -100,6 +100,7 @@ public class Phone : MonoBehaviour
         mainScreen.gameObject.SetActive(false);
         
         scrollRect.content = definitions.rectTransform;
+        levelManager.SendMessage("MouseTap");
     }
 
     /**
@@ -112,6 +113,7 @@ public class Phone : MonoBehaviour
 
         emailButton.sprite = emailNormal;
         scrollRect.content = email.rectTransform;
+        levelManager.SendMessage("MouseTap");
     }
 
     /**
