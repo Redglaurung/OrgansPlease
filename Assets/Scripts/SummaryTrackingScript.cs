@@ -158,9 +158,9 @@ public class SummaryTrackingScript : MonoBehaviour
         };
 
 
-        int colorTracker = 0;   // The current colors are 1 = Red, 2 = Green, and 3 = Gray
-        //float squareY = 0f;
-        float yScale = 0.5f;
+        //int colorTracker = 0;   // The current colors are 1 = Red, 2 = Green, and 3 = Gray
+        ////float squareY = 0f;
+        //float yScale = 0.5f;
 
         GameObject ageObject = GameObject.Find("Age");
         Transform ageObjectSquare = ageObject.transform.Find("Square");
@@ -173,17 +173,11 @@ public class SummaryTrackingScript : MonoBehaviour
         Debug.Log("This is the position of Main Screen: " + mainScreen.transform.position);
         Vector3 offset = scrollView.transform.position + viewPort.transform.localPosition + mainScreen.transform.localPosition;
 
-
-
         //Debug.Log("The position of ageObjectSquarePosition is: " + ageObjectSquarePosition);
 
         GameObject payObject = GameObject.Find("Pay");
         Transform payObjectSquare = payObject.transform.Find("Square");
         //Debug.Log("This is the position of payObject: " + payObject.transform.position);
- 
-        
-
-
 
         GameObject notorietyObject = GameObject.Find("Notoriety");
         Transform notorietyObjectSquare = notorietyObject.transform.Find("Square");
@@ -195,48 +189,59 @@ public class SummaryTrackingScript : MonoBehaviour
         GameObject philObject = GameObject.Find("Philanthropy");
         Transform philObjectSquare = philObject.transform.Find("Square");
 
-
-        Vector3 ageObjectSquarePosition = offset + ageObject.transform.localPosition + ageObjectSquare.transform.localPosition;
-        Vector3 payObjectSquarePosition = offset + payObject.transform.localPosition + payObjectSquare.transform.localPosition;
-        Vector3 notorietyObjectSquarePosition = offset + notorietyObject.transform.localPosition + notorietyObjectSquare.transform.localPosition;
-        Vector3 waitObjectSquarePosition = offset + waitObject.transform.localPosition + waitObjectSquare.transform.localPosition;
-        Vector3 philObjectSquarePosition = offset + philObject.transform.localPosition + philObjectSquare.transform.localPosition;
-
-
-
-        //Debug.Log("This is the offset: " + offset.y);
-        //Debug.Log("Age Object Square is at: " + ageObjectSquarePosition.y);
-        //Debug.Log("Pay Object Square is at: " + payObjectSquarePosition.y);
-        float agePosition = ageObjectSquarePosition.y - ((ageObjectSquarePosition.y - payObjectSquarePosition.y) / 2) + yScale;
-        float payPosition = payObjectSquarePosition.y - ((payObjectSquarePosition.y - notorietyObjectSquarePosition.y)/2);
-        //Debug.Log("This is the ageObjectSquarePositionVector " + ageObjectSquarePosition);
-        Debug.Log("This is the payObjectSquarePositionVector " + payObjectSquarePosition);
-        Debug.Log("This is the notorietyObjectSquarePositionVector " + notorietyObjectSquarePosition);
-        Debug.Log("This is the waitObjectSquarePositionVector " + waitObjectSquarePosition);
-
-        float notorietyPosition = notorietyObjectSquarePosition.y - ((notorietyObjectSquarePosition.y - waitObjectSquarePosition.y) / 2) - yScale/2 - yScale;
-        Debug.Log("This is notorietyPosition: " + notorietyPosition);
-
-        float waitPosition = waitObjectSquarePosition.y - ((waitObjectSquarePosition.y - philObjectSquarePosition.y) / 2);
-
-        //barChart.transform.SetParent(ageObject.transform);
-        //barChart.transform.position = new Vector3(-3, -5, 0);
-        //float squareY = agePosition;
-
         GameObject ageChart = new GameObject("Age Chart");
         GameObject payChart = new GameObject("Pay Chart");
         GameObject notorietyChart = new GameObject("Notoriety Chart");
         GameObject waitChart = new GameObject("Wait Chart");
 
-        GameObject ageYoungestText = ageObject.transform.Find("Youngest Data").gameObject;
-        
+        GameObject ageOldest = ageObject.transform.Find("Oldest").gameObject;
+        GameObject ageOldestDataBox = ageOldest.transform.Find("Oldest Data").gameObject;
+        GameObject ageOldestBar = ageOldest.transform.Find("Bar").gameObject;
 
-        makeCategoryChart(ageObject, ageCategory, ageChart, ageYoungestText.transform.position.y, yScale, colorTracker);
-        colorTracker = 0;
-        //squareY = 0;
-        makeCategoryChart(payObject, incomeCategory, payChart, payPosition, yScale, colorTracker);
-        makeCategoryChart(notorietyObject, knownCategory, notorietyChart, notorietyPosition, yScale, colorTracker);
-        makeCategoryChart(waitObject, waitCategory, waitChart, waitPosition, yScale, colorTracker);
+        SpriteRenderer oldestRenderer = ageOldestBar.AddComponent<SpriteRenderer>();
+        oldestRenderer.sprite = bar;
+        oldestRenderer.sortingLayerName = "Testing Layer";
+
+        oldestRenderer.color = Color.red;
+        ageOldestBar.transform.localScale = new Vector3(oldest, 0.5f, 0);
+        ageOldestBar.transform.position = new Vector3(0.5f * (oldest - 1), ageOldestDataBox.transform.position.y, 0);
+
+        GameObject ageYoungest = ageObject.transform.Find("Youngest").gameObject;
+        GameObject ageYoungestDataBox = ageYoungest.transform.Find("Youngest Data").gameObject;
+        GameObject ageYoungestBar = ageYoungest.transform.Find("Bar").gameObject;
+
+        SpriteRenderer youngestRenderer = ageYoungestBar.AddComponent<SpriteRenderer>();
+        youngestRenderer.sprite = bar;
+        youngestRenderer.color = Color.green;
+        youngestRenderer.sortingLayerName = "Testing Layer";
+
+        ageYoungestBar.transform.localScale = new Vector3(youngest, 0.5f, 0);
+        ageYoungestBar.transform.position = new Vector3(0.5f * (youngest - 1), ageYoungestDataBox.transform.position.y, 0);
+
+
+        GameObject ageNeither = ageObject.transform.Find("Neither").gameObject;
+        GameObject ageNeitherDataBox = ageNeither.transform.Find("AgeNeither Data").gameObject;
+        GameObject ageNeitherBar = ageNeither.transform.Find("Bar").gameObject;
+
+        SpriteRenderer neitherRenderer = ageNeitherBar.AddComponent<SpriteRenderer>();
+        neitherRenderer.sprite = bar;
+        neitherRenderer.color = Color.grey;
+        neitherRenderer.sortingLayerName = "Testing Layer";
+
+        ageNeitherBar.transform.localScale = new Vector3(neitherAge, 0.5f, 0);
+        ageNeitherBar.transform.position = new Vector3(0.5f * (neitherAge - 1), ageNeitherDataBox.transform.position.y, 0);
+
+
+
+
+
+        //makeCategoryChart(ageObject, ageCategory, ageChart, ageYoungestText.transform.position.y, yScale, colorTracker);
+        //colorTracker = 0;
+        ////squareY = 0;
+        //makeCategoryChart(payObject, incomeCategory, payChart, payPosition, yScale, colorTracker);
+        //makeCategoryChart(notorietyObject, knownCategory, notorietyChart, notorietyPosition, yScale, colorTracker);
+        //makeCategoryChart(waitObject, waitCategory, waitChart, waitPosition, yScale, colorTracker);
+
 
 
 
