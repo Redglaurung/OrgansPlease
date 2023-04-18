@@ -272,7 +272,43 @@ public class SummaryTrackingScript : MonoBehaviour
         notoLeastBar.transform.position = new Vector3(0.5f * (notKnown - 1), notoLeastData.transform.position.y, 0);
 
         // Waitlist Bar Chart
+        GameObject waitLong = waitObject.transform.Find("LongestWait").gameObject;
+        GameObject waitLongData = waitLong.transform.Find("LongestWait Data").gameObject;
+        GameObject waitLongBar = waitLong.transform.Find("Bar").gameObject;
 
+        SpriteRenderer waitLongRenderer = waitLongBar.AddComponent<SpriteRenderer>();
+        waitLongRenderer.sprite = bar;
+        waitLongRenderer.color = Color.red;
+        waitLongRenderer.sortingLayerName = barLayer;
+
+        waitLongBar.transform.localScale = new Vector3(longWait, yScale, 0);
+        waitLongBar.transform.position = new Vector3(0.5f * (longWait - 1), waitLongData.transform.position.y, 0);
+
+        GameObject waitShort = waitObject.transform.Find("ShortestWait").gameObject;
+        GameObject waitShortData = waitShort.transform.Find("ShortestWait Data").gameObject;
+        GameObject waitShortBar = waitShort.transform.Find("Bar").gameObject;
+
+        SpriteRenderer waitShortRenderer = waitShortBar.AddComponent<SpriteRenderer>();
+        waitShortRenderer.sprite = bar;
+        waitShortRenderer.color = Color.green;
+        waitShortRenderer.sortingLayerName = barLayer;
+
+        waitShortBar.transform.localScale = new Vector3(shortWait, yScale, 0);
+        waitShortBar.transform.position = new Vector3(0.5f * (shortWait - 1), waitShortData.transform.position.y, 0);
+
+        GameObject waitNeither = waitObject.transform.Find("NeitherWait").gameObject;
+        GameObject waitNeitherData = waitNeither.transform.Find("WaitNeither Data").gameObject;
+        GameObject waitNeitherBar = waitNeither.transform.Find("Bar").gameObject;
+
+        SpriteRenderer waitNeitherRenderer = waitNeitherBar.AddComponent<SpriteRenderer>();
+        waitNeitherRenderer.sprite = bar;
+        waitNeitherRenderer.color = Color.gray;
+        waitNeitherRenderer.sortingLayerName = barLayer;
+
+        waitNeitherBar.transform.localScale = new Vector3(neitherWait, yScale, 0);
+        waitNeitherBar.transform.position = new Vector3(0.5f * (neitherWait - 1), waitNeitherData.transform.position.y, 0);
+
+    
     }
     public void makeFeedbackSheet() {
             GameObject[] DataArray = GameObject.FindGameObjectsWithTag ("Data");
