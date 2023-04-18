@@ -246,6 +246,33 @@ public class SummaryTrackingScript : MonoBehaviour
         payNeitherBar.transform.position = new Vector3(0.5f * (neitherIncome - 1), payNeitherData.transform.position.y, 0);
 
 
+        // Notoriety Bar Chart
+        GameObject notoWell = notorietyObject.transform.Find("WellKnown").gameObject;
+        GameObject notoWellData = notoWell.transform.Find("WellKnown Data").gameObject;
+        GameObject notoWellBar = notoWell.transform.Find("Bar").gameObject;
+
+        SpriteRenderer notoWellRenderer = notoWellBar.AddComponent<SpriteRenderer>();
+        notoWellRenderer.sprite = bar;
+        notoWellRenderer.color = Color.red;
+        notoWellRenderer.sortingLayerName = barLayer;
+
+        notoWellBar.transform.localScale = new Vector3(wellKnown, yScale, 0);
+        notoWellBar.transform.position = new Vector3(0.5f * (wellKnown - 1), notoWellData.transform.position.y, 0);
+
+        GameObject notoLeast = notorietyObject.transform.Find("Obscure").gameObject;
+        GameObject notoLeastData = notoLeast.transform.Find("Obscure Data").gameObject;
+        GameObject notoLeastBar = notoLeast.transform.Find("Bar").gameObject;
+
+        SpriteRenderer notoLeastRenderer = notoLeastBar.AddComponent<SpriteRenderer>();
+        notoLeastRenderer.sprite = bar;
+        notoLeastRenderer.color = Color.green;
+        notoLeastRenderer.sortingLayerName = barLayer;
+
+        notoLeastBar.transform.localScale = new Vector3(notKnown, yScale, 0);
+        notoLeastBar.transform.position = new Vector3(0.5f * (notKnown - 1), notoLeastData.transform.position.y, 0);
+
+        // Waitlist Bar Chart
+
     }
     public void makeFeedbackSheet() {
             GameObject[] DataArray = GameObject.FindGameObjectsWithTag ("Data");
