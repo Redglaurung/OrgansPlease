@@ -8,6 +8,8 @@ public class Folder : MonoBehaviour
     public SpriteRenderer myRenderer;
     public GameObject[] pagesArray;
     public GameObject GreyOut;
+    public string nextScene;
+
     bool opened;
     bool characterChosen;
     bool dayEnding;
@@ -64,7 +66,7 @@ public class Folder : MonoBehaviour
         }
         if(dayEnding){
             if(timer <= 0){
-                SceneManager.LoadScene("EndingStart");
+                SceneManager.LoadScene(nextScene);
             } else {
                 timer--;
             }

@@ -725,6 +725,7 @@ MonoBehaviour:
   - {fileID: 1513156926}
   - {fileID: 1358502399}
   GreyOut: {fileID: 1890012792}
+  nextScene: Day 2
 --- !u!1 &240020661
 GameObject:
   m_ObjectHideFlags: 0
