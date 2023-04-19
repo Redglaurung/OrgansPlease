@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndingFeedback.unity
     guid: e330d5ccbf506de4f98a531b27473c20
+  - enabled: 1
+    path: Assets/Scenes/Day 2.unity
+    guid: 2094b098b254a3b4fbf63dd128fcc96d
   m_configObjects: {}
