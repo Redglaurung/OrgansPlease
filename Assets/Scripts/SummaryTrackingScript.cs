@@ -308,7 +308,42 @@ public class SummaryTrackingScript : MonoBehaviour
         waitNeitherBar.transform.localScale = new Vector3(neitherWait, yScale, 0);
         waitNeitherBar.transform.position = new Vector3(0.5f * (neitherWait - 1), waitNeitherData.transform.position.y, 0);
 
-    
+        // Philanthropy Bar Chart
+        GameObject philHistoryGood = philObject.transform.Find("HistoryGood").gameObject;
+        GameObject philHistoryGoodData = philHistoryGood.transform.Find("HistoryGood Data").gameObject;
+        GameObject philHistoryGoodBar = philHistoryGood.transform.Find("Bar").gameObject;
+
+        SpriteRenderer philHistoryGoodRenderer = philHistoryGoodBar.AddComponent<SpriteRenderer>();
+        philHistoryGoodRenderer.sprite = bar;
+        philHistoryGoodRenderer.color = Color.red;
+        philHistoryGoodRenderer.sortingLayerName = barLayer;
+
+        philHistoryGoodBar.transform.localScale = new Vector3(guarGood, yScale, 0);
+        philHistoryGoodBar.transform.position = new Vector3(0.5f * (guarGood - 1), philHistoryGoodData.transform.position.y, 0);
+
+        GameObject philFutureGood = philObject.transform.Find("FutureGood").gameObject;
+        GameObject philFutureGoodData = philFutureGood.transform.Find("FutureGood Data").gameObject;
+        GameObject philFutureGoodBar = philFutureGood.transform.Find("Bar").gameObject;
+
+        SpriteRenderer philFutureGoodRenderer = philFutureGoodBar.AddComponent<SpriteRenderer>();
+        philFutureGoodRenderer.sprite = bar;
+        philFutureGoodRenderer.color = Color.green;
+        philFutureGoodRenderer.sortingLayerName = barLayer;
+
+        philFutureGoodBar.transform.localScale = new Vector3(potGood, yScale, 0);
+        philFutureGoodBar.transform.position = new Vector3(0.5f * (potGood - 1), philFutureGoodData.transform.position.y, 0);
+
+        GameObject philNeither = philObject.transform.Find("NeitherGood").gameObject;
+        GameObject philNeitherData = philNeither.transform.Find("NeitherGood Data").gameObject;
+        GameObject philNeitherBar = philNeither.transform.Find("Bar").gameObject;
+
+        SpriteRenderer philNeitherRenderer = philNeitherBar.AddComponent<SpriteRenderer>();
+        philNeitherRenderer.sprite = bar;
+        philNeitherRenderer.color = Color.gray;
+        philNeitherRenderer.sortingLayerName = barLayer;
+
+        philNeitherBar.transform.localScale = new Vector3(noGood, yScale, 0);
+        philNeitherBar.transform.position = new Vector3(0.5f * (noGood - 1), philNeitherData.transform.position.y, 0);
     }
     public void makeFeedbackSheet() {
             GameObject[] DataArray = GameObject.FindGameObjectsWithTag ("Data");
