@@ -24,8 +24,8 @@ public class GreyOut : MonoBehaviour
     void Update()
     {
         if(fadein){
-            if(opacity >=.001){
-                opacity-=.001f;
+            if(opacity >=.002){
+                opacity-=.002f;
                 myRenderer.color = new Color(0f,0f,0f,opacity);
             } else {
                 fadein=false;
@@ -33,11 +33,11 @@ public class GreyOut : MonoBehaviour
             }
         } else if(fadeout){
             transform.position = new Vector3(0f,0f,-6f);
-            if(opacity <=.999){
-                opacity+=.001f;
+            if(opacity <=.998){
+                opacity+=.002f;
                 myRenderer.color = new Color(0f,0f,0f,opacity);
             } else {
-                fadeout=false;
+                
             }
         } else {
             myRenderer.color = new Color(0f,0f,0f,normalopacity);
