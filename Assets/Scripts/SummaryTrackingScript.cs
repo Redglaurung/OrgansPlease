@@ -45,8 +45,7 @@ public class SummaryTrackingScript : MonoBehaviour
     public int shortWait = 0;
     public int neitherWait = 0;
 
-    public bool sameLevel = true;
-    public bool gameOver = true;
+    public bool gameOver = false;
     bool ranFeedback = false;
     CharacterTrackingScript character;
     public Sprite bar;
@@ -58,36 +57,18 @@ public class SummaryTrackingScript : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         character = gameObject.GetComponent<CharacterTrackingScript>();
-        gameOver = true;
-        oldest = 1;
-        youngest = 2;
-        neitherAge = 3;
-
-        highestIncome = 2;
-        lowestIncome = 4;
-        neitherIncome = 5;
-
-        wellKnown = 1;
-        notKnown = 1;
-        midKnown = 1;
-
-        guarGood = 1;
-        noGood = 1;
-        potGood = 1;
-        longWait = 1;
-        shortWait = 1;
-        neitherWait = 1;
+        gameOver = false;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (sameLevel == true && gameOver == true && SceneManager.GetActiveScene().name == "EndingFeedback")
+        if (gameOver == false && SceneManager.GetActiveScene().name == "EndingFeedback")
         {
             // Draw Bar Chart code goes in here
             drawBarChart();
-            sameLevel = false;
+            gameOver = true;
         }
         if (Input.GetKeyDown("'"))
         {
@@ -97,26 +78,6 @@ public class SummaryTrackingScript : MonoBehaviour
                 makeFeedbackSheet();
                 ranFeedback=true;
         }
-
-        // Uncomment back into code after the bar chart code is working.
-        //if (sameLevel == true)
-        //{
-        //    if (character.isChosen())
-        //    {
-        //        sameLevel = false;
-        //        // Some print statements for Paper1 (Esmeralda)
-        //        Debug.Log("This is the oldest var: " + oldest);
-        //        Debug.Log("This is the neitherIncome var: " + neitherIncome);
-        //        Debug.Log("This is the midKnown var: " + midKnown);
-        //        Debug.Log("This is the potGood var: " + potGood);
-        //        Debug.Log("This is the longWait var: " + longWait);
-        //        if (gameOver == true)
-        //        {
-        //            // Draw Bar Chart code goes in here
-        //            drawBarChart();
-        //        }
-        //    }
-        //}
     }
 
     public void drawBarChart()
@@ -407,44 +368,5 @@ public class SummaryTrackingScript : MonoBehaviour
                 }
             }
            
-    }
-
-    public void makeCategoryChart(GameObject parentObject, ArrayList category, GameObject chart, float chartYPosition, float yScale, int colorTracker)
-    {
-        chart.transform.SetParent(parentObject.transform);
-        float squareY = 0;
-        foreach (int tracker in category)
-        {
-            GameObject square = new GameObject("Bar");
-            square.transform.SetParent(chart.transform);
-            float squareX = 0.5f * (tracker - 1);
-            square.transform.position = new Vector3(squareX, squareY, 0);
-
-            squareY = squareY - yScale;
-
-            SpriteRenderer squareRenderer = square.AddComponent<SpriteRenderer>();
-            squareRenderer.sprite = bar;
-            if (colorTracker == 0)
-            {
-                squareRenderer.color = Color.red;
-                colorTracker++;
-            }
-            else if (colorTracker == 1)
-            {
-                squareRenderer.color = Color.green;
-                colorTracker++;
-            }
-            else
-            {
-                squareRenderer.color = Color.gray;
-            }
-            squareRenderer.sortingLayerName = "Testing Layer";
-            square.transform.localScale = new Vector3(tracker, yScale, 1);
-
-            //Debug.Log("This is the position of this square: " + square.transform.position
-        }
-        chart.transform.localPosition = new Vector3(0, chartYPosition, 0);
-        //Debug.Log("This is the chartYPosition " + chartYPosition);
-        //Debug.Log("This is the chart's transform: " + chart.transform.position);
     }
 }

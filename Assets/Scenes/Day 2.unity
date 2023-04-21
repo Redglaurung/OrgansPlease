@@ -660,7 +660,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0.07, y: 0, z: 300.05}
 --- !u!61 &154610840
 BoxCollider2D:
@@ -4438,7 +4438,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1334460429
 AudioSource:
@@ -6483,81 +6483,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747756829}
   m_CullTransparentMesh: 1
---- !u!1 &1757318316
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1757318318}
-  - component: {fileID: 1757318317}
-  - component: {fileID: 1757318319}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1757318317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757318316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95e18ddd14f879b47a35870da6340d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1757318318
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757318316}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.205627, y: 1.0953324, z: 5.086511}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1757318319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757318316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82ee9854af19cce4d9ff678cfd419d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  oldest: 0
-  youngest: 0
-  neitherAge: 0
-  highestIncome: 0
-  lowestIncome: 0
-  neitherIncome: 0
-  notKnown: 0
-  midKnown: 0
-  wellKnown: 0
-  noGood: 0
-  potGood: 0
-  guarGood: 0
-  longWait: 0
-  shortWait: 0
-  neitherWait: 0
-  sameLevel: 1
-  gameOver: 1
-  bar: {fileID: 7482667652216324306, guid: 7b7c299f0b41db64da268037672162d1, type: 3}
 --- !u!1 &1769905632
 GameObject:
   m_ObjectHideFlags: 0
@@ -6641,7 +6566,7 @@ Transform:
   m_Children:
   - {fileID: 1154940727}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0.07, y: 0, z: 300.05}
 --- !u!1 &1842732843
 GameObject:
@@ -7487,7 +7412,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2044656037
 GameObject:
