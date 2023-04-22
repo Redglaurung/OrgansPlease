@@ -8,6 +8,7 @@ public class CharacterTrackingScript : MonoBehaviour
     SummaryTrackingScript summary;
     private bool day1Chosen = false;
     private bool day2Chosen = false;
+    private bool day6Chosen = false;
 
     // Start is called before the first frame update
     void Start()
@@ -127,6 +128,56 @@ public class CharacterTrackingScript : MonoBehaviour
                 }
             }
         }
+
+        if (SceneManager.GetActiveScene().name == "Day 6")
+        {
+            if (day6Chosen == false)
+            {
+                foreach (GameObject paper in papers)
+                {
+                    Pages paperScript = paper.GetComponent<Pages>();
+                    if (paperScript.isStamped)
+                    {
+                        day6Chosen = true;
+                        if (paper.name == "Paper1") // Eleanor Swan
+                        {
+                            summary.youngest += 1;
+                            summary.lowestIncome += 1;
+                            summary.notKnown += 1;
+                            summary.noGood += 1;
+                            summary.shortWait += 1;
+                        }
+
+                        if (paper.name == "Paper2")     // Geralt Erikson
+                        {
+                            summary.oldest += 1;
+                            summary.lowestIncome += 1;
+                            summary.midKnown += 1;
+                            summary.guarGood += 1;
+                            summary.longWait += 1;
+                        }
+
+                        if (paper.name == "Paper3") // Zoey Marshall
+                        {
+                            summary.neitherAge += 1;
+                            summary.highestIncome += 1;
+                            summary.notKnown += 1;
+                            summary.guarGood += 1;
+                            summary.neitherWait += 1;
+                        }
+
+                        if (paper.name == "Paper4") // Nina Nguyen
+                        {
+                            summary.neitherAge += 1;
+                            summary.neitherIncome += 1;
+                            summary.wellKnown += 1;
+                            summary.potGood += 1;
+                            summary.neitherWait += 1;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public bool isChosen()
@@ -139,6 +190,10 @@ public class CharacterTrackingScript : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Day 2")
         {
             return day2Chosen;
+        }
+        if (SceneManager.GetActiveScene().name == "Day 6")
+        {
+            return day6Chosen;
         }
         return false;
     }
