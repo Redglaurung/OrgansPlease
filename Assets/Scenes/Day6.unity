@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Time on waitlist: </b> \n4 years"
+  m_text: "<b>Time on waitlist: </b> \n2 years, 1 Month"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Name:</b> Dr. Mathias \nReacher"
+  m_text: <b>Name:</b> Zoey Marshall
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -504,7 +504,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.9, y: 10.42}
+  m_AnchoredPosition: {x: -16.9, y: 6.9}
   m_SizeDelta: {x: 2.41, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!114 &67113063
@@ -527,7 +527,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Time on waitlist: </b> \n4 years"
+  m_text: "<b>Time on waitlist: </b> \n2 years, 2 Months"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -662,7 +662,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[Boss Name]
+  m_text: 'Dr. Singh
 
 '
   m_isRightToLeft: 0
@@ -891,7 +891,39 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Kidney Transplant\n\n\n\n\n\n\n\n\n\n\n\n<br>\nDialysis \r\n"
+  m_text: 'Heart Transplant Stages:
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br>
+
+    Pulmonary Hypertension
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br>
+
+    Stenosis:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd9138fbed2cb6d46a57bf805f1bb38d, type: 2}
   m_sharedMaterial: {fileID: -6621369506881567751, guid: cd9138fbed2cb6d46a57bf805f1bb38d, type: 2}
@@ -1264,7 +1296,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Age: </b> 31'
+  m_text: '<b>Age: </b> 50'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -1535,7 +1567,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Occupation: </b> Office \nAssistant"
+  m_text: '<b>Occupation: </b> Lawyer'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -1670,7 +1702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Age: </b> 67'
+  m_text: '<b>Age: </b> 30'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -1939,10 +1971,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The matriarch of her large family, Esmerelda is beloved by her children,
-    grandchildren, and her community. Having studied business and math at university,
-    Esmerelda returned to her hometown and has been carefully and diligently reshaping
-    the money management in her local government for the better.
+  m_text: Suffering from pulmonary hypertension for the majority of her life, Eleanor
+    has been living in dread of this moment for a long time. Despite her early diagnosis,
+    Eleanor still chose to go to medical school and passed the USMLE with flying
+    colors to follow her dreams. Unfortunately,  her time in the career of her dreams
+    was always going to be short lived, but she promised herself to not let it stop
+    her.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -2581,7 +2615,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Occupation: </b> Accountant \nfor the State"
+  m_text: '<b>Occupation: </b> Doctor'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -3126,7 +3160,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Name:</b> Esmeralda \nDe La Paz"
+  m_text: <b>Name:</b> Eleanor Swan
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -3602,7 +3636,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Age: </b> 52
+  m_text: '<b>Age: </b> 67
 
 '
   m_isRightToLeft: 0
@@ -3820,7 +3854,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Time on waitlist: </b> \n3 years"
+  m_text: "<b>Time on waitlist: </b> \n1 year, 10 Months"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -4653,18 +4687,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " \nA surgery where a person with non-functioning kidneys receives a healthy
-    kidney from a donor. A kidney transplant often allows people to no longer be
-    on dialysis, which allows them a better quality of life, lower risk of death,
-    and lower costs of treatment. \r\n<br>\n \n\nA treatment to replace the functions
-    of kidneys, purifying blood via a machine. While often people will go on dialysis
-    temporarily while their kidneys heal, in some cases kidneys won\u2019t get better,
-    and people will be on dialysis permanently or until they can receive a kidney
-    transplant.\r\n\r\nDialysis is a time-consuming and expensive treatment, generally
-    requiring patients to be strapped up to a machine for 9-15 hours a week. Dialysis
-    is most often performed at a dialysis center or some other medical location with
-    the help of medical professionals, although sometimes it can also be performed
-    at home.\r\n"
+  m_text: " \nA chronic illness defined by dangerously high blood pressure in the
+    lungs. It\u2019s caused by a gene defect that runs in families and results in
+    extreme tiredness, chest pain, and debilitating aches. It causes heart failure
+    which necessitates a heart transplant, but the transplant won\u2019t solve the
+    hypertension.\n<br>\n \n\nThere are 6 stages to getting a heart transplant. Stage
+    6 and 5 patients are able to stay at home and have 1-2 years until dire need.
+    Stage 4 patients need to stay near the hospital and may need longer inpatient
+    times. Stage 3-2 are approaching the deadline, and Stage 1 patients have under
+    a month left. There is nothing more we can do for them.\n<br>\n \nA heart valve
+    disease where the valve begins to seize and shrink, causing the heart to pump
+    more vigorously to maintain nutrition for the body. A heart transplant would
+    remove the infected valve and most likely make for a swift and sure recovery.
+    \n<br>\n \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 28e4ddfc2aa6aa94c8d2a67e2f601d61, type: 2}
   m_sharedMaterial: {fileID: 8859443406748993096, guid: 28e4ddfc2aa6aa94c8d2a67e2f601d61, type: 2}
@@ -4799,27 +4834,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hello Doctor,
-
-
-    Happy first day in the office! I just received your
-    first case. Here''s the details:
-
-
-    Kidney arrived from donor Michael West.
-    The Kidney is in good condition and can be held up to 24 hours before preservation
-    is no longer possible. On your desk are four patient profiles who all match well
-    with the kidney. Please select a candidate by the end of the day.
-
-
-    The first
-    week can be a rough one. Let me know if you need some time off at the end of
-    the week.
-
-
-    Sincerely,
-
-    Dr. Singh'
+  m_text: "Hello Doctor,\n\nToday is going to be a rough one. These patients have
+    a transplant status of 1. Due to the necessary intake and compatibility tests
+    they have been made aware that they may receive a heart before the end of the
+    month. I wish we could have avoided getting their hopes up but there was nothing
+    we could do. \r\n\r\nHeart arrived from donor Ryan Duncan, and it is in good
+    condition and ready to be transplanted. Below are the four candidates currently
+    highest on our waitlist that are eligible for the heart. <b>Please choose carefully,
+    as this will certainly be their last chance. \r</b>\n\nSincerely,\nDr. Singh"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 28e4ddfc2aa6aa94c8d2a67e2f601d61, type: 2}
   m_sharedMaterial: {fileID: 8859443406748993096, guid: 28e4ddfc2aa6aa94c8d2a67e2f601d61, type: 2}
@@ -4954,7 +4976,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <b>Name:</b> Jinnie Goodman
+  m_text: <b>Name:</b> Geralt Erikson
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -5089,7 +5111,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Day 1 Assignments
+  m_text: 'Day 6 Assignments
 
 '
   m_isRightToLeft: 0
@@ -5519,7 +5541,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078377988}
   m_LocalRotation: {x: 0.10955076, y: 0.0176435, z: 0.15802227, w: 0.9811811}
-  m_LocalPosition: {x: 6.91, y: 0.57, z: 5.2}
+  m_LocalPosition: {x: 6.96, y: 0.57, z: 5.2}
   m_LocalScale: {x: 0.25, y: 0.31, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5663,7 +5685,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <b>Name:</b> Jack Ferris
+  m_text: <b>Name:</b> Nina Nguyen
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -5906,10 +5928,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Jinnie graduated high school as valedictorian but couldn't afford to go
-    to a prestigious university due to financial problems. After a few years at a
-    community college and a few more at a state university, she earned her degree
-    and has begun moving up the ranks.
+  m_text: "A shrewd legal mind that has protected water giant Amora from numerous
+    lawsuits, Geralt is a pioneer in company defense cases. Using his wealth, he
+    plans to fund his family\u2019s immigration here from their troubled home, if
+    his swollen heart lets him live long enough. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -6044,7 +6066,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Occupation: </b> Actor'
+  m_text: "<b>Occupation: </b> \nState Senator"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -6083,7 +6105,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 77.32
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -6259,7 +6281,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Time on waitlist: </b> \n2 years"
+  m_text: "<b>Time on waitlist: </b> \n2 years, 1 Month"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -6570,7 +6592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502728931}
   m_LocalRotation: {x: 0.07800897, y: -0.020287892, z: 0.13140576, w: 0.9880464}
-  m_LocalPosition: {x: 7.01, y: 0.3, z: 4.82}
+  m_LocalPosition: {x: 6.87, y: 0.3, z: 4.82}
   m_LocalScale: {x: 0.25, y: 0.31, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6718,7 +6740,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509480420}
   m_LocalRotation: {x: 0.007108489, y: 0.124851696, z: 0.10329513, w: 0.9867581}
-  m_LocalPosition: {x: 6.71, y: 0.51, z: 5.35}
+  m_LocalPosition: {x: 6.67, y: 0.51, z: 5.35}
   m_LocalScale: {x: 0.25, y: 0.31, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6784,7 +6806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Occupation: </b> Professor \nof Neuroscience"
+  m_text: "<b>Occupation: </b> \nPublic Speaker"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -7080,10 +7102,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A brilliant and established mind in his field, Reacher is hailed by many
-    as a genius. Having been a leading researcher in new brain imaging technologies
-    and led several key studies into hormone regulation, his discoveries are set
-    to save many lives and teach us much more about the human brain.
+  m_text: 'Zoey watched her friends die during the Aids epidemic, and fought for
+    each and every one of them. A spokesperson for LGBTQ rights, and a powerful figure
+    in the fight for equality, Zoey tours the country speaking at various universities
+    and colloquiums to raise awareness about various political situations. Unfortunately,
+    a long life of stress has taken a toll on her heart. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -7330,7 +7353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -7}
+  m_AnchoredPosition: {x: 3.62, y: -7}
   m_SizeDelta: {x: 33.4, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!114 &1806978636
@@ -7353,10 +7376,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Jack Ferris is an up and coming Hollywood actor who is just graduating
-    from cult hit to mainstream phenomenon. He has been in several Disney films and
-    is beloved world wide. Unfortunately, his illness appears prepared to cut his
-    blossoming career short.
+  m_text: "Formerly Professor Nguyen, Nina left her tenured position at the University
+    of Northshore to make a difference in her country. She serves in councils on
+    sustainability and on worker\u2019s rights and though she doesn\u2019t have much
+    to her name yet, she has helped pass several bills focussed on providing funding
+    for renewable energy. Due to Stenosis though, she may not get to see those bills
+    in action."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -7491,7 +7516,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Age: </b> 23'
+  m_text: '<b>Age: </b> 32'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -7814,7 +7839,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923420890}
   m_LocalRotation: {x: 0.05791243, y: 0.008047935, z: 0.13740908, w: 0.98878723}
-  m_LocalPosition: {x: 7.53, y: -0.33, z: 5.01}
+  m_LocalPosition: {x: 7.16, y: 0.06, z: 5.01}
   m_LocalScale: {x: 0.25, y: 0.31, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

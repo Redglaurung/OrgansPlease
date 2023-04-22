@@ -129,7 +129,7 @@ public class CharacterTrackingScript : MonoBehaviour
             }
         }
 
-        if (SceneManager.GetActiveScene().name == "Day 6")
+        if (SceneManager.GetActiveScene().name == "Day6")
         {
             if (day6Chosen == false)
             {
@@ -142,28 +142,28 @@ public class CharacterTrackingScript : MonoBehaviour
                         if (paper.name == "Paper1") // Eleanor Swan
                         {
                             summary.youngest += 1;
-                            summary.lowestIncome += 1;
+                            summary.neitherIncome += 1;
                             summary.notKnown += 1;
-                            summary.noGood += 1;
-                            summary.shortWait += 1;
+                            summary.potGood += 1;
+                            summary.neitherWait += 1;
                         }
 
                         if (paper.name == "Paper2")     // Geralt Erikson
                         {
-                            summary.oldest += 1;
-                            summary.lowestIncome += 1;
+                            summary.neitherAge += 1;
+                            summary.highestIncome += 1;
                             summary.midKnown += 1;
-                            summary.guarGood += 1;
-                            summary.longWait += 1;
+                            summary.noGood += 1;
+                            summary.neitherWait += 1;
                         }
 
                         if (paper.name == "Paper3") // Zoey Marshall
                         {
-                            summary.neitherAge += 1;
-                            summary.highestIncome += 1;
-                            summary.notKnown += 1;
+                            summary.oldest += 1;
+                            summary.lowestIncome += 1;
+                            summary.wellKnown += 1;
                             summary.guarGood += 1;
-                            summary.neitherWait += 1;
+                            summary.shortWait += 1;
                         }
 
                         if (paper.name == "Paper4") // Nina Nguyen
@@ -171,8 +171,8 @@ public class CharacterTrackingScript : MonoBehaviour
                             summary.neitherAge += 1;
                             summary.neitherIncome += 1;
                             summary.wellKnown += 1;
-                            summary.potGood += 1;
-                            summary.neitherWait += 1;
+                            summary.guarGood += 1;
+                            summary.longWait += 1;
                         }
                     }
                 }
@@ -191,7 +191,7 @@ public class CharacterTrackingScript : MonoBehaviour
         {
             return day2Chosen;
         }
-        if (SceneManager.GetActiveScene().name == "Day 6")
+        if (SceneManager.GetActiveScene().name == "Day6")
         {
             return day6Chosen;
         }
