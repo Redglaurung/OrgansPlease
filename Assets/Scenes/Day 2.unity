@@ -726,7 +726,7 @@ MonoBehaviour:
   - {fileID: 1513156926}
   - {fileID: 1358502399}
   GreyOut: {fileID: 1890012792}
-  nextScene: EndingStart
+  nextScene: Day5
 --- !u!1 &240020661
 GameObject:
   m_ObjectHideFlags: 0
@@ -4339,7 +4339,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a6500d60025e79b4d9fdb6440bc8d43a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c8233b5c64c08ea44a9ea37f4f9321b1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -7112,7 +7112,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[Boss Name]
+  m_text: 'Dr. Singh
 
 '
   m_isRightToLeft: 0

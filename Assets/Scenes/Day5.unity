@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.06649964, y: 1.0550998}
+  m_AnchoredPosition: {x: -0.07249969, y: 0.6058004}
   m_SizeDelta: {x: 176.5523, y: 0.2473}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &26117079
@@ -373,10 +373,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The matriarch of her large family, Esmerelda is beloved by her children,
-    grandchildren, and her community. Having studied business and math at university,
-    Esmerelda returned to her hometown and has been carefully and diligently reshaping
-    the money management in her local government for the better.
+  m_text: "Nawel was born with a congenital heart defect. Luckily their parents\u2019
+    health insurance has managed to cover medical expenses thus far, but they\u2019re
+    approaching the cutoff age for being on their insurance. As an independent musician
+    Nawel likely won\u2019t have their own health insurance, and is hoping the transplant
+    will allow them to live without expensive supplementary treatment."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -659,7 +660,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0.07, y: 0, z: 300.05}
 --- !u!61 &154610840
 BoxCollider2D:
@@ -725,7 +726,7 @@ MonoBehaviour:
   - {fileID: 1513156926}
   - {fileID: 1358502399}
   GreyOut: {fileID: 1890012792}
-  nextScene: Day 2
+  nextScene: Day6
 --- !u!1 &240020661
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,10 +785,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A brilliant and established mind in his field, Reacher is hailed by many
-    as a genius. Having been a leading researcher in new brain imaging technologies
-    and led several key studies into hormone regulation, his discoveries are set
-    to save many lives and teach us much more about the human brain.
+  m_text: "Ariel authored a popular LGBT book series, which garners significant harassment
+    from bigots online. They\u2019ve dealt with chronic stress for years, and the
+    high blood pressure caused them to experience heart failure a few years ago.
+    Luckily they\u2019re able to continue writing while homebound, but their wife
+    has had to pick up a lot of extra parenting duties since Ariel can\u2019t help
+    out as much with the kids."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -1035,7 +1038,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Time on waitlist: </b> \n4 years"
+  m_text: "<b>Time on waitlist: </b> \n2 Years"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -1129,7 +1132,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.9, y: 7.7}
+  m_AnchoredPosition: {x: -15.48, y: 14}
   m_SizeDelta: {x: 2.41, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!1 &427185182
@@ -1494,7 +1497,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Occupation: </b> Office \nAssistant"
+  m_text: '<b>Occupation: </b> Firefighter'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -1882,7 +1885,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.05, y: 21.84}
+  m_AnchoredPosition: {x: -16.05, y: 24.4}
   m_SizeDelta: {x: 2.41, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!114 &653212699
@@ -1905,7 +1908,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Age: </b> 52
+  m_text: '<b>Age: </b> 39
 
 '
   m_isRightToLeft: 0
@@ -2019,7 +2022,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.9, y: 6.75}
+  m_AnchoredPosition: {x: -16.14, y: 12.7}
   m_SizeDelta: {x: 2.41, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!114 &660454293
@@ -2042,7 +2045,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Time on waitlist: </b> \n3 years"
+  m_text: "<b>Time on waitlist: </b> \n1.5 Years"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -2338,7 +2341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.614, y: 1.1663}
+  m_AnchoredPosition: {x: -0.62000006, y: 0.7170006}
   m_SizeDelta: {x: 22, y: 22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &801032862
@@ -2571,7 +2574,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Age: </b> 23'
+  m_text: '<b>Age: </b> 32'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -2683,7 +2686,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.039, y: 1.885002}
+  m_AnchoredPosition: {x: 0.031999648, y: 1.7949998}
   m_SizeDelta: {x: 176.5523, y: 0.2473}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &881491019
@@ -3229,7 +3232,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <b>Name:</b> Jinnie Goodman
+  m_text: <b>Name:</b> Hana Yoon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -3344,7 +3347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Age: </b> 67'
+  m_text: '<b>Age: </b> 25'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -3438,7 +3441,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.05, y: 21.2}
+  m_AnchoredPosition: {x: -16.05, y: 23.7}
   m_SizeDelta: {x: 2.41, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!1 &960723173
@@ -3476,7 +3479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.66430014}
+  m_AnchoredPosition: {x: -0.0060000494, y: 0.21500066}
   m_SizeDelta: {x: 2.6243, y: 1.4032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &960723175
@@ -3499,7 +3502,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Day 1 Assignments
+  m_text: 'Day 5 Assignments
 
 '
   m_isRightToLeft: 0
@@ -3636,7 +3639,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Age: </b> 31'
+  m_text: '<b>Age: </b> 28'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -3753,8 +3756,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.3992998}
-  m_SizeDelta: {x: 1.5093, y: 3.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1.5093, y: 2.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1055118595
 CanvasRenderer:
@@ -3829,7 +3832,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.0860023}
+  m_AnchoredPosition: {x: -0.0070006945, y: 0.99599993}
   m_SizeDelta: {x: 2.6243, y: 1.4032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1142819252
@@ -3852,7 +3855,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Kidney Transplant\n\n\n\n\n\n\n\n\n\n\n\n<br>\nDialysis \r\n"
+  m_text: "Heart Transplant\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<br>\nVentricular Assist
+    Devices (VAD)\r \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd9138fbed2cb6d46a57bf805f1bb38d, type: 2}
   m_sharedMaterial: {fileID: -6621369506881567751, guid: cd9138fbed2cb6d46a57bf805f1bb38d, type: 2}
@@ -4067,7 +4071,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.95, y: 16.78}
+  m_AnchoredPosition: {x: -15.95, y: 18.5}
   m_SizeDelta: {x: 2.41, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!114 &1231340396
@@ -4090,7 +4094,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Occupation: </b> Professor \nof Neuroscience"
+  m_text: '<b>Occupation: </b> Author'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -4202,7 +4206,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.024, y: 0.28929946}
+  m_AnchoredPosition: {x: -0.03, y: -0.16}
   m_SizeDelta: {x: 2.6243, y: 1.4032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1285997621
@@ -4228,19 +4232,10 @@ MonoBehaviour:
   m_text: 'Hello Doctor,
 
 
-    Happy first day in the office! I just received your
-    first case. Here''s the details:
-
-
-    Kidney arrived from donor Michael West.
-    The Kidney is in good condition and can be held up to 24 hours before preservation
-    is no longer possible. On your desk are four patient profiles who all match well
-    with the kidney. Please select a candidate by the end of the day.
-
-
-    The first
-    week can be a rough one. Let me know if you need some time off at the end of
-    the week.
+    We have recently received a heart from donor Lynn
+    Reinhardt, and the organ can be held for a limited time. Enclosed in the folder
+    are four candidates for the heart donation. Please select a candidate by the
+    end of the day.
 
 
     Sincerely,
@@ -4450,7 +4445,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1334460429
 AudioSource:
@@ -4760,7 +4755,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -7}
+  m_AnchoredPosition: {x: 4, y: -7.2}
   m_SizeDelta: {x: 33.4, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!114 &1384749943
@@ -4783,10 +4778,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Jinnie graduated high school as valedictorian but couldn't afford to go
-    to a prestigious university due to financial problems. After a few years at a
-    community college and a few more at a state university, she earned her degree
-    and has begun moving up the ranks.
+  m_text: "Hana Yoon is a firefighter, and has saved countless lives. Hana has a
+    long family history of heart failure, and knew she was at risk when choosing
+    this dangerous career, but couldn\u2019t help her dream to be a hero.\r\n\r\nEver
+    since putting out a wildfire last summer Hana has needed a VAD to support her
+    heart, and has been unable to work.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -5472,7 +5468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Name:</b> Dr. Mathias \nReacher"
+  m_text: <b>Name:</b> Ariel Cilenti
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -5584,7 +5580,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.9, y: 10.42}
+  m_AnchoredPosition: {x: -16.08, y: 11.2}
   m_SizeDelta: {x: 2.41, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!114 &1559613291
@@ -5607,7 +5603,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Time on waitlist: </b> \n4 years"
+  m_text: "<b>Time on waitlist: </b> \n3 Years"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -5742,7 +5738,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Occupation: </b> Actor'
+  m_text: '<b>Occupation: </b> NICU Nurse'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -5854,7 +5850,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.012999663, y: 1.3700022}
+  m_AnchoredPosition: {x: -0.02, y: 1.2800002}
   m_SizeDelta: {x: 2.6243, y: 1.4032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1609426775
@@ -5992,7 +5988,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Occupation: </b> Accountant \nfor the State"
+  m_text: '<b>Occupation: </b> Musician'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -6086,7 +6082,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.95, y: 16.08}
+  m_AnchoredPosition: {x: -15.95, y: 19}
   m_SizeDelta: {x: 2.41, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!1 &1660791742
@@ -6259,7 +6255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.08, y: 30.93}
+  m_AnchoredPosition: {x: -13.08, y: 28}
   m_SizeDelta: {x: 6.98, y: 7.87}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!114 &1715457175
@@ -6282,7 +6278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Name:</b> Esmeralda \nDe La Paz"
+  m_text: <b>Name:</b> Nawel Berkowitz
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -6493,80 +6489,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747756829}
   m_CullTransparentMesh: 1
---- !u!1 &1757318316
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1757318318}
-  - component: {fileID: 1757318317}
-  - component: {fileID: 1757318319}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1757318317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757318316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95e18ddd14f879b47a35870da6340d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1757318318
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757318316}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.205627, y: 1.0953324, z: 5.086511}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1757318319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757318316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82ee9854af19cce4d9ff678cfd419d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  oldest: 0
-  youngest: 0
-  neitherAge: 0
-  highestIncome: 0
-  lowestIncome: 0
-  neitherIncome: 0
-  notKnown: 0
-  midKnown: 0
-  wellKnown: 0
-  noGood: 0
-  potGood: 0
-  guarGood: 0
-  longWait: 0
-  shortWait: 0
-  neitherWait: 0
-  gameOver: 1
-  bar: {fileID: 7482667652216324306, guid: 7b7c299f0b41db64da268037672162d1, type: 3}
 --- !u!1 &1769905632
 GameObject:
   m_ObjectHideFlags: 0
@@ -6650,7 +6572,7 @@ Transform:
   m_Children:
   - {fileID: 1154940727}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0.07, y: 0, z: 300.05}
 --- !u!1 &1842732843
 GameObject:
@@ -6691,7 +6613,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000099897385, y: -1.1492997}
+  m_AnchoredPosition: {x: -0.000099897385, y: -1.16}
   m_SizeDelta: {x: 1.5093, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1842732845
@@ -6750,7 +6672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1890012793
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7173,7 +7095,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.16299982, y: 0.49829984}
+  m_AnchoredPosition: {x: 0.15699978, y: 0.049000353}
   m_SizeDelta: {x: 2.6243, y: 1.4032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1967099101
@@ -7333,10 +7255,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Jack Ferris is an up and coming Hollywood actor who is just graduating
-    from cult hit to mainstream phenomenon. He has been in several Disney films and
-    is beloved world wide. Unfortunately, his illness appears prepared to cut his
-    blossoming career short.
+  m_text: "Theo is an NICU nurse who has been struggling for years in the face of
+    college debt and overburdened hospital shifts. He was an alcoholic for many years
+    in an attempt to cope, until developing heart failure as a result. Ever since,
+    he\u2019s managed life with a VAD.\r\n\r\nTheo attends AA meetings and has been
+    sober for 2 years now.\r\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -7495,7 +7418,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2044656037
 GameObject:
@@ -7532,7 +7455,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.0440019}
+  m_AnchoredPosition: {x: -0.0070006945, y: 0.9539999}
   m_SizeDelta: {x: 2.6243, y: 1.4032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2044656039
@@ -7555,18 +7478,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " \nA surgery where a person with non-functioning kidneys receives a healthy
-    kidney from a donor. A kidney transplant often allows people to no longer be
-    on dialysis, which allows them a better quality of life, lower risk of death,
-    and lower costs of treatment. \r\n<br>\n \n\nA treatment to replace the functions
-    of kidneys, purifying blood via a machine. While often people will go on dialysis
-    temporarily while their kidneys heal, in some cases kidneys won\u2019t get better,
-    and people will be on dialysis permanently or until they can receive a kidney
-    transplant.\r\n\r\nDialysis is a time-consuming and expensive treatment, generally
-    requiring patients to be strapped up to a machine for 9-15 hours a week. Dialysis
-    is most often performed at a dialysis center or some other medical location with
-    the help of medical professionals, although sometimes it can also be performed
-    at home.\r\n"
+  m_text: " \nA last resort, heart transplants are performed in cases of heart failure
+    when other treatments have failed. While waiting for a transplant, some people
+    need medical help in the form of a Ventricular Assist Device or IV medications,
+    while others are stable enough on their own. \r\n\r\nSomeone may be denied a
+    heart transplant if they aren\u2019t willing to limit alcohol and drug use to
+    keep a donor heart healthy. \r\n \r\n \r\n<br>\n \nA Ventricular Assist Device
+    (VAD) is a mechanical pump that is surgically placed in the body to help pump
+    blood through the heart. VADs are connected to power sources kept outside the
+    body, and people with VADs must take special care in their daily lives to keep
+    the device functioning. \r\n\r\nVADs are often used temporarily, but may also
+    be used for the rest of a person's life. \r\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 28e4ddfc2aa6aa94c8d2a67e2f601d61, type: 2}
   m_sharedMaterial: {fileID: 8859443406748993096, guid: 28e4ddfc2aa6aa94c8d2a67e2f601d61, type: 2}
@@ -7701,7 +7623,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <b>Name:</b> Jack Ferris
+  m_text: <b>Name:</b> Theo Gerhardt
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -8027,7 +7949,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.9, y: 7.4}
+  m_AnchoredPosition: {x: -16.04, y: 11.9}
   m_SizeDelta: {x: 2.41, y: 7.76}
   m_Pivot: {x: 0.67, y: 1.35}
 --- !u!114 &2128773303
@@ -8050,7 +7972,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Time on waitlist: </b> \n2 years"
+  m_text: "<b>Time on waitlist: </b> \n1 Year"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
