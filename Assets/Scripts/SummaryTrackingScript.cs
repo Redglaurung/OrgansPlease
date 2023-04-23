@@ -58,7 +58,7 @@ public class SummaryTrackingScript : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         character = gameObject.GetComponent<CharacterTrackingScript>();
         gameOver = false;
-    }
+}
 
 
     // Update is called once per frame
@@ -122,6 +122,10 @@ public class SummaryTrackingScript : MonoBehaviour
 
         float yScale = 0.5f;
 
+        Color32 brightBlue = new Color32(0, 0, 255, 255);
+        Color32 oceanBlue = new Color32(51, 51, 255, 255);
+        Color32 babyBlue = new Color32(102, 102, 255, 255);
+
 
         GameObject ageObject = GameObject.Find("Age");
         GameObject payObject = GameObject.Find("Pay");
@@ -140,7 +144,7 @@ public class SummaryTrackingScript : MonoBehaviour
         oldestRenderer.sprite = bar;
         oldestRenderer.sortingLayerName = barLayer;
 
-        oldestRenderer.color = Color.red;
+        oldestRenderer.color = brightBlue;
         ageOldestBar.transform.localScale = new Vector3(oldest, yScale, 0);
         ageOldestBar.transform.position = new Vector3(0.5f * (oldest - 1), ageOldestDataBox.transform.position.y, 0);
 
@@ -150,7 +154,7 @@ public class SummaryTrackingScript : MonoBehaviour
 
         SpriteRenderer youngestRenderer = ageYoungestBar.AddComponent<SpriteRenderer>();
         youngestRenderer.sprite = bar;
-        youngestRenderer.color = Color.green;
+        youngestRenderer.color = oceanBlue;
         youngestRenderer.sortingLayerName = barLayer;
 
         ageYoungestBar.transform.localScale = new Vector3(youngest, yScale, 0);
@@ -163,7 +167,7 @@ public class SummaryTrackingScript : MonoBehaviour
 
         SpriteRenderer neitherRenderer = ageNeitherBar.AddComponent<SpriteRenderer>();
         neitherRenderer.sprite = bar;
-        neitherRenderer.color = Color.grey;
+        neitherRenderer.color = babyBlue;
         neitherRenderer.sortingLayerName = barLayer;
 
         ageNeitherBar.transform.localScale = new Vector3(neitherAge, yScale, 0);
@@ -176,7 +180,7 @@ public class SummaryTrackingScript : MonoBehaviour
 
         SpriteRenderer payHighRenderer = payHighBar.AddComponent<SpriteRenderer>();
         payHighRenderer.sprite = bar;
-        payHighRenderer.color = Color.red;
+        payHighRenderer.color = brightBlue;
         payHighRenderer.sortingLayerName = barLayer;
 
         payHighBar.transform.localScale = new Vector3(highestIncome, yScale, 0);
@@ -188,7 +192,7 @@ public class SummaryTrackingScript : MonoBehaviour
 
         SpriteRenderer payLowRenderer = payLowBar.AddComponent<SpriteRenderer>();
         payLowRenderer.sprite = bar;
-        payLowRenderer.color = Color.green;
+        payLowRenderer.color = oceanBlue;
         payLowRenderer.sortingLayerName = barLayer;
 
         payLowBar.transform.localScale = new Vector3(lowestIncome, yScale, 0);
@@ -200,7 +204,7 @@ public class SummaryTrackingScript : MonoBehaviour
 
         SpriteRenderer payNeitherRenderer = payNeitherBar.AddComponent<SpriteRenderer>();
         payNeitherRenderer.sprite = bar;
-        payNeitherRenderer.color = Color.gray;
+        payNeitherRenderer.color = babyBlue;
         payNeitherRenderer.sortingLayerName = barLayer;
 
         payNeitherBar.transform.localScale = new Vector3(neitherIncome, yScale, 0);
@@ -214,7 +218,7 @@ public class SummaryTrackingScript : MonoBehaviour
 
         SpriteRenderer notoWellRenderer = notoWellBar.AddComponent<SpriteRenderer>();
         notoWellRenderer.sprite = bar;
-        notoWellRenderer.color = Color.red;
+        notoWellRenderer.color = brightBlue;
         notoWellRenderer.sortingLayerName = barLayer;
 
         notoWellBar.transform.localScale = new Vector3(wellKnown, yScale, 0);
@@ -226,7 +230,7 @@ public class SummaryTrackingScript : MonoBehaviour
 
         SpriteRenderer notoLeastRenderer = notoLeastBar.AddComponent<SpriteRenderer>();
         notoLeastRenderer.sprite = bar;
-        notoLeastRenderer.color = Color.green;
+        notoLeastRenderer.color = oceanBlue;
         notoLeastRenderer.sortingLayerName = barLayer;
 
         notoLeastBar.transform.localScale = new Vector3(notKnown, yScale, 0);
@@ -239,7 +243,7 @@ public class SummaryTrackingScript : MonoBehaviour
 
         SpriteRenderer waitLongRenderer = waitLongBar.AddComponent<SpriteRenderer>();
         waitLongRenderer.sprite = bar;
-        waitLongRenderer.color = Color.red;
+        waitLongRenderer.color = brightBlue;
         waitLongRenderer.sortingLayerName = barLayer;
 
         waitLongBar.transform.localScale = new Vector3(longWait, yScale, 0);
@@ -251,7 +255,7 @@ public class SummaryTrackingScript : MonoBehaviour
 
         SpriteRenderer waitShortRenderer = waitShortBar.AddComponent<SpriteRenderer>();
         waitShortRenderer.sprite = bar;
-        waitShortRenderer.color = Color.green;
+        waitShortRenderer.color = oceanBlue;
         waitShortRenderer.sortingLayerName = barLayer;
 
         waitShortBar.transform.localScale = new Vector3(shortWait, yScale, 0);
@@ -263,7 +267,7 @@ public class SummaryTrackingScript : MonoBehaviour
 
         SpriteRenderer waitNeitherRenderer = waitNeitherBar.AddComponent<SpriteRenderer>();
         waitNeitherRenderer.sprite = bar;
-        waitNeitherRenderer.color = Color.gray;
+        waitNeitherRenderer.color = babyBlue;
         waitNeitherRenderer.sortingLayerName = barLayer;
 
         waitNeitherBar.transform.localScale = new Vector3(neitherWait, yScale, 0);
@@ -276,7 +280,7 @@ public class SummaryTrackingScript : MonoBehaviour
 
         SpriteRenderer philHistoryGoodRenderer = philHistoryGoodBar.AddComponent<SpriteRenderer>();
         philHistoryGoodRenderer.sprite = bar;
-        philHistoryGoodRenderer.color = Color.red;
+        philHistoryGoodRenderer.color = brightBlue;
         philHistoryGoodRenderer.sortingLayerName = barLayer;
 
         philHistoryGoodBar.transform.localScale = new Vector3(guarGood, yScale, 0);
@@ -288,7 +292,7 @@ public class SummaryTrackingScript : MonoBehaviour
 
         SpriteRenderer philFutureGoodRenderer = philFutureGoodBar.AddComponent<SpriteRenderer>();
         philFutureGoodRenderer.sprite = bar;
-        philFutureGoodRenderer.color = Color.green;
+        philFutureGoodRenderer.color = oceanBlue;
         philFutureGoodRenderer.sortingLayerName = barLayer;
 
         philFutureGoodBar.transform.localScale = new Vector3(potGood, yScale, 0);
@@ -300,7 +304,7 @@ public class SummaryTrackingScript : MonoBehaviour
 
         SpriteRenderer philNeitherRenderer = philNeitherBar.AddComponent<SpriteRenderer>();
         philNeitherRenderer.sprite = bar;
-        philNeitherRenderer.color = Color.gray;
+        philNeitherRenderer.color = babyBlue;
         philNeitherRenderer.sortingLayerName = barLayer;
 
         philNeitherBar.transform.localScale = new Vector3(noGood, yScale, 0);
