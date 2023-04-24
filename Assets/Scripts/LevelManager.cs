@@ -21,8 +21,10 @@ public class LevelManager : MonoBehaviour
     // Used to handle both Dragging and Tapping objects
     double tapTimer;
     double tapStartTime;
-    double TAP_TIME = 0.125; 
+    double TAP_TIME = 0; 
     Collider2D targetObject;
+    Vector3 prevPosition;
+    string chosen;
 
     // Used in MouseTap
     Collider2D expandedObject;
@@ -118,30 +120,52 @@ public class LevelManager : MonoBehaviour
     /** Mouse Taps and Drags */
 
     /**
-    * Times any mouse clicks to determine if a tap ro drag happened, and calls the appropriate method
+    * Times any mouse clicks to determine if a tap or drag happened, and calls the appropriate method
     */
     void MouseClickTimer() {
         // Left click start
         if (Input.GetMouseButtonDown(0)) {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            prevPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             tapStartTime = Time.time;
-            targetObject = Physics2D.OverlapPoint(mousePosition);
+            targetObject = Physics2D.OverlapPoint(prevPosition);
         }
 
         // Increment time
         if (tapStartTime != -1) {
-           tapTimer = Time.time - tapStartTime; 
-           if (tapTimer > TAP_TIME) MouseDrag();
+            tapTimer = Time.time - tapStartTime; 
+            if (tapTimer > TAP_TIME) {
+                // MouseDrag();
+                if (chosen != "Drag") {
+                    TestMouseMvmt();
+                }
+                else {
+                    MouseDrag();
+                }
+            }
         }
 
         // Left click end
         if (Input.GetMouseButtonUp(0))
         {
-            if (tapTimer <= TAP_TIME) MouseTap();
+            if (tapTimer <= TAP_TIME || chosen == "Tap") MouseTap();
             tapStartTime = -1;
             tapTimer = 0;
             movingObject = null;
             targetObject = null;
+            chosen = "False";
+        }
+    }
+
+    void TestMouseMvmt() {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mvmt = prevPosition - mousePosition;
+
+        if (mvmt.magnitude > 0.5) {
+            chosen = "Drag";
+            MouseDrag();
+        }
+        else {
+            chosen = "Tap";
         }
     }
 
