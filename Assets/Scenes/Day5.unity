@@ -1727,8 +1727,8 @@ MonoBehaviour:
   - {fileID: 1513156926}
   - {fileID: 1358502399}
   stampType: {fileID: 21300000, guid: cde423977819d1e409b9a9fcd3e6a83c, type: 3}
-  readystampType: {fileID: 21300000, guid: 70bfcc2c4f361d34bb4f235957fd8e64, type: 3}
-  YesreadystampType: {fileID: 21300000, guid: b7844aa97e05af846992fb62edeadb56, type: 3}
+  readystampType: {fileID: 21300000, guid: f894c639c79a2e740968889778f311bf, type: 3}
+  YesreadystampType: {fileID: 21300000, guid: 2c5d8e875a5ea2d44b0900ac6eefb317, type: 3}
   stampScale: 0
   stampX: 0
   stampY: 0

@@ -30,7 +30,7 @@ public class CharacterTrackingScript : MonoBehaviour
 
         GameObject[] papers = GameObject.FindGameObjectsWithTag("Pages");
 
-        if (SceneManager.GetActiveScene().name == "SampleScene")
+        if (SceneManager.GetActiveScene().name == "Day1")
         {
             if (day1Chosen == false)
             {
@@ -80,7 +80,7 @@ public class CharacterTrackingScript : MonoBehaviour
             }
         }
 
-        if (SceneManager.GetActiveScene().name == "Day 2")
+        if (SceneManager.GetActiveScene().name == "Day2")
         {
             if (day2Chosen == false)
             {
@@ -233,12 +233,12 @@ public class CharacterTrackingScript : MonoBehaviour
 
     public bool isChosen()
     {
-        if (SceneManager.GetActiveScene().name == "Sample Scene")
+        if (SceneManager.GetActiveScene().name == "Day1")
         {
             return day1Chosen;
         }
         
-        if (SceneManager.GetActiveScene().name == "Day 2")
+        if (SceneManager.GetActiveScene().name == "Day2")
         {
             return day2Chosen;
         }

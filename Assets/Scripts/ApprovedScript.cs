@@ -43,7 +43,7 @@ public class ApprovedScript : MonoBehaviour
         readiedStamp = new GameObject("Readied Stamp Picture");
         readiedStamp.transform.SetParent(gameObject.transform);
         readiedStamp.transform.localPosition = new Vector3(0f, 0f, 10f);
-        readiedStamp.transform.localScale = new Vector3(1f,1f,1f);
+        readiedStamp.transform.localScale = new Vector3(1.4f,1.4f,1f);
         readiedstampRenderer = readiedStamp.AddComponent<SpriteRenderer>();
         readiedStamp.tag = "Furniture";
         readiedstampRenderer.sprite = readystampType;
