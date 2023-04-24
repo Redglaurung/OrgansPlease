@@ -214,7 +214,7 @@ public class CharacterTrackingScript : MonoBehaviour
                             summary.lowestIncome += 1;
                             summary.wellKnown += 1;
                             summary.guarGood += 1;
-                            summary.shortWait += 1;
+                            summary.longWait += 1;
                         }
 
                         if (paper.name == "Paper4") // Nina Nguyen
@@ -223,7 +223,7 @@ public class CharacterTrackingScript : MonoBehaviour
                             summary.neitherIncome += 1;
                             summary.wellKnown += 1;
                             summary.guarGood += 1;
-                            summary.longWait += 1;
+                            summary.shortWait += 1;
                         }
                     }
                 }

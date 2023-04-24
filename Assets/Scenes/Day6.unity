@@ -527,7 +527,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Time on waitlist: </b> \n2 years, 2 Months"
+  m_text: "<b>Time on waitlist: </b> \n1 year, 10 months"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -3780,7 +3780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Time on waitlist: </b> \n1 year, 10 Months"
+  m_text: "<b>Time on waitlist: </b> \n2 year, 2 Months"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -4760,13 +4760,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hello Doctor,\n\nToday is going to be a rough one. These patients have
-    a transplant status of 1. Due to the necessary intake and compatibility tests
-    they have been made aware that they may receive a heart before the end of the
-    month. I wish we could have avoided getting their hopes up but there was nothing
-    we could do. \r\n\r\nHeart arrived from donor Ryan Duncan, and it is in good
-    condition and ready to be transplanted. Below are the four candidates currently
-    highest on our waitlist that are eligible for the heart. <b>Please choose carefully,
+  m_text: "Hello Doctor,\n\nToday is going to be a rough one. These stage 1 pateints
+    only have a month left. Due to the necessary intake and compatibility tests they
+    have been made aware that they may receive a heart before the end of the month.
+    I wish we could have avoided getting their hopes up but there was nothing we
+    could do. \r\n\r\nHeart arrived from donor Ryan Duncan, and it is in good condition
+    and ready to be transplanted. Below are the four candidates currently highest
+    on our waitlist that are eligible for the heart. <b>Please choose carefully,
     as this will certainly be their last chance. \r</b>\n\nSincerely,\nDr. Singh"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 28e4ddfc2aa6aa94c8d2a67e2f601d61, type: 2}
