@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GreyOut : MonoBehaviour
 {
-
+    public GameObject tutorial;
     SpriteRenderer myRenderer;
     float opacity;
     float normalopacity;
@@ -45,5 +45,17 @@ public class GreyOut : MonoBehaviour
     }
     public void FadeOut(){
         fadeout= true;
+    }
+    //places the desired tutorial on screen
+    public void TutorialStart(int tutorialNum){
+        tutorialNum--;
+        transform.position = new Vector3(0f,0f,-6f);
+        tutorial.transform.GetChild(tutorialNum).position = Vector3.zero;
+    }
+    //removes the desired tutorial from screen
+    public void TutorialClose(int tutorialNum){
+        tutorialNum--;
+        transform.position = new Vector3(26f,.5f,-3f);
+        tutorial.transform.GetChild(tutorialNum).position = new Vector3(26f,.5f,-3f);
     }
 }

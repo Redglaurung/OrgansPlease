@@ -28,7 +28,7 @@ public class Pages : MonoBehaviour
         myRenderer = GetComponent<SpriteRenderer>();
         defaultScale = transform.localScale;
         defaultRotation = transform.localRotation;
-        scaledUp = new Vector3(transform.localScale.x * 1.5f, transform.localScale.y * 1.5f, transform.localScale.z);
+        scaledUp = new Vector3(transform.localScale.x * 1.375f, transform.localScale.y * 1.375f, transform.localScale.z);
         isStamped = false;
     }
 
