@@ -35,9 +35,21 @@ public class LevelManager : MonoBehaviour
     Vector3 offset;
     public Camera mainCamera;
 
+    //Tutorial Booleans
+    public bool isDayOne;
+    bool firstClickedOffPhone;
+    bool allpapersdraggedOut;
+    bool clickedOnStamp;
+    bool tutorialPlaying;
+    int tutorialActive;
+
     // Start is called before the first frame update
     void Start()
     {
+        firstClickedOffPhone = false;
+        allpapersdraggedOut = false;
+        clickedOnStamp = false;
+        tutorialActive=-1;
         audioTimer = 2000;
         tapStartTime = -1;
     }
@@ -179,6 +191,15 @@ public class LevelManager : MonoBehaviour
     void MouseTap() {
         if(targetObject){
             print(targetObject.transform.gameObject.name);
+            if(isDayOne){
+                if(tutorialPlaying){
+                    Greyout.SendMessage("TutorialClose",tutorialActive);
+                    tutorialPlaying=false;
+                } else if((!firstClickedOffPhone)&&expandedObject != null && expandedObject.transform.gameObject.name=="Phone"&&targetObject.transform.gameObject.name=="GreyOut"){
+                    firstClickedOffPhone = true;
+                    Tutorial(2);
+                }
+            }
         }
         // Expands a page or phone to the center
         if (expandedObject == null && targetObject) {
@@ -263,5 +284,13 @@ public class LevelManager : MonoBehaviour
         // If out of bounds vertically
         if (movingObject.transform.position.y < yMin || movingObject.transform.position.y > yMax)
             movingObject.transform.position = new Vector3(movingObject.transform.position.x, oldPos.y, movingObject.transform.position.z);
+    }
+
+    void Tutorial(int tutorialNum){
+        if(isDayOne){
+            tutorialPlaying = true;
+            Greyout.SendMessage("TutorialStart",tutorialNum);
+            tutorialActive=tutorialNum;
+        }
     }
 }
