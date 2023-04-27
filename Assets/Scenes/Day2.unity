@@ -590,7 +590,7 @@ MonoBehaviour:
   - {fileID: 1513156926}
   - {fileID: 1358502399}
   GreyOut: {fileID: 1890012792}
-  nextScene: Day5
+  nextScene: Day4
 --- !u!1 &240020661
 GameObject:
   m_ObjectHideFlags: 0
@@ -4174,7 +4174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a99e05438ddab949a5dfdd41d9ace2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 1334460427}
   selectedObject: {fileID: 0}
   greyOut: {fileID: 1890012792}
   emailButton: {fileID: 870559663}
