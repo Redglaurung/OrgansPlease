@@ -2047,11 +2047,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a99e05438ddab949a5dfdd41d9ace2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSources:
-  - {fileID: 501555841}
-  - {fileID: 501555839}
+  backgroundMusic: {fileID: 501555841}
   selectedObject: {fileID: 0}
-  Greyout: {fileID: 505813342}
+  greyOut: {fileID: 505813342}
   emailButton: {fileID: 540883939}
   dictButton: {fileID: 428629807}
   backButton: {fileID: 944646098}
@@ -2064,6 +2062,7 @@ MonoBehaviour:
   stamper: {fileID: 554117556}
   movingObject: {fileID: 0}
   mainCamera: {fileID: 116705982}
+  isDayOne: 0
 --- !u!82 &501555841
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2206,6 +2205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b5e40f4e00fc794dbe3c2a4cc383c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorial: {fileID: 0}
 --- !u!61 &505813344
 BoxCollider2D:
   m_ObjectHideFlags: 0

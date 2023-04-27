@@ -348,6 +348,7 @@ MonoBehaviour:
   definitions: {fileID: 203281245}
   emailButton: {fileID: 1132577509}
   scrollRect: {fileID: 1342631754}
+  levelManager: {fileID: 0}
 --- !u!212 &136464043
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2512,9 +2513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a99e05438ddab949a5dfdd41d9ace2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSources:
-  - {fileID: 1379266793}
-  - {fileID: 1379266791}
+  backgroundMusic: {fileID: 1379266793}
   selectedObject: {fileID: 0}
   Greyout: {fileID: 2022900863}
   emailButton: {fileID: 1132577505}
@@ -2524,6 +2523,7 @@ MonoBehaviour:
   stamper: {fileID: 0}
   movingObject: {fileID: 0}
   mainCamera: {fileID: 841061119}
+  isDayOne: 0
 --- !u!82 &1379266793
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2534,7 +2534,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a6500d60025e79b4d9fdb6440bc8d43a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c8233b5c64c08ea44a9ea37f4f9321b1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

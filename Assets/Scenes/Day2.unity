@@ -4174,11 +4174,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a99e05438ddab949a5dfdd41d9ace2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSources:
-  - {fileID: 1334460427}
-  - {fileID: 1334460429}
+  backgroundMusic: {fileID: 1334460427}
   selectedObject: {fileID: 0}
-  Greyout: {fileID: 1890012792}
+  greyOut: {fileID: 1890012792}
   emailButton: {fileID: 870559663}
   dictButton: {fileID: 1747756829}
   backButton: {fileID: 353701137}
@@ -4191,6 +4189,7 @@ MonoBehaviour:
   stamper: {fileID: 652610044}
   movingObject: {fileID: 0}
   mainCamera: {fileID: 519420031}
+  isDayOne: 0
 --- !u!1 &1358502399
 GameObject:
   m_ObjectHideFlags: 0
@@ -6416,6 +6415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b5e40f4e00fc794dbe3c2a4cc383c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorial: {fileID: 0}
 --- !u!1 &1927811708
 GameObject:
   m_ObjectHideFlags: 0
