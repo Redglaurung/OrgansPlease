@@ -48,7 +48,9 @@ public class Phone : MonoBehaviour
             emailButton.sprite = emailNotification;
             timer=-1;
             notifSound.Play();
-            levelManager.SendMessage("Tutorial",1);
+            if(SceneManager.GetActiveScene().name == "Day1"){
+                levelManager.SendMessage("Tutorial",1);
+            }
         }
     }
 
