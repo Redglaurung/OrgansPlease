@@ -32,11 +32,12 @@ public class LevelManager : MonoBehaviour
 
     //Tutorial Booleans
     public bool isDayOne;
-    bool firstClickedOffPhone;
-    bool allPapersDraggedOut;
-    bool clickedOnStamp;
-    bool tutorialPlaying;
+    public bool firstClickedOffPhone;
+    public bool allPapersDraggedOut;
+    public bool clickedOnStamp;
+    public bool tutorialPlaying;
     int tutorialActive;
+    public List<GameObject> touchedPapers;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,8 @@ public class LevelManager : MonoBehaviour
         allPapersDraggedOut = false;
         clickedOnStamp = false;
         tutorialActive=-1;
+
+        touchedPapers = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -137,9 +140,21 @@ public class LevelManager : MonoBehaviour
             if (mouseDownState == "Tap") {
                 MouseTap();
             }
+            else {
+                if (!touchedPapers.Contains(movingObject)) {
+                    touchedPapers.Add(movingObject);
+                }
+            }
             movingObject = null;
             targetObject = null;
             mouseDownState = "Ended";
+
+            // Third tutorial
+            if(!tutorialPlaying && firstClickedOffPhone && !allPapersDraggedOut && touchedPapers.Count >= 3) {
+                allPapersDraggedOut = true;
+                tutorialPlaying = true;
+                Tutorial(3);
+            }
         }
     }
 
@@ -170,12 +185,22 @@ public class LevelManager : MonoBehaviour
         if(targetObject){
             print(targetObject.transform.gameObject.name);
             if(isDayOne){
+                // End a tutorial
                 if(tutorialPlaying){
                     greyOut.SendMessage("TutorialClose",tutorialActive);
                     tutorialPlaying=false;
+                // Second tutorial
                 } else if((!firstClickedOffPhone)&&expandedObject != null && expandedObject.transform.gameObject.name=="Phone"&&targetObject.transform.gameObject.name=="GreyOut"){
                     firstClickedOffPhone = true;
+                    tutorialPlaying = true;
                     Tutorial(2);
+                }
+                // --- Note: Third tutorial can be found under left click end in MouseClickHandler() ----
+                // Fourth tutorial
+                 else if (allPapersDraggedOut && !clickedOnStamp && targetObject.transform.gameObject.name == "Stamp") {
+                    clickedOnStamp = true;
+                    tutorialPlaying = true;
+                    Tutorial(4);
                 }
             }
         }
@@ -203,7 +228,9 @@ public class LevelManager : MonoBehaviour
             if (targetObject != expandedObject) {
                 expandedObject.transform.gameObject.SendMessage("StopLookingAt");
                 expandedObject = null;
-                greyOut.transform.position = new Vector3(28f,0f,-3f);
+                if (!tutorialPlaying) {
+                    greyOut.transform.position = new Vector3(28f,0f,-3f);
+                }
                 if(emailButton.activeSelf){
                     emailButton.GetComponent<Button>().interactable = true;
                 }
@@ -265,6 +292,7 @@ public class LevelManager : MonoBehaviour
     }
 
     void Tutorial(int tutorialNum){
+        Debug.Log("Tut tut" + tutorialNum);
         if(isDayOne){
             tutorialPlaying = true;
             greyOut.SendMessage("TutorialStart",tutorialNum);
