@@ -5,25 +5,24 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-
     // Used for page layering
     public GameObject selectedObject;
-    public GameObject greyOut;
-    public GameObject emailButton;
-    public GameObject dictButton;
-    public GameObject backButton;
     public GameObject[] pagesArray;
     int currentMax;
 
     // Used to handle both Dragging and Tapping objects
-    Collider2D targetObject;
+    Collider2D clickedObject;
     Vector3 prevPosition;
     float mouseMvmtThreshold = 0.5f;
     string mouseDownState;
+    public GameObject greyOut;
 
     // Used in MouseTap
     Collider2D expandedObject;
     public GameObject stamper;
+    public GameObject emailButton;
+    public GameObject dictButton;
+    public GameObject backButton;
 
     // Used in MouseDrag
     public GameObject movingObject;
@@ -35,7 +34,6 @@ public class LevelManager : MonoBehaviour
     public bool firstClickedOffPhone;
     public bool allPapersDraggedOut;
     public bool clickedOnStamp;
-    public bool tutorialPlaying;
     int tutorialActive;
     public List<GameObject> touchedPapers;
 
@@ -45,7 +43,7 @@ public class LevelManager : MonoBehaviour
         firstClickedOffPhone = false;
         allPapersDraggedOut = false;
         clickedOnStamp = false;
-        tutorialActive=-1;
+        tutorialActive = -1;
 
         touchedPapers = new List<GameObject>();
     }
@@ -111,7 +109,7 @@ public class LevelManager : MonoBehaviour
         } 
     }
 
-    /** Mouse Taps and Drags */
+    /** ------------------------------ Mouse Taps and Drags ------------------------------ */
 
     /**
     * Times any mouse clicks to determine if a tap or drag happened, and calls the appropriate method
@@ -120,11 +118,11 @@ public class LevelManager : MonoBehaviour
         // Left click start
         if (Input.GetMouseButtonDown(0)) {
             prevPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            targetObject = Physics2D.OverlapPoint(prevPosition);
+            clickedObject = Physics2D.OverlapPoint(prevPosition);
             mouseDownState = "Started";
         }
 
-        // Increment time
+        // Left mouse button still down
         if (mouseDownState != "Ended") {
             if (mouseDownState != "Drag") {
                 TestMouseMvmt();
@@ -134,28 +132,34 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        // Left click end
-        if (Input.GetMouseButtonUp(0))
-        {
-            if (mouseDownState == "Tap") {
-                MouseTap();
-            }
-            else {
-                if (!touchedPapers.Contains(movingObject)) {
-                    touchedPapers.Add(movingObject);
-                }
-            }
-            movingObject = null;
-            targetObject = null;
-            mouseDownState = "Ended";
+        if (Input.GetMouseButtonUp(0)) {
+            LeftClickRelease();
+        }
+    }
 
-            // Third tutorial
-            if(!tutorialPlaying && firstClickedOffPhone && !allPapersDraggedOut && touchedPapers.Count >= 3) {
-                allPapersDraggedOut = true;
-                tutorialPlaying = true;
-                Tutorial(3);
+    /**
+    * Handles what happens on the release of a left click
+    * Includes: Tap actions and third tutorial
+    */
+    void LeftClickRelease() {
+        if (mouseDownState == "Tap") {
+            MouseTap();
+        }
+        else {
+            if (isDayOne && !touchedPapers.Contains(movingObject)) {
+                touchedPapers.Add(movingObject);
             }
         }
+
+        // Third tutorial
+        if(tutorialActive == -1 && firstClickedOffPhone && !allPapersDraggedOut && touchedPapers.Count >= 3) {
+            allPapersDraggedOut = true;
+            Tutorial(3);
+        }
+
+        movingObject = null;
+        clickedObject = null;
+        mouseDownState = "Ended";
     }
 
     /**
@@ -180,80 +184,84 @@ public class LevelManager : MonoBehaviour
     * A phone or page will be expanded
     * Expanded phones or pages will be put down
     * A stamper will be picked up
+    *
+    * On day one a tutorial may be activated
     */
     void MouseTap() {
-        if(targetObject){
-            print(targetObject.transform.gameObject.name);
-            if(isDayOne){
-                // End a tutorial
-                if(tutorialPlaying){
-                    greyOut.SendMessage("TutorialClose",tutorialActive);
-                    tutorialPlaying=false;
-                // Second tutorial
-                } else if((!firstClickedOffPhone)&&expandedObject != null && expandedObject.transform.gameObject.name=="Phone"&&targetObject.transform.gameObject.name=="GreyOut"){
-                    firstClickedOffPhone = true;
-                    tutorialPlaying = true;
-                    Tutorial(2);
-                }
-                // --- Note: Third tutorial can be found under left click end in MouseClickHandler() ----
-                // Fourth tutorial
-                 else if (allPapersDraggedOut && !clickedOnStamp && targetObject.transform.gameObject.name == "Stamp") {
-                    clickedOnStamp = true;
-                    tutorialPlaying = true;
-                    Tutorial(4);
-                }
+        if(clickedObject){
+            if(isDayOne) {
+                TutorialClickActions();
             }
         }
-        // Expands a page or phone to the center
-        if (expandedObject == null && targetObject) {
-            if((targetObject.transform.gameObject.tag == "Pages") || (targetObject.transform.gameObject.tag == "Phone")){
-                targetObject.transform.gameObject.SendMessage("StartLookingAt");
-                expandedObject = targetObject;
-                greyOut.transform.position = new Vector3(0f,0f,-3f);
-                if(targetObject.transform.gameObject.tag != "Phone"){
-                    if(emailButton.activeSelf){
-                        emailButton.GetComponent<Button>().interactable = false;
-                    }
-                    if(dictButton.activeSelf){
-                        dictButton.GetComponent<Button>().interactable = false;
-                    }
-                    if(backButton.activeSelf){
-                        backButton.GetComponent<Button>().interactable = false;
-                    }
-                }
-            } 
+        if (expandedObject == null && clickedObject) {
+            ExpandObject();
         }
-        // Puts down an expanded page or phone
         else if (expandedObject != null) {
-            if (targetObject != expandedObject) {
-                expandedObject.transform.gameObject.SendMessage("StopLookingAt");
-                expandedObject = null;
-                if (!tutorialPlaying) {
-                    greyOut.transform.position = new Vector3(28f,0f,-3f);
-                }
-                if(emailButton.activeSelf){
-                    emailButton.GetComponent<Button>().interactable = true;
-                }
-                if(dictButton.activeSelf){
-                    dictButton.GetComponent<Button>().interactable = true;
-                }
-                if(backButton.activeSelf){
-                    backButton.GetComponent<Button>().interactable = true;
-                }
-            }
+            PutDownExpandedObject();
         }
         // Picks up/puts down the stamper
-        if(targetObject){
-            if(targetObject.tag == "Stamp"){
+        if(clickedObject){
+            if(clickedObject.tag == "Stamp"){
                 stamper.SendMessage("ClickedOn");
             }
         }
     }
 
-    // public void ManualTap(GameObject targObj) {
-    //     targetObject = targObj;
-    //     MouseTap();
-    // }
+    /**
+    * Handles all tutorial events caused by a click 
+    * Includes: Second tutorial, fourth tutorial, ending a tutorial
+    */
+    void TutorialClickActions() {
+        // End a tutorial
+        if(tutorialActive != -1){
+            greyOut.SendMessage("TutorialClose",tutorialActive);
+            tutorialActive = -1;
+        // Second tutorial
+        } else if((!firstClickedOffPhone)&&expandedObject != null && expandedObject.transform.gameObject.name=="Phone"&&clickedObject.transform.gameObject.name=="GreyOut"){
+            firstClickedOffPhone = true;
+            Tutorial(2);
+        }
+        // --- Note: Third tutorial can be found under left click end in MouseClickHandler() ----
+        // Fourth tutorial
+            else if (allPapersDraggedOut && !clickedOnStamp && clickedObject.transform.gameObject.name == "Stamp") {
+            clickedOnStamp = true;
+            Tutorial(4);
+        }
+    }
+
+    void ExpandObject() {
+        if((clickedObject.transform.gameObject.tag == "Pages") || (clickedObject.transform.gameObject.tag == "Phone")){
+            clickedObject.transform.gameObject.SendMessage("StartLookingAt");
+            expandedObject = clickedObject;
+            greyOut.transform.position = new Vector3(0f,0f,-3f);
+            if(clickedObject.transform.gameObject.tag != "Phone"){
+                ChangePhoneButtonActivation(false);
+            }
+        } 
+    }
+
+    void PutDownExpandedObject() {
+        if (clickedObject != expandedObject) {
+            expandedObject.transform.gameObject.SendMessage("StopLookingAt");
+            expandedObject = null;
+            if (tutorialActive == -1) {
+                greyOut.transform.position = new Vector3(28f,0f,-3f);
+            }
+            ChangePhoneButtonActivation(true);
+        }
+    }
+
+    void ChangePhoneButtonActivation(bool active) {
+        if(emailButton.activeSelf){
+            emailButton.GetComponent<Button>().interactable = active;
+        }
+        if(dictButton.activeSelf){
+            dictButton.GetComponent<Button>().interactable = active;
+        }
+        if(backButton.activeSelf){
+            backButton.GetComponent<Button>().interactable = active;
+        }
+    }
 
     /**
     * Picks up and moves an object with the mouse
@@ -261,9 +269,9 @@ public class LevelManager : MonoBehaviour
     void MouseDrag() {
         // Code from: https://gamedevbeginner.com/how-to-move-an-object-with-the-mouse-in-unity-in-2d/
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (movingObject == null && targetObject)
+        if (movingObject == null && clickedObject)
         {
-            movingObject = targetObject.transform.gameObject;
+            movingObject = clickedObject.transform.gameObject;
             offset = movingObject.transform.position - mousePosition;
         }
         if ((movingObject)&&(movingObject.tag != "Furniture"))
@@ -293,11 +301,7 @@ public class LevelManager : MonoBehaviour
 
     //Triggers the necessary tutorial and lets Greyout know
     void Tutorial(int tutorialNum){
-        Debug.Log("Tut tut" + tutorialNum);
-        if(isDayOne){
-            tutorialPlaying = true;
-            greyOut.SendMessage("TutorialStart",tutorialNum);
-            tutorialActive=tutorialNum;
-        }
+        greyOut.SendMessage("TutorialStart",tutorialNum);
+        tutorialActive = tutorialNum;
     }
 }

@@ -1070,7 +1070,7 @@ MonoBehaviour:
 
     Sincerely,
 
-    [Boss Name]'
+    Dr. Singh'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 28e4ddfc2aa6aa94c8d2a67e2f601d61, type: 2}
   m_sharedMaterial: {fileID: 8859443406748993096, guid: 28e4ddfc2aa6aa94c8d2a67e2f601d61, type: 2}
@@ -3010,19 +3010,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedObject: {fileID: 0}
+  pagesArray: []
   greyOut: {fileID: 2022900863}
+  stamper: {fileID: 0}
   emailButton: {fileID: 1132577505}
   dictButton: {fileID: 1290290008}
   backButton: {fileID: 1141333179}
-  pagesArray: []
-  stamper: {fileID: 0}
   movingObject: {fileID: 0}
   mainCamera: {fileID: 841061119}
   isDayOne: 0
   firstClickedOffPhone: 0
   allPapersDraggedOut: 0
   clickedOnStamp: 0
-  tutorialPlaying: 0
   touchedPapers: []
 --- !u!82 &1379266793
 AudioSource:
@@ -3034,7 +3033,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c8233b5c64c08ea44a9ea37f4f9321b1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 808c84c165835b14f954e1215d4e58bc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3917,7 +3916,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[Boss Name]
+  m_text: 'Dr. Singh
 
 '
   m_isRightToLeft: 0
