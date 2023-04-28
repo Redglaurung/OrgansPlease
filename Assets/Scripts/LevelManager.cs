@@ -291,6 +291,7 @@ public class LevelManager : MonoBehaviour
             movingObject.transform.position = new Vector3(movingObject.transform.position.x, oldPos.y, movingObject.transform.position.z);
     }
 
+    //Triggers the necessary tutorial and lets Greyout know
     void Tutorial(int tutorialNum){
         Debug.Log("Tut tut" + tutorialNum);
         if(isDayOne){

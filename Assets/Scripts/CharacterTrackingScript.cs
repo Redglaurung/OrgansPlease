@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CharacterTrackingScript : MonoBehaviour
 {
+    //Tracks which days have been resolved
     SummaryTrackingScript summary;
     private bool day1Chosen = false;
     private bool day2Chosen = false;
@@ -282,6 +283,8 @@ if (SceneManager.GetActiveScene().name == "Day4")
         }
     }
 
+
+    //Called when a paper is stamped, and sets the chosen day to be marked.
     public bool isChosen()
     {
         if (SceneManager.GetActiveScene().name == "Day1")

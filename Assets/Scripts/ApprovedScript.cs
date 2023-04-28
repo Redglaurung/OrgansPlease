@@ -8,9 +8,12 @@ using UnityEngine;
 // a point, then the one returned will be the one with the LOWEST Z coordinate value
 public class ApprovedScript : MonoBehaviour
 {
+    //page tracking
     public SpriteRenderer myRenderer;
     public GameObject Files;
     public GameObject[] pagesArray;
+    
+    //Readied Stamp variables
     GameObject readiedStamp;
     public Sprite stampType;
     public Sprite readystampType;
@@ -20,6 +23,8 @@ public class ApprovedScript : MonoBehaviour
     BoxCollider2D readiedstampCollider;
     public float stampX;
     public float stampY;
+    
+    //State trackers
     bool readied;
     bool currentlyStamping;
     bool rising;
@@ -28,6 +33,8 @@ public class ApprovedScript : MonoBehaviour
     int uptimer;
     int downtimer;
     bool canStamp;
+
+    //chosen character data
     Collider2D targetObject;
     GameObject targetPaper;
     CharacterTrackingScript character;
@@ -40,6 +47,7 @@ public class ApprovedScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Declare and create the readied stamp shadow
         readiedStamp = new GameObject("Readied Stamp Picture");
         readiedStamp.transform.SetParent(gameObject.transform);
         readiedStamp.transform.localPosition = new Vector3(0f, 0f, 10f);
@@ -52,6 +60,8 @@ public class ApprovedScript : MonoBehaviour
         readiedstampRenderer.sprite = null;
         readiedstampRenderer.sortingLayerName = "Pages";
         readiedstampRenderer.sortingOrder = 10;
+
+        //Set starting state variables
         canStamp=false;
         currentlyStamping=false;
         readied = false;
@@ -65,6 +75,7 @@ public class ApprovedScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //If the stamp is moving upwards
         if((uptimer>=0)&&(readied)){
             uptimer--;
             if(transform.position.y <=4){
@@ -74,6 +85,7 @@ public class ApprovedScript : MonoBehaviour
                 readiedStamp.transform.position -= new Vector3(0f,0.1f,0f);
             }
         }
+        //if the stamp is moving downwards
          if((downtimer>=0)&&(!readied)){
              downtimer--;
              transform.position -= new Vector3(0f,0.1f,0f);
@@ -86,13 +98,15 @@ public class ApprovedScript : MonoBehaviour
             CheckStamping();
         }
     }
-
+//Called my level manager
     public void ClickedOn(){
+        //put stamp down
         if((readied)&&(uptimer==-1)){
             if(!canStamp){
                 readiedstampRenderer.sprite = null;
                 downtimer=20;
                 readied=false;
+            //stamp the targeted area
             } else if (canStamp){
                 downtimer=20;
                 readied=false;
@@ -111,7 +125,7 @@ public class ApprovedScript : MonoBehaviour
             readiedstampRenderer.sprite = readystampType;
         }
     }
-
+//check if the Stamp is already in a different state
     public void CheckStamping(){
         Vector2[] stampcorners = GetVertexes(this.gameObject);
         int count=1;
@@ -142,36 +156,11 @@ public class ApprovedScript : MonoBehaviour
             readiedstampRenderer.sprite = readystampType;
             targetPaper = null;
         }
-        // Vector2[] readiedCorners = GetVertexes(readiedStamp);
-        // Vector2[][] pageLocations;
-        // pageLocations = new Vector2[4][];
-        // int count = 0;
-        // for(int i=0;i<4;i++){
-        //     pageLocations[i] = GetVertexes(pagesArray[i]);
-        // }
-        // for(int i=0;i<4;i++){
-        //     if((readiedCorners[0].x <= pageLocations[i][0].x) && (readiedCorners[0].y <= pageLocations[i][0].y)){
-        //         if((readiedCorners[1].x <= pageLocations[i][1].x) && (readiedCorners[1].y >= pageLocations[i][1].y)){
-        //             if((readiedCorners[2].x >= pageLocations[i][2].x) && (readiedCorners[2].y >= pageLocations[i][2].y)){
-        //                 if((readiedCorners[3].x >= pageLocations[i][3].x) && (readiedCorners[3].y <= pageLocations[i][3].y)){
-        //                     count=1;
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-        // Vector3 Stampposition = new Vector3 (transform.position.x, transform.position.y-2, transform.position.z);
-        // targetObject = Physics2D.OverlapPoint(Stampposition);
-        // //print(targetObject.transform.gameObject.tag);
-        // if((count == 1) && (targetObject.transform.gameObject.tag == "Pages")){
-        //     canStamp=true;
-        //     readiedstampRenderer.sprite = YesreadystampType;
-        // } else {
-        //     canStamp=false;
-        //     readiedstampRenderer.sprite = readystampType;
-        // }
+        
 
     }
+
+    //returns the vertexes of the specified object
     Vector2[] GetVertexes(GameObject thing){
         Vector2[] verts = new Vector2[4];        // Array that will contain the BOX Collider Vertices
         BoxCollider2D b = thing.GetComponent<BoxCollider2D>();
@@ -183,7 +172,7 @@ public class ApprovedScript : MonoBehaviour
         verts[3] = new Vector2( box.min.x, box.max.y);    //for upper left
         return verts;
     }
-
+//Called when the stamp is over a valid target
 public void ApplyStamp() {
     if ((targetPaper.transform.childCount >= 2) || character.isChosen())
         {
@@ -191,6 +180,7 @@ public void ApplyStamp() {
         } else {
             Debug.Log("Stamped Approved!");
             
+            //Make the stamp object appear on the page
             GameObject approvedStamp = new GameObject("Approved Stamp Picture");
             approvedStamp.transform.SetParent(targetPaper.transform);
             approvedStamp.transform.SetAsFirstSibling();
@@ -201,6 +191,8 @@ public void ApplyStamp() {
             stampRenderer.sprite = stampType;
             approvedStamp.transform.localScale = new Vector3(1.5f,1.5f,1.5f);
             approvedStamp.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles);
+
+            //Send data to other objects about the target chosen
             Pages paperScript = targetPaper.GetComponent<Pages>();
             paperScript.setStamped();
             Files.SendMessage("Chosen");
@@ -218,82 +210,3 @@ public void ApplyStamp() {
 }
 
 }
-//     [ContextMenu("Pressed on me")]
-//     public void OnMouseDown()
-//     {
-//         BoxCollider2D stampCollider = gameObject.GetComponent<BoxCollider2D>();
-//         Bounds stampBounds = stampCollider.bounds;
-//         // Debug.Log(bound.extents);
-//         // Debug.Log(gameObject.transform.position);
-        
-//         // If the paper is within the ranges defined above, I will set the stamp picture to be a child of the paper.
-
-//         GameObject[] papers = GameObject.FindGameObjectsWithTag("Pages");
-//         Debug.Log("This is stampBounds.max " + stampBounds.max);        // stampBounds.max is the top right corner of the Stamp
-//         Debug.Log("This is stampBounds.min " + stampBounds.min);        // stampBounds.min is the bottom left corner of the Stamp
-//         // int highestPage = 6;
-//         foreach (GameObject paper in papers)
-//         {
-//             // Check if page is the top page in the Pages Sorting Layer
-//             // Make sure that we can't stamp when the page is in Looking At Mode
-//             //if((paper.myRenderer.sortingOrder == 6) && (paper.myRenderer.sortingLayerName != "Looking At"))
-            
-//             // Check if the paper is within the 
-//             BoxCollider2D paperCollider = paper.GetComponent<BoxCollider2D>();
-//             Bounds paperBounds = paperCollider.bounds;
-
-//             // var means figure out the data type for me
-//             var intersection = 
-//                 Vector3.Min(stampBounds.max, paperBounds.max)
-//                 - Vector3.Max(stampBounds.min, paperBounds.min);
-
-
-//             if (intersection.x > 0 && intersection.y > 0)       // Both intersection.x and intersection.y should be positive because negative width and height shouldn't result in an area
-//             {
-//                 Debug.Log("Paper is intersecting with the stamper!");
-//                 SpriteRenderer paperRenderer = paper.GetComponent<SpriteRenderer>();
-//                 if (paperRenderer.sortingOrder == 6 && paperRenderer.sortingLayerName != "Looking At")
-//                 {
-//                     float area = intersection.x * intersection.y;
-//                     if (area > 3)
-//                     {
-//                         Debug.Log("This is the paper: " + paper + "and this is my area: " + area);
-//                         ApplyStamp(paper);
-//                     }
-//                 }
-//             }
-//         }
-//     }
-
-//     private GameObject checkTopPaper()
-//     {
-//         return null;
-//     }
-
-//     private void ApplyStamp(GameObject paper)
-//     {
-//         if ((paper.transform.childCount >= 2) || character.isChosen())
-//         {
-//             Debug.Log("Can't stamp. Already been stamped or a paper has been chosen already!");
-//         } else {
-//             Debug.Log("Stamped Approved!");
-//             GameObject approvedStamp = new GameObject("Approved Stamp Picture");
-//             approvedStamp.transform.SetParent(paper.transform);
-//             approvedStamp.transform.SetAsFirstSibling();
-//             approvedStamp.transform.localPosition = new Vector3(0f, 0f, 0f);
-//             SpriteRenderer stampRenderer = approvedStamp.AddComponent<SpriteRenderer>();
-//             stampRenderer.sortingLayerName = "Pages";
-//             paper.SendMessage("LayerUpdate", 6);
-//             stampRenderer.sprite = stampType;
-//             approvedStamp.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
-//             Pages paperScript = paper.GetComponent<Pages>();
-//             paperScript.setStamped();
-//             Files.SendMessage("Chosen");
-//             //Debug.Log("This is the stamp's current local position: " + approvedStamp.transform.localPosition);
-//             //Debug.Log("This is the paper's position: " + paper.transform.position);
-//             //Debug.Log("This is the paper's children's index 0: " + paper.transform.GetChild(0));
-//             //Debug.Log("This is the paper's children's index 1: " + paper.transform.GetChild(1));
-//             //Debug.Log("This is the paper's child count: " + paper.transform.childCount);
-//         }
-//     }
-// }

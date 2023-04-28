@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Folder : MonoBehaviour
 {
+    //Refrence to other necessary gameobjects
     public SpriteRenderer myRenderer;
     public GameObject[] pagesArray;
     public GameObject GreyOut;
     public string nextScene;
 
+    //Bools that track state
     bool opened;
     bool characterChosen;
     bool dayEnding;
@@ -44,6 +46,8 @@ public class Folder : MonoBehaviour
                 }
             }
          }
+
+         //Watch where papers are inside the folder and end the day when all rejected papers are in
         if(characterChosen){
             for(int i=0; i<4; i++){
                         float distance = Vector2.Distance(pagesArray[i].transform.position, transform.position);
@@ -64,6 +68,7 @@ public class Folder : MonoBehaviour
                         }
             }
         }
+        //Move to the next day
         if(dayEnding){
             if(timer <= 0){
                 SceneManager.LoadScene(nextScene);
@@ -74,8 +79,9 @@ public class Folder : MonoBehaviour
     }
     public void Chosen(){
         characterChosen = true;
-        //print("yeet");
     }
+
+    //Managing end of day tasks
     public void EndDay(){
         dayEnding = true;
         GreyOut.SendMessage("FadeOut");
