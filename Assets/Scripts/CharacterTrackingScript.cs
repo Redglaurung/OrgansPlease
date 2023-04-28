@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class CharacterTrackingScript : MonoBehaviour
 {
+    //Tracks which days have been resolved
     SummaryTrackingScript summary;
     private bool day1Chosen = false;
     private bool day2Chosen = false;
+    private bool day4Chosen = false;
     private bool day5Chosen = false;
     private bool day6Chosen = false;
 
@@ -130,6 +132,56 @@ public class CharacterTrackingScript : MonoBehaviour
             }
         }
 
+if (SceneManager.GetActiveScene().name == "Day4")
+        {
+            if (day2Chosen == false)
+            {
+                foreach (GameObject paper in papers)
+                {
+                    Pages paperScript = paper.GetComponent<Pages>();
+                    if (paperScript.isStamped)
+                    {
+                        day2Chosen = true;
+                        if (paper.name == "Paper1") // Alice Lee
+                        {
+                            summary.neitherAge += 1;
+                            summary.lowestIncome += 1;
+                            summary.notKnown += 1;
+                            summary.guarGood += 1;
+                            summary.shortWait += 1;
+                        }
+
+                        if (paper.name == "Paper2")     // Jay Allen
+                        {
+                            summary.oldest += 1;
+                            summary.highestIncome += 1;
+                            summary.midKnown += 1;
+                            summary.potGood += 1;
+                            summary.longWait += 1;
+                        }
+
+                        if (paper.name == "Paper3") // Rob Green
+                        {
+                            summary.youngest += 1;
+                            summary.neitherIncome += 1;
+                            summary.notKnown += 1;
+                            summary.guarGood += 1;
+                            summary.neitherWait += 1;
+                        }
+
+                        if (paper.name == "Paper4") // Marta Gomez
+                        {
+                            summary.neitherAge += 1;
+                            summary.neitherIncome += 1;
+                            summary.wellKnown += 1;
+                            summary.noGood += 1;
+                            summary.neitherWait += 1;
+                        }
+                    }
+                }
+            }
+        }
+
         if (SceneManager.GetActiveScene().name == "Day5")
         {
             if (day5Chosen == false)
@@ -231,6 +283,8 @@ public class CharacterTrackingScript : MonoBehaviour
         }
     }
 
+
+    //Called when a paper is stamped, and sets the chosen day to be marked.
     public bool isChosen()
     {
         if (SceneManager.GetActiveScene().name == "Day1")
@@ -241,6 +295,10 @@ public class CharacterTrackingScript : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Day2")
         {
             return day2Chosen;
+        }
+        if (SceneManager.GetActiveScene().name == "Day4")
+        {
+            return day4Chosen;
         }
         if (SceneManager.GetActiveScene().name == "Day5")
         {

@@ -43,6 +43,7 @@ public class Pages : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, new Vector3 (7f,1f,transform.position.z), speed);
         }
     }
+    //Called by level manager to move the page and its children to an appropriate level
     public void LayerUpdate(int layer){
         myRenderer.sortingOrder = layer;
         canvasCanvas.sortingOrder = layer + 1; 
@@ -111,6 +112,5 @@ public class Pages : MonoBehaviour
     }
     public void IsRejected(){
         rejected=true;
-        //print("yep");
     }
 }

@@ -5,13 +5,10 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    // Used in ManageSound
-    public AudioSource[] audioSources;
-    int audioTimer;
 
     // Used for page layering
     public GameObject selectedObject;
-    public GameObject Greyout;
+    public GameObject greyOut;
     public GameObject emailButton;
     public GameObject dictButton;
     public GameObject backButton;
@@ -19,12 +16,10 @@ public class LevelManager : MonoBehaviour
     int currentMax;
 
     // Used to handle both Dragging and Tapping objects
-    double tapTimer;
-    double tapStartTime;
-    double TAP_TIME = 0; 
     Collider2D targetObject;
     Vector3 prevPosition;
-    string chosen;
+    float mouseMvmtThreshold = 0.5f;
+    string mouseDownState;
 
     // Used in MouseTap
     Collider2D expandedObject;
@@ -37,44 +32,31 @@ public class LevelManager : MonoBehaviour
 
     //Tutorial Booleans
     public bool isDayOne;
-    bool firstClickedOffPhone;
-    bool allpapersdraggedOut;
-    bool clickedOnStamp;
-    bool tutorialPlaying;
+    public bool firstClickedOffPhone;
+    public bool allPapersDraggedOut;
+    public bool clickedOnStamp;
+    public bool tutorialPlaying;
     int tutorialActive;
+    public List<GameObject> touchedPapers;
 
     // Start is called before the first frame update
     void Start()
     {
         firstClickedOffPhone = false;
-        allpapersdraggedOut = false;
+        allPapersDraggedOut = false;
         clickedOnStamp = false;
         tutorialActive=-1;
-        audioTimer = 2000;
-        tapStartTime = -1;
+
+        touchedPapers = new List<GameObject>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // ManageSound();
-        if (pagesArray.Length > 0) LayerPages();
-        MouseClickTimer();
-    }
-
-    /** Sound Management Script */
-
-    /**
-    * Currently unused code (commented out in Update), used before new single audio file was created to start music late
-    *
-    * TODO: Delete upon agreement on new sounds
-    */
-    void ManageSound() {
-        if((audioTimer >= 1)&&(audioTimer<=2000)){audioTimer--;}
-        else if(audioTimer < 1){
-            audioSources[1].Play();
-            audioTimer = 3000;
+        if (pagesArray.Length > 0) {
+            LayerPages();
         }
+        MouseClickHandler();
     }
 
     /** Layer Management Script */
@@ -134,50 +116,61 @@ public class LevelManager : MonoBehaviour
     /**
     * Times any mouse clicks to determine if a tap or drag happened, and calls the appropriate method
     */
-    void MouseClickTimer() {
+    void MouseClickHandler() {
         // Left click start
         if (Input.GetMouseButtonDown(0)) {
             prevPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            tapStartTime = Time.time;
             targetObject = Physics2D.OverlapPoint(prevPosition);
+            mouseDownState = "Started";
         }
 
         // Increment time
-        if (tapStartTime != -1) {
-            tapTimer = Time.time - tapStartTime; 
-            if (tapTimer > TAP_TIME) {
-                // MouseDrag();
-                if (chosen != "Drag") {
-                    TestMouseMvmt();
-                }
-                else {
-                    MouseDrag();
-                }
+        if (mouseDownState != "Ended") {
+            if (mouseDownState != "Drag") {
+                TestMouseMvmt();
+            }
+            else {
+                MouseDrag();
             }
         }
 
         // Left click end
         if (Input.GetMouseButtonUp(0))
         {
-            if (tapTimer <= TAP_TIME || chosen == "Tap") MouseTap();
-            tapStartTime = -1;
-            tapTimer = 0;
+            if (mouseDownState == "Tap") {
+                MouseTap();
+            }
+            else {
+                if (!touchedPapers.Contains(movingObject)) {
+                    touchedPapers.Add(movingObject);
+                }
+            }
             movingObject = null;
             targetObject = null;
-            chosen = "False";
+            mouseDownState = "Ended";
+
+            // Third tutorial
+            if(!tutorialPlaying && firstClickedOffPhone && !allPapersDraggedOut && touchedPapers.Count >= 3) {
+                allPapersDraggedOut = true;
+                tutorialPlaying = true;
+                Tutorial(3);
+            }
         }
     }
 
+    /**
+    * Checks how far the mouse has moved since it was first clicked, and either sets the mouse click to a tap or drag accordingly
+    */
     void TestMouseMvmt() {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 mvmt = prevPosition - mousePosition;
 
-        if (mvmt.magnitude > 0.5) {
-            chosen = "Drag";
+        if (mvmt.magnitude > mouseMvmtThreshold) {
+            mouseDownState = "Drag";
             MouseDrag();
         }
         else {
-            chosen = "Tap";
+            mouseDownState = "Tap";
         }
     }
 
@@ -192,12 +185,22 @@ public class LevelManager : MonoBehaviour
         if(targetObject){
             print(targetObject.transform.gameObject.name);
             if(isDayOne){
+                // End a tutorial
                 if(tutorialPlaying){
-                    Greyout.SendMessage("TutorialClose",tutorialActive);
+                    greyOut.SendMessage("TutorialClose",tutorialActive);
                     tutorialPlaying=false;
+                // Second tutorial
                 } else if((!firstClickedOffPhone)&&expandedObject != null && expandedObject.transform.gameObject.name=="Phone"&&targetObject.transform.gameObject.name=="GreyOut"){
                     firstClickedOffPhone = true;
+                    tutorialPlaying = true;
                     Tutorial(2);
+                }
+                // --- Note: Third tutorial can be found under left click end in MouseClickHandler() ----
+                // Fourth tutorial
+                 else if (allPapersDraggedOut && !clickedOnStamp && targetObject.transform.gameObject.name == "Stamp") {
+                    clickedOnStamp = true;
+                    tutorialPlaying = true;
+                    Tutorial(4);
                 }
             }
         }
@@ -206,7 +209,7 @@ public class LevelManager : MonoBehaviour
             if((targetObject.transform.gameObject.tag == "Pages") || (targetObject.transform.gameObject.tag == "Phone")){
                 targetObject.transform.gameObject.SendMessage("StartLookingAt");
                 expandedObject = targetObject;
-                Greyout.transform.position = new Vector3(0f,0f,-3f);
+                greyOut.transform.position = new Vector3(0f,0f,-3f);
                 if(targetObject.transform.gameObject.tag != "Phone"){
                     if(emailButton.activeSelf){
                         emailButton.GetComponent<Button>().interactable = false;
@@ -225,7 +228,9 @@ public class LevelManager : MonoBehaviour
             if (targetObject != expandedObject) {
                 expandedObject.transform.gameObject.SendMessage("StopLookingAt");
                 expandedObject = null;
-                Greyout.transform.position = new Vector3(28f,0f,-3f);
+                if (!tutorialPlaying) {
+                    greyOut.transform.position = new Vector3(28f,0f,-3f);
+                }
                 if(emailButton.activeSelf){
                     emailButton.GetComponent<Button>().interactable = true;
                 }
@@ -286,10 +291,12 @@ public class LevelManager : MonoBehaviour
             movingObject.transform.position = new Vector3(movingObject.transform.position.x, oldPos.y, movingObject.transform.position.z);
     }
 
+    //Triggers the necessary tutorial and lets Greyout know
     void Tutorial(int tutorialNum){
+        Debug.Log("Tut tut" + tutorialNum);
         if(isDayOne){
             tutorialPlaying = true;
-            Greyout.SendMessage("TutorialStart",tutorialNum);
+            greyOut.SendMessage("TutorialStart",tutorialNum);
             tutorialActive=tutorialNum;
         }
     }
