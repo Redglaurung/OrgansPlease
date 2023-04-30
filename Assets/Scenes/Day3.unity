@@ -3769,7 +3769,7 @@ MonoBehaviour:
   - {fileID: 1078377988}
   - {fileID: 1502728931}
   GreyOut: {fileID: 505813342}
-  nextScene: EndingStart
+  nextScene: Day4
 --- !u!61 &775568637
 BoxCollider2D:
   m_ObjectHideFlags: 0

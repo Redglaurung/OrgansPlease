@@ -9,6 +9,7 @@ public class CharacterTrackingScript : MonoBehaviour
     SummaryTrackingScript summary;
     private bool day1Chosen = false;
     private bool day2Chosen = false;
+    private bool day3Chosen = false;
     private bool day4Chosen = false;
     private bool day5Chosen = false;
     private bool day6Chosen = false;
@@ -132,16 +133,66 @@ public class CharacterTrackingScript : MonoBehaviour
             }
         }
 
-if (SceneManager.GetActiveScene().name == "Day4")
+        if (SceneManager.GetActiveScene().name == "Day3")
         {
-            if (day2Chosen == false)
+            if (day3Chosen == false)
             {
                 foreach (GameObject paper in papers)
                 {
                     Pages paperScript = paper.GetComponent<Pages>();
                     if (paperScript.isStamped)
                     {
-                        day2Chosen = true;
+                        day3Chosen = true;
+                        if (paper.name == "Paper1") // Tony
+                        {
+                            summary.youngest += 1;
+                            summary.neitherIncome += 1;
+                            summary.midKnown += 1;
+                            summary.noGood += 1;
+                            summary.shortWait += 1;
+                        }
+
+                        if (paper.name == "Paper2")     // Damon
+                        {
+                            summary.neitherAge += 1;
+                            summary.lowestIncome += 1;
+                            summary.notKnown += 1;
+                            summary.potGood += 1;
+                            summary.neitherWait += 1;
+                        }
+
+                        if (paper.name == "Paper3") // Dexter
+                        {
+                            summary.oldest += 1;
+                            summary.highestIncome += 1;
+                            summary.wellKnown += 1;
+                            summary.guarGood += 1;
+                            summary.longWait += 1;
+                        }
+
+                        if (paper.name == "Paper4") // Tina
+                        {
+                            summary.neitherAge += 1;
+                            summary.neitherIncome += 1;
+                            summary.midKnown += 1;
+                            summary.guarGood += 1;
+                            summary.neitherWait += 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (SceneManager.GetActiveScene().name == "Day4")
+        {
+            if (day4Chosen == false)
+            {
+                foreach (GameObject paper in papers)
+                {
+                    Pages paperScript = paper.GetComponent<Pages>();
+                    if (paperScript.isStamped)
+                    {
+                        day4Chosen = true;
                         if (paper.name == "Paper1") // Alice Lee
                         {
                             summary.neitherAge += 1;

@@ -22,25 +22,22 @@ public class SummaryTrackingScript : MonoBehaviour
     // Longest on waitlist
     // Shortest on waitlist
 
-    // Day 1
-    // Page 1 Esmeralda
-    // Page 2 Jinnie
-    // Page 3 Mathias
-    // Page 4 Jack
-
-    // Should I be tracking neitherAge, neitherIncome, neitherWait?
     public int oldest = 0;
     public int youngest = 0;
     public int neitherAge = 0;
+
     public int highestIncome = 0;
     public int lowestIncome = 0;
     public int neitherIncome = 0;
+
     public int notKnown = 0;
     public int midKnown = 0;
     public int wellKnown = 0;
+
     public int noGood = 0;
     public int potGood = 0;
     public int guarGood = 0;
+
     public int longWait = 0;
     public int shortWait = 0;
     public int neitherWait = 0;
@@ -58,7 +55,6 @@ public class SummaryTrackingScript : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         character = gameObject.GetComponent<CharacterTrackingScript>();
         gameOver = false;
-        oldest = 1;
 }
 
 

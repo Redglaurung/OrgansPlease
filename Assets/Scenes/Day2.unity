@@ -590,7 +590,7 @@ MonoBehaviour:
   - {fileID: 1513156926}
   - {fileID: 1358502399}
   GreyOut: {fileID: 1890012792}
-  nextScene: Day4
+  nextScene: Day3
 --- !u!1 &240020661
 GameObject:
   m_ObjectHideFlags: 0
@@ -4175,20 +4175,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedObject: {fileID: 0}
-  greyOut: {fileID: 1890012792}
-  emailButton: {fileID: 870559663}
-  dictButton: {fileID: 1747756829}
-  backButton: {fileID: 353701137}
   pagesArray:
   - {fileID: 892962707}
   - {fileID: 1927811708}
   - {fileID: 1513156926}
   - {fileID: 1358502399}
   - {fileID: 0}
+  greyOut: {fileID: 1890012792}
   stamper: {fileID: 652610044}
+  emailButton: {fileID: 870559663}
+  dictButton: {fileID: 1747756829}
+  backButton: {fileID: 353701137}
   movingObject: {fileID: 0}
   mainCamera: {fileID: 519420031}
   isDayOne: 0
+  firstClickedOffPhone: 0
+  allPapersDraggedOut: 0
+  clickedOnStamp: 0
+  touchedPapers: []
 --- !u!1 &1358502399
 GameObject:
   m_ObjectHideFlags: 0
