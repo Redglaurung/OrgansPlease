@@ -58,6 +58,7 @@ public class SummaryTrackingScript : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         character = gameObject.GetComponent<CharacterTrackingScript>();
         gameOver = false;
+        oldest = 1;
 }
 
 
@@ -133,7 +134,7 @@ public class SummaryTrackingScript : MonoBehaviour
         GameObject waitObject = GameObject.Find("Waitlist");
         GameObject philObject = GameObject.Find("Philanthropy");
 
-        string barLayer = "Default";
+        string barLayer = "default";
 
         // Age Bar Chart
         GameObject ageOldest = ageObject.transform.Find("Oldest").gameObject;
@@ -143,8 +144,9 @@ public class SummaryTrackingScript : MonoBehaviour
         SpriteRenderer oldestRenderer = ageOldestBar.AddComponent<SpriteRenderer>();
         oldestRenderer.sprite = bar;
         oldestRenderer.sortingLayerName = barLayer;
-
         oldestRenderer.color = brightBlue;
+
+
         ageOldestBar.transform.localScale = new Vector3(oldest, yScale, 0);
         ageOldestBar.transform.position = new Vector3(0.5f * (oldest - 1), ageOldestDataBox.transform.position.y, 0);
 
