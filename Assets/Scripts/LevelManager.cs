@@ -55,6 +55,7 @@ public class LevelManager : MonoBehaviour
             LayerPages();
         }
         MouseClickHandler();
+        if (isDayOne) EndTutorial();
     }
 
     /** Layer Management Script */
@@ -212,12 +213,8 @@ public class LevelManager : MonoBehaviour
     * Includes: Second tutorial, fourth tutorial, ending a tutorial
     */
     void TutorialClickActions() {
-        // End a tutorial
-        if(tutorialActive != -1){
-            greyOut.SendMessage("TutorialClose",tutorialActive);
-            tutorialActive = -1;
         // Second tutorial
-        } else if((!firstClickedOffPhone)&&expandedObject != null && expandedObject.transform.gameObject.name=="Phone"&&clickedObject.transform.gameObject.name=="GreyOut"){
+        if((!firstClickedOffPhone)&&expandedObject != null && expandedObject.transform.gameObject.name=="Phone"&&clickedObject.transform.gameObject.name=="GreyOut"){
             firstClickedOffPhone = true;
             Tutorial(2);
         }
@@ -297,6 +294,13 @@ public class LevelManager : MonoBehaviour
         // If out of bounds vertically
         if (movingObject.transform.position.y < yMin || movingObject.transform.position.y > yMax)
             movingObject.transform.position = new Vector3(movingObject.transform.position.x, oldPos.y, movingObject.transform.position.z);
+    }
+
+    void EndTutorial() {
+        if (Input.GetKeyDown("space") && tutorialActive != -1) {
+            greyOut.SendMessage("TutorialClose",tutorialActive);
+            tutorialActive = -1;
+        }
     }
 
     //Triggers the necessary tutorial and lets Greyout know

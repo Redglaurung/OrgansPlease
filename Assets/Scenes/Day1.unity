@@ -2634,8 +2634,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Click on papers to read profiles. Click off of them to put them back down.\n\nWhen
-    you're confident in your decision, click on the stamp. \n\n\nClick anywhere to
-    continue."
+    you're confident in your decision, click on the stamp. \n\n\nPress SPACE to continue."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -5261,24 +5260,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedObject: {fileID: 0}
-  greyOut: {fileID: 1890012792}
-  emailButton: {fileID: 870559663}
-  dictButton: {fileID: 1747756829}
-  backButton: {fileID: 353701137}
   pagesArray:
   - {fileID: 892962707}
   - {fileID: 1927811708}
   - {fileID: 1513156926}
   - {fileID: 1358502399}
   - {fileID: 0}
+  greyOut: {fileID: 1890012792}
   stamper: {fileID: 652610044}
+  emailButton: {fileID: 870559663}
+  dictButton: {fileID: 1747756829}
+  backButton: {fileID: 353701137}
   movingObject: {fileID: 0}
   mainCamera: {fileID: 519420031}
   isDayOne: 1
   firstClickedOffPhone: 0
   allPapersDraggedOut: 0
   clickedOnStamp: 0
-  tutorialPlaying: 0
   touchedPapers: []
 --- !u!1 &1354620890
 GameObject:
@@ -5761,7 +5759,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Drag the stamp over your selected patient until the preview turns green.
     \nThen, click the stamp to approve the profile of your choice. \n\n<b>Make sure
-    you're confident about your decision as there's no going back.</b>\n\nClick anywhere
+    you're confident about your decision as there's no going back.</b>\n\nPress SPACE
     to continue."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -6812,7 +6810,7 @@ MonoBehaviour:
 
 
 
-    Click anywhere to continue.'
+    Press SPACE to continue.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -7218,7 +7216,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Click on the Folder to open it. \n\nDrag the patient profiles out of the
-    folder. \n\n\n\nClick anywhere to continue."
+    folder. \n\n\n\nPress SPACE to continue."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
