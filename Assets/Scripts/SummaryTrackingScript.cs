@@ -6,22 +6,6 @@ using TMPro;
 
 public class SummaryTrackingScript : MonoBehaviour
 {
-    // Categories to think about:
-    // Neither oldest or youngest
-    // Oldest
-    // Youngest
-    // Highest income
-    // Lowest income
-    // Neither highest or lowest income
-    // Not well-known
-    // Well-known (extremely)
-    // Well-known (moderately)
-    // No good
-    // Potential good
-    // Guaranteed good
-    // Longest on waitlist
-    // Shortest on waitlist
-
     public int oldest = 0;
     public int youngest = 0;
     public int neitherAge = 0;
@@ -44,10 +28,9 @@ public class SummaryTrackingScript : MonoBehaviour
 
     public bool gameOver = false;
     bool ranFeedback = false;
+
     CharacterTrackingScript character;
     public Sprite bar;
-
-    private string sceneName;
 
     // Start is called before the first frame update
     void Start()
@@ -79,7 +62,6 @@ public class SummaryTrackingScript : MonoBehaviour
 
     public void drawBarChart()
     {
-        // Will create a bar with a length dependent on the value of the counter variables
         float yScale = 0.50f;
         float xScale = 0.75f;
 
@@ -284,6 +266,13 @@ public class SummaryTrackingScript : MonoBehaviour
         philNeitherBar.transform.localScale = new Vector3(noGood * xScale, yScale, 0);
         philNeitherBar.transform.position = new Vector3(xScale/2 * (noGood - 1), philNeitherData.transform.position.y, 0);
     }
+
+    /**
+     * Sets the value of the numbers that appear to the 
+     * right of the Text boxes for a specific category 
+     * of a bigger category. (Ex. Oldest is a specific 
+     * category of Age).
+     */
     public void makeFeedbackSheet() {
             GameObject[] DataArray = GameObject.FindGameObjectsWithTag ("Data");
             for (int i = 0; i < DataArray.Length; i++) {
