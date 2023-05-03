@@ -55,7 +55,7 @@ public class SummaryTrackingScript : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         character = gameObject.GetComponent<CharacterTrackingScript>();
         gameOver = false;
-    }
+}
 
 
     // Update is called once per frame
@@ -79,45 +79,9 @@ public class SummaryTrackingScript : MonoBehaviour
 
     public void drawBarChart()
     {
-        // Will create a bar with a length dependent on the value of the variable youngest
-        ArrayList ageCategory = new ArrayList()
-        {
-            oldest,
-            youngest,
-            neitherAge
-        };
-
-        ArrayList incomeCategory = new ArrayList()
-        {
-            highestIncome,
-            lowestIncome,
-            neitherIncome
-        };
-
-        ArrayList knownCategory = new ArrayList()
-        {
-            wellKnown,
-            notKnown,
-            midKnown
-        };
-
-        ArrayList futureGoodCategory = new ArrayList()
-        {
-            guarGood,
-            noGood,
-            potGood
-        };
-
-        ArrayList waitCategory = new ArrayList()
-        {
-            longWait,
-            shortWait,
-            neitherWait
-        };
-
-
-
+        // Will create a bar with a length dependent on the value of the counter variables
         float yScale = 0.50f;
+        float xScale = 0.75f;
 
         Color32 brightBlue = new Color32(0, 0, 255, 255);
         Color32 oceanBlue = new Color32(51, 51, 255, 255);
@@ -143,8 +107,8 @@ public class SummaryTrackingScript : MonoBehaviour
         oldestRenderer.color = brightBlue;
 
 
-        ageOldestBar.transform.localScale = new Vector3(oldest, yScale, 0);
-        ageOldestBar.transform.position = new Vector3(0.5f * (oldest - 1), ageOldestDataBox.transform.position.y, 0);
+        ageOldestBar.transform.localScale = new Vector3(oldest * xScale, yScale, 0);
+        ageOldestBar.transform.position = new Vector3(xScale/2 * (oldest - 1), ageOldestDataBox.transform.position.y, 0);
 
         GameObject ageYoungest = ageObject.transform.Find("Youngest").gameObject;
         GameObject ageYoungestDataBox = ageYoungest.transform.Find("Youngest Data").gameObject;
@@ -155,8 +119,8 @@ public class SummaryTrackingScript : MonoBehaviour
         youngestRenderer.color = oceanBlue;
         youngestRenderer.sortingLayerName = barLayer;
 
-        ageYoungestBar.transform.localScale = new Vector3(youngest, yScale, 0);
-        ageYoungestBar.transform.position = new Vector3(0.5f * (youngest - 1), ageYoungestDataBox.transform.position.y, 0);
+        ageYoungestBar.transform.localScale = new Vector3(youngest * xScale, yScale, 0);
+        ageYoungestBar.transform.position = new Vector3(xScale/2 * (youngest - 1), ageYoungestDataBox.transform.position.y, 0);
 
 
         GameObject ageNeither = ageObject.transform.Find("Neither").gameObject;
@@ -168,8 +132,8 @@ public class SummaryTrackingScript : MonoBehaviour
         neitherRenderer.color = babyBlue;
         neitherRenderer.sortingLayerName = barLayer;
 
-        ageNeitherBar.transform.localScale = new Vector3(neitherAge, yScale, 0);
-        ageNeitherBar.transform.position = new Vector3(0.5f * (neitherAge - 1), ageNeitherDataBox.transform.position.y, 0);
+        ageNeitherBar.transform.localScale = new Vector3(neitherAge * xScale, yScale, 0);
+        ageNeitherBar.transform.position = new Vector3(xScale/2 * (neitherAge - 1), ageNeitherDataBox.transform.position.y, 0);
 
         // Pay Bar Chart
         GameObject payHigh = payObject.transform.Find("HighPay").gameObject;
@@ -181,8 +145,8 @@ public class SummaryTrackingScript : MonoBehaviour
         payHighRenderer.color = brightBlue;
         payHighRenderer.sortingLayerName = barLayer;
 
-        payHighBar.transform.localScale = new Vector3(highestIncome, yScale, 0);
-        payHighBar.transform.position = new Vector3(0.5f * (highestIncome - 1), payHighData.transform.position.y, 0);
+        payHighBar.transform.localScale = new Vector3(highestIncome * xScale, yScale, 0);
+        payHighBar.transform.position = new Vector3(xScale/2 * (highestIncome - 1), payHighData.transform.position.y, 0);
 
         GameObject payLow = payObject.transform.Find("LowPay").gameObject;
         GameObject payLowData = payLow.transform.Find("LowPay Data").gameObject;
@@ -193,8 +157,8 @@ public class SummaryTrackingScript : MonoBehaviour
         payLowRenderer.color = oceanBlue;
         payLowRenderer.sortingLayerName = barLayer;
 
-        payLowBar.transform.localScale = new Vector3(lowestIncome, yScale, 0);
-        payLowBar.transform.position = new Vector3(0.5f * (lowestIncome - 1), payLowData.transform.position.y, 0);
+        payLowBar.transform.localScale = new Vector3(lowestIncome * xScale, yScale, 0);
+        payLowBar.transform.position = new Vector3(xScale/2 * (lowestIncome - 1), payLowData.transform.position.y, 0);
 
         GameObject payNeither = payObject.transform.Find("NeitherPay").gameObject;
         GameObject payNeitherData = payNeither.transform.Find("PayNeither Data").gameObject;
@@ -205,8 +169,8 @@ public class SummaryTrackingScript : MonoBehaviour
         payNeitherRenderer.color = babyBlue;
         payNeitherRenderer.sortingLayerName = barLayer;
 
-        payNeitherBar.transform.localScale = new Vector3(neitherIncome, yScale, 0);
-        payNeitherBar.transform.position = new Vector3(0.5f * (neitherIncome - 1), payNeitherData.transform.position.y, 0);
+        payNeitherBar.transform.localScale = new Vector3(neitherIncome * xScale, yScale, 0);
+        payNeitherBar.transform.position = new Vector3(xScale/2 * (neitherIncome - 1), payNeitherData.transform.position.y, 0);
 
 
         // Notoriety Bar Chart
@@ -219,8 +183,8 @@ public class SummaryTrackingScript : MonoBehaviour
         notoWellRenderer.color = brightBlue;
         notoWellRenderer.sortingLayerName = barLayer;
 
-        notoWellBar.transform.localScale = new Vector3(wellKnown, yScale, 0);
-        notoWellBar.transform.position = new Vector3(0.5f * (wellKnown - 1), notoWellData.transform.position.y, 0);
+        notoWellBar.transform.localScale = new Vector3(wellKnown * xScale, yScale, 0);
+        notoWellBar.transform.position = new Vector3(xScale/2 * (wellKnown - 1), notoWellData.transform.position.y, 0);
 
         GameObject notoLeast = notorietyObject.transform.Find("Obscure").gameObject;
         GameObject notoLeastData = notoLeast.transform.Find("Obscure Data").gameObject;
@@ -231,13 +195,8 @@ public class SummaryTrackingScript : MonoBehaviour
         notoLeastRenderer.color = oceanBlue;
         notoLeastRenderer.sortingLayerName = barLayer;
 
-        notoLeastBar.transform.localScale = new Vector3(notKnown, yScale, 0);
-        notoLeastBar.transform.position = new Vector3(0.5f * (notKnown - 1), notoLeastData.transform.position.y, 0);
-
-
-
-
-
+        notoLeastBar.transform.localScale = new Vector3(notKnown * xScale, yScale, 0);
+        notoLeastBar.transform.position = new Vector3(xScale/2 * (notKnown - 1), notoLeastData.transform.position.y, 0);
 
         GameObject notoNeither = notorietyObject.transform.Find("NeitherKnown").gameObject;
         GameObject notoNeitherData = notoNeither.transform.Find("NeitherKnown Data").gameObject;
@@ -248,11 +207,8 @@ public class SummaryTrackingScript : MonoBehaviour
         notoNeitherRenderer.color = babyBlue;
         notoNeitherRenderer.sortingLayerName = barLayer;
 
-        notoNeitherBar.transform.localScale = new Vector3(midKnown, yScale, 0);
-        notoNeitherBar.transform.position = new Vector3(0.5f * (midKnown - 1), notoNeitherData.transform.position.y, 0);
-
-
-
+        notoNeitherBar.transform.localScale = new Vector3(midKnown * xScale, yScale, 0);
+        notoNeitherBar.transform.position = new Vector3(xScale/2 * (midKnown - 1), notoNeitherData.transform.position.y, 0);
 
         // Waitlist Bar Chart
         GameObject waitLong = waitObject.transform.Find("LongestWait").gameObject;
@@ -264,8 +220,8 @@ public class SummaryTrackingScript : MonoBehaviour
         waitLongRenderer.color = brightBlue;
         waitLongRenderer.sortingLayerName = barLayer;
 
-        waitLongBar.transform.localScale = new Vector3(longWait, yScale, 0);
-        waitLongBar.transform.position = new Vector3(0.5f * (longWait - 1), waitLongData.transform.position.y, 0);
+        waitLongBar.transform.localScale = new Vector3(longWait * xScale, yScale, 0);
+        waitLongBar.transform.position = new Vector3(xScale/2 * (longWait - 1), waitLongData.transform.position.y, 0);
 
         GameObject waitShort = waitObject.transform.Find("ShortestWait").gameObject;
         GameObject waitShortData = waitShort.transform.Find("ShortestWait Data").gameObject;
@@ -276,8 +232,8 @@ public class SummaryTrackingScript : MonoBehaviour
         waitShortRenderer.color = oceanBlue;
         waitShortRenderer.sortingLayerName = barLayer;
 
-        waitShortBar.transform.localScale = new Vector3(shortWait, yScale, 0);
-        waitShortBar.transform.position = new Vector3(0.5f * (shortWait - 1), waitShortData.transform.position.y, 0);
+        waitShortBar.transform.localScale = new Vector3(shortWait * xScale, yScale, 0);
+        waitShortBar.transform.position = new Vector3(xScale/2 * (shortWait - 1), waitShortData.transform.position.y, 0);
 
         GameObject waitNeither = waitObject.transform.Find("NeitherWait").gameObject;
         GameObject waitNeitherData = waitNeither.transform.Find("WaitNeither Data").gameObject;
@@ -288,8 +244,8 @@ public class SummaryTrackingScript : MonoBehaviour
         waitNeitherRenderer.color = babyBlue;
         waitNeitherRenderer.sortingLayerName = barLayer;
 
-        waitNeitherBar.transform.localScale = new Vector3(neitherWait, yScale, 0);
-        waitNeitherBar.transform.position = new Vector3(0.5f * (neitherWait - 1), waitNeitherData.transform.position.y, 0);
+        waitNeitherBar.transform.localScale = new Vector3(neitherWait * xScale, yScale, 0);
+        waitNeitherBar.transform.position = new Vector3(xScale/2 * (neitherWait - 1), waitNeitherData.transform.position.y, 0);
 
         // Philanthropy Bar Chart
         GameObject philHistoryGood = philObject.transform.Find("HistoryGood").gameObject;
@@ -301,8 +257,8 @@ public class SummaryTrackingScript : MonoBehaviour
         philHistoryGoodRenderer.color = brightBlue;
         philHistoryGoodRenderer.sortingLayerName = barLayer;
 
-        philHistoryGoodBar.transform.localScale = new Vector3(guarGood, yScale, 0);
-        philHistoryGoodBar.transform.position = new Vector3(0.5f * (guarGood - 1), philHistoryGoodData.transform.position.y, 0);
+        philHistoryGoodBar.transform.localScale = new Vector3(guarGood * xScale, yScale, 0);
+        philHistoryGoodBar.transform.position = new Vector3(xScale/2 * (guarGood - 1), philHistoryGoodData.transform.position.y, 0);
 
         GameObject philFutureGood = philObject.transform.Find("FutureGood").gameObject;
         GameObject philFutureGoodData = philFutureGood.transform.Find("FutureGood Data").gameObject;
@@ -313,8 +269,8 @@ public class SummaryTrackingScript : MonoBehaviour
         philFutureGoodRenderer.color = oceanBlue;
         philFutureGoodRenderer.sortingLayerName = barLayer;
 
-        philFutureGoodBar.transform.localScale = new Vector3(potGood, yScale, 0);
-        philFutureGoodBar.transform.position = new Vector3(0.5f * (potGood - 1), philFutureGoodData.transform.position.y, 0);
+        philFutureGoodBar.transform.localScale = new Vector3(potGood * xScale, yScale, 0);
+        philFutureGoodBar.transform.position = new Vector3(xScale/2 * (potGood - 1), philFutureGoodData.transform.position.y, 0);
 
         GameObject philNeither = philObject.transform.Find("NeitherGood").gameObject;
         GameObject philNeitherData = philNeither.transform.Find("NeitherGood Data").gameObject;
@@ -325,8 +281,8 @@ public class SummaryTrackingScript : MonoBehaviour
         philNeitherRenderer.color = babyBlue;
         philNeitherRenderer.sortingLayerName = barLayer;
 
-        philNeitherBar.transform.localScale = new Vector3(noGood, yScale, 0);
-        philNeitherBar.transform.position = new Vector3(0.5f * (noGood - 1), philNeitherData.transform.position.y, 0);
+        philNeitherBar.transform.localScale = new Vector3(noGood * xScale, yScale, 0);
+        philNeitherBar.transform.position = new Vector3(xScale/2 * (noGood - 1), philNeitherData.transform.position.y, 0);
     }
     public void makeFeedbackSheet() {
             GameObject[] DataArray = GameObject.FindGameObjectsWithTag ("Data");
