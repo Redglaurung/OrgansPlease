@@ -2047,22 +2047,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a99e05438ddab949a5dfdd41d9ace2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 501555841}
   selectedObject: {fileID: 0}
-  greyOut: {fileID: 505813342}
-  emailButton: {fileID: 540883939}
-  dictButton: {fileID: 428629807}
-  backButton: {fileID: 944646098}
   pagesArray:
   - {fileID: 1509480420}
   - {fileID: 1923420890}
   - {fileID: 1078377988}
   - {fileID: 1502728931}
   - {fileID: 0}
+  greyOut: {fileID: 505813342}
   stamper: {fileID: 554117556}
+  emailButton: {fileID: 540883939}
+  dictButton: {fileID: 428629807}
+  backButton: {fileID: 944646098}
   movingObject: {fileID: 0}
   mainCamera: {fileID: 116705982}
   isDayOne: 0
+  firstClickedOffPhone: 0
+  threePapersDraggedOut: 0
+  clickedOnStamp: 0
+  touchedPapers: []
 --- !u!82 &501555841
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4521,7 +4524,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hello Doctor,\n\nToday is going to be a rough one. These stage 1 pateints
+  m_text: "Hello Doctor,\n\nToday is going to be a rough one. These stage 1 patients
     only have a month left. Due to the necessary intake and compatibility tests they
     have been made aware that they may receive a heart before the end of the month.
     I wish we could have avoided getting their hopes up but there was nothing we
@@ -5166,7 +5169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasCanvas: {fileID: 489438573}
   myRenderer: {fileID: 0}
-  FolderBottom: {fileID: 1712946739}
   isStamped: 0
 --- !u!212 &1078377991
 SpriteRenderer:
@@ -6217,7 +6219,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasCanvas: {fileID: 580885466}
   myRenderer: {fileID: 0}
-  FolderBottom: {fileID: 1712946739}
   isStamped: 0
 --- !u!212 &1502728934
 SpriteRenderer:
@@ -6365,7 +6366,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasCanvas: {fileID: 774127392}
   myRenderer: {fileID: 0}
-  FolderBottom: {fileID: 1712946739}
   isStamped: 0
 --- !u!212 &1509480423
 SpriteRenderer:
@@ -7463,7 +7463,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasCanvas: {fileID: 1850835708}
   myRenderer: {fileID: 0}
-  FolderBottom: {fileID: 1712946739}
   isStamped: 0
 --- !u!212 &1923420893
 SpriteRenderer:
