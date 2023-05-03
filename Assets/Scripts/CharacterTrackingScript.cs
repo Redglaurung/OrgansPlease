@@ -33,6 +33,8 @@ public class CharacterTrackingScript : MonoBehaviour
 
         GameObject[] papers = GameObject.FindGameObjectsWithTag("Pages");
 
+        /** Day 1 */
+
         if (SceneManager.GetActiveScene().name == "Day1")
         {
             if (day1Chosen == false)
@@ -82,6 +84,8 @@ public class CharacterTrackingScript : MonoBehaviour
                 }
             }
         }
+
+        /** Day 2 */
 
         if (SceneManager.GetActiveScene().name == "Day2")
         {
@@ -133,6 +137,8 @@ public class CharacterTrackingScript : MonoBehaviour
             }
         }
 
+        /** Day 3 */
+
         if (SceneManager.GetActiveScene().name == "Day3")
         {
             if (day3Chosen == false)
@@ -182,6 +188,8 @@ public class CharacterTrackingScript : MonoBehaviour
                 }
             }
         }
+
+        /** Day 4 */
 
         if (SceneManager.GetActiveScene().name == "Day4")
         {
@@ -233,6 +241,8 @@ public class CharacterTrackingScript : MonoBehaviour
             }
         }
 
+        /** Day 5 */
+
         if (SceneManager.GetActiveScene().name == "Day5")
         {
             if (day5Chosen == false)
@@ -282,6 +292,8 @@ public class CharacterTrackingScript : MonoBehaviour
                 }
             }
         }
+
+        /** Day 6 */
 
         if (SceneManager.GetActiveScene().name == "Day6")
         {
@@ -346,6 +358,10 @@ public class CharacterTrackingScript : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Day2")
         {
             return day2Chosen;
+        }
+        if (SceneManager.GetActiveScene().name == "Day3")
+        {
+            return day3Chosen;
         }
         if (SceneManager.GetActiveScene().name == "Day4")
         {

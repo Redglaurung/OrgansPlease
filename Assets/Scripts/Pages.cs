@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Pages : MonoBehaviour
 {
+    // Used for Expansion and Layering
     public Canvas canvasCanvas;
     public SpriteRenderer myRenderer;
 
     // Used for Start/Stop looking at
     Quaternion defaultRotation;
     Vector3 defaultScale;
-    Vector3 scaledUp;
+    Vector3 expandedScale;
     Vector3 actualLocation;
 
     //activated if rejected
     bool rejected;
     float speed;
-    public GameObject FolderBottom;
 
     public bool isStamped;
 
@@ -25,24 +25,25 @@ public class Pages : MonoBehaviour
     {
         rejected = false;
         speed = .02f;
+        isStamped = false;
+
         myRenderer = GetComponent<SpriteRenderer>();
         defaultScale = transform.localScale;
         defaultRotation = transform.localRotation;
-        scaledUp = new Vector3(transform.localScale.x * 1.375f, transform.localScale.y * 1.375f, transform.localScale.z);
-        isStamped = false;
+        expandedScale = new Vector3(transform.localScale.x * 1.375f, transform.localScale.y * 1.375f, transform.localScale.z);
     }
 
     // Update is called once per frame
     void Update()
     {
          if(rejected){
-            
             float step = speed * Time.deltaTime;
 
             // move sprite towards the target location
             transform.position = Vector3.MoveTowards(transform.position, new Vector3 (7f,1f,transform.position.z), speed);
         }
     }
+
     //Called by level manager to move the page and its children to an appropriate level
     public void LayerUpdate(int layer){
         myRenderer.sortingOrder = layer;
@@ -63,8 +64,7 @@ public class Pages : MonoBehaviour
         myRenderer.sortingLayerName = "Looking At";
         canvasCanvas.sortingLayerName = "Looking At";
         
-        if (gameObject.transform.childCount == 2)
-        {
+        if (gameObject.transform.childCount == 2) {
             Transform stamp = gameObject.transform.GetChild(0);
             SpriteRenderer stampRenderer = stamp.GetComponent<SpriteRenderer>();
             stampRenderer.sortingLayerName = "Looking At";
@@ -72,7 +72,7 @@ public class Pages : MonoBehaviour
 
         // Move to center
         transform.localRotation = new Quaternion(0,0,0,0);
-        transform.localScale = scaledUp;
+        transform.localScale = expandedScale;
         actualLocation = transform.position;
         transform.position = Vector3.zero;
         transform.position = new Vector3 (transform.position.x, transform.position.y, -4f);
@@ -85,8 +85,8 @@ public class Pages : MonoBehaviour
         transform.position = new Vector3 (transform.position.x, transform.position.y, 2f);
         myRenderer.sortingLayerName = "Pages";
         canvasCanvas.sortingLayerName = "Pages";
-        if (gameObject.transform.childCount == 2)
-        {
+
+        if (gameObject.transform.childCount == 2) {
             Transform stamp = gameObject.transform.GetChild(0);
             SpriteRenderer stampRenderer = stamp.GetComponent<SpriteRenderer>();
             stampRenderer.sortingLayerName = "Pages";
@@ -98,8 +98,7 @@ public class Pages : MonoBehaviour
         transform.position = actualLocation;
     }
 
-    public void setStamped()
-    {
+    public void setStamped() {
         // There are no takebacks after stamping. It's one and done.
         isStamped = true;
     }

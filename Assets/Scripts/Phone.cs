@@ -16,7 +16,7 @@ public class Phone : MonoBehaviour
     public Canvas canvasCanvas;
     SpriteRenderer myRenderer;
     Vector3 defaultScale;
-    Vector3 doubleScale;
+    Vector3 expandedScale;
     Vector3 actualLocation;
 
     // Used for phone screen transitions
@@ -35,7 +35,7 @@ public class Phone : MonoBehaviour
         notifSound = GetComponent<AudioSource>();
         myRenderer = GetComponent<SpriteRenderer>();
         defaultScale = transform.localScale;
-        doubleScale = new Vector3(transform.localScale.x * 2, transform.localScale.y * 2, transform.localScale.z);
+        expandedScale = new Vector3(transform.localScale.x * 2, transform.localScale.y * 2, transform.localScale.z);
     }
 
     // Update is called once per frame
@@ -54,6 +54,8 @@ public class Phone : MonoBehaviour
         }
     }
 
+    /** ------------------------------ Expansion ------------------------------ */
+
     /**
     * Expands the phone and moves it to the center at a larger scale for readability
     */
@@ -61,12 +63,11 @@ public class Phone : MonoBehaviour
         myRenderer.sortingLayerName = "Looking At";
         canvasCanvas.sortingLayerName = "Looking At";
         
-
         // Move to center
-        transform.localScale = doubleScale;
+        transform.localScale = expandedScale;
         actualLocation = transform.position;
         transform.position = Vector3.zero;
-        transform.position = new Vector3 (transform.position.x, transform.position.y, -4f);
+        transform.position = new Vector3(transform.position.x, transform.position.y, -4f);
     }
 
     /**
@@ -75,12 +76,14 @@ public class Phone : MonoBehaviour
     public void StopLookingAt(){
         myRenderer.sortingLayerName = "Pages";
         canvasCanvas.sortingLayerName = "Pages";
-        transform.position = new Vector3 (transform.position.x, transform.position.y, 0f);
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
 
         // Move back from center
         transform.localScale = defaultScale;
         transform.position = actualLocation;
     }
+
+    /** ------------------------------ Phone Button Presses ------------------------------ */
 
     /**
     * Called when a back button is pressed
