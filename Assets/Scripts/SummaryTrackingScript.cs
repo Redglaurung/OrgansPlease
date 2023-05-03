@@ -55,7 +55,7 @@ public class SummaryTrackingScript : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         character = gameObject.GetComponent<CharacterTrackingScript>();
         gameOver = false;
-}
+    }
 
 
     // Update is called once per frame
@@ -117,7 +117,7 @@ public class SummaryTrackingScript : MonoBehaviour
 
 
 
-        float yScale = 0.5f;
+        float yScale = 0.50f;
 
         Color32 brightBlue = new Color32(0, 0, 255, 255);
         Color32 oceanBlue = new Color32(51, 51, 255, 255);
@@ -234,6 +234,26 @@ public class SummaryTrackingScript : MonoBehaviour
         notoLeastBar.transform.localScale = new Vector3(notKnown, yScale, 0);
         notoLeastBar.transform.position = new Vector3(0.5f * (notKnown - 1), notoLeastData.transform.position.y, 0);
 
+
+
+
+
+
+        GameObject notoNeither = notorietyObject.transform.Find("NeitherKnown").gameObject;
+        GameObject notoNeitherData = notoNeither.transform.Find("NeitherKnown Data").gameObject;
+        GameObject notoNeitherBar = notoNeither.transform.Find("Bar").gameObject;
+
+        SpriteRenderer notoNeitherRenderer = notoNeitherBar.AddComponent<SpriteRenderer>();
+        notoNeitherRenderer.sprite = bar;
+        notoNeitherRenderer.color = babyBlue;
+        notoNeitherRenderer.sortingLayerName = barLayer;
+
+        notoNeitherBar.transform.localScale = new Vector3(midKnown, yScale, 0);
+        notoNeitherBar.transform.position = new Vector3(0.5f * (midKnown - 1), notoNeitherData.transform.position.y, 0);
+
+
+
+
         // Waitlist Bar Chart
         GameObject waitLong = waitObject.transform.Find("LongestWait").gameObject;
         GameObject waitLongData = waitLong.transform.Find("LongestWait Data").gameObject;
@@ -314,7 +334,6 @@ public class SummaryTrackingScript : MonoBehaviour
                 if(DataArray[i].name == "Oldest Data"){
                     TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
                     currentText.SetText(oldest.ToString());
-                    //currentText.text=oldest.ToString();
                 }
                 if(DataArray[i].name == "Youngest Data"){
                     TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
@@ -343,6 +362,10 @@ public class SummaryTrackingScript : MonoBehaviour
                 if(DataArray[i].name == "Obscure Data"){
                     TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
                     currentText.SetText(notKnown.ToString());
+                }
+                if(DataArray[i].name == "NeitherKnown Data"){
+                    TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
+                    currentText.SetText(midKnown.ToString());
                 }
                 if(DataArray[i].name == "LongestWait Data"){
                     TextMeshProUGUI currentText = DataArray[i].GetComponent<TextMeshProUGUI>();
