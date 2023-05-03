@@ -26,13 +26,13 @@ public class LevelManager : MonoBehaviour
 
     // Used in MouseDrag
     public GameObject movingObject;
-    Vector3 offset;
+    Vector3 mvmtOffset;
     public Camera mainCamera;
 
-    //Tutorial Booleans
+    // Used for tutorials
     public bool isDayOne;
     public bool firstClickedOffPhone;
-    public bool allPapersDraggedOut;
+    public bool threePapersDraggedOut;
     public bool clickedOnStamp;
     int tutorialActive;
     public List<GameObject> touchedPapers;
@@ -41,10 +41,9 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         firstClickedOffPhone = false;
-        allPapersDraggedOut = false;
+        threePapersDraggedOut = false;
         clickedOnStamp = false;
         tutorialActive = -1;
-
         touchedPapers = new List<GameObject>();
     }
 
@@ -55,7 +54,9 @@ public class LevelManager : MonoBehaviour
             LayerPages();
         }
         MouseClickHandler();
-        if (isDayOne) EndTutorial();
+        if (isDayOne) {
+            EndTutorial();
+        }
     }
 
     /** Layer Management Script */
@@ -63,11 +64,10 @@ public class LevelManager : MonoBehaviour
     /**
     * Shuffles the page layers as a page is clicked on
     */
-    void LayerPages()
-    {
-     Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    // Layering of pages
-    if (Input.GetMouseButtonDown(0)) {
+    void LayerPages() {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // Layering of pages
+        if (Input.GetMouseButtonDown(0)) {
             Collider2D targetObj = Physics2D.OverlapPoint(mousePosition);
             if (targetObj) {
                 if(targetObj.transform.gameObject.tag == "Pages"){
@@ -110,10 +110,12 @@ public class LevelManager : MonoBehaviour
         } 
     }
 
+    /** ---------------------------------------------------------------------------------- */
     /** ------------------------------ Mouse Taps and Drags ------------------------------ */
+    /** ---------------------------------------------------------------------------------- */
 
     /**
-    * Times any mouse clicks to determine if a tap or drag happened, and calls the appropriate method
+    * Measures any mouse clicks to determine if a tap or drag happened, and calls the appropriate method
     */
     void MouseClickHandler() {
         // Left click start
@@ -126,7 +128,7 @@ public class LevelManager : MonoBehaviour
         // Left mouse button still down
         if (mouseDownState != "Ended") {
             if (mouseDownState != "Drag") {
-                TestMouseMvmt();
+                TestForDrag();
             }
             else {
                 MouseDrag();
@@ -138,35 +140,12 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    /**
-    * Handles what happens on the release of a left click
-    * Includes: Tap actions and third tutorial
-    */
-    void LeftClickRelease() {
-        if (mouseDownState == "Tap") {
-            MouseTap();
-        }
-        else {
-            if (isDayOne && !touchedPapers.Contains(movingObject)) {
-                touchedPapers.Add(movingObject);
-            }
-        }
-
-        // Third tutorial
-        if(tutorialActive == -1 && firstClickedOffPhone && !allPapersDraggedOut && touchedPapers.Count >= 3) {
-            allPapersDraggedOut = true;
-            Tutorial(3);
-        }
-
-        movingObject = null;
-        clickedObject = null;
-        mouseDownState = "Ended";
-    }
+    /** ------------------------------ Mouse Still Down ------------------------------ */
 
     /**
     * Checks how far the mouse has moved since it was first clicked, and either sets the mouse click to a tap or drag accordingly
     */
-    void TestMouseMvmt() {
+    void TestForDrag() {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 mvmt = prevPosition - mousePosition;
 
@@ -177,6 +156,71 @@ public class LevelManager : MonoBehaviour
         else {
             mouseDownState = "Tap";
         }
+    }
+
+    /**
+    * Picks up and moves an object with the mouse
+    */
+    void MouseDrag() {
+        // Code from: https://gamedevbeginner.com/how-to-move-an-object-with-the-mouse-in-unity-in-2d/
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (movingObject == null && clickedObject)
+        {
+            movingObject = clickedObject.transform.gameObject;
+            mvmtOffset = movingObject.transform.position - mousePosition;
+        }
+        if ((movingObject)&&(movingObject.tag != "Furniture"))
+        {
+            Vector3 oldPos = movingObject.transform.position;
+            movingObject.transform.position = mousePosition + mvmtOffset;
+            keepInBounds(oldPos);
+        } 
+    }
+
+    /**
+    * A helper function for MouseDrag
+    * Checks if the object is out of bounds and moves it back appropriately if so
+    */
+    void keepInBounds(Vector3 oldPos) {
+        float xMin = mainCamera.transform.position.x - (mainCamera.orthographicSize * 16/9); // 16/9 used for 16:9 screen scale 
+        float xMax = mainCamera.transform.position.x + (mainCamera.orthographicSize * 16/9);
+        float yMin = mainCamera.transform.position.y - (mainCamera.orthographicSize);
+        float yMax = mainCamera.transform.position.y + (mainCamera.orthographicSize);
+        // If out of bounds horizontally
+        if (movingObject.transform.position.x < xMin || movingObject.transform.position.x > xMax) 
+            movingObject.transform.position = new Vector3(oldPos.x, movingObject.transform.position.y, movingObject.transform.position.z);
+        // If out of bounds vertically
+        if (movingObject.transform.position.y < yMin || movingObject.transform.position.y > yMax)
+            movingObject.transform.position = new Vector3(movingObject.transform.position.x, oldPos.y, movingObject.transform.position.z);
+    }
+
+
+    /** ------------------------------ Mouse Released ------------------------------ */
+
+    /**
+    * Handles what happens on the release of a left click
+    * Includes: Tap actions and third tutorial
+    */
+    void LeftClickRelease() {
+        if (mouseDownState == "Tap") {
+            MouseTap();
+        }
+        // Must be drag if not a tap
+        else {
+            if (isDayOne && !touchedPapers.Contains(movingObject)) {
+                touchedPapers.Add(movingObject);
+            }
+
+            // Third tutorial
+            if(tutorialActive == -1 && firstClickedOffPhone && !threePapersDraggedOut && touchedPapers.Count >= 3) {
+                threePapersDraggedOut = true;
+                Tutorial(3);
+            }
+        }
+
+        movingObject = null;
+        clickedObject = null;
+        mouseDownState = "Ended";
     }
 
     /**
@@ -193,18 +237,16 @@ public class LevelManager : MonoBehaviour
             if(isDayOne) {
                 TutorialClickActions();
             }
+            // Picks up/puts down the stamper
+            if(clickedObject.tag == "Stamp"){
+                stamper.SendMessage("ClickedOn");
+            }
         }
         if (expandedObject == null && clickedObject) {
             ExpandObject();
         }
         else if (expandedObject != null) {
             PutDownExpandedObject();
-        }
-        // Picks up/puts down the stamper
-        if(clickedObject){
-            if(clickedObject.tag == "Stamp"){
-                stamper.SendMessage("ClickedOn");
-            }
         }
     }
 
@@ -214,22 +256,29 @@ public class LevelManager : MonoBehaviour
     */
     void TutorialClickActions() {
         // Second tutorial
-        if((!firstClickedOffPhone)&&expandedObject != null && expandedObject.transform.gameObject.name=="Phone"&&clickedObject.transform.gameObject.name=="GreyOut"){
+        if((!firstClickedOffPhone) && expandedObject != null && expandedObject.transform.gameObject.name=="Phone" 
+            && clickedObject.transform.gameObject.name=="GreyOut") {
             firstClickedOffPhone = true;
             Tutorial(2);
         }
-        // --- Note: Third tutorial can be found under left click end in MouseClickHandler() ----
+        // --- Note: Third tutorial can be found under left click end in LeftClickRelease() ----
         // Fourth tutorial
-            else if (allPapersDraggedOut && !clickedOnStamp && clickedObject.transform.gameObject.name == "Stamp") {
+        else if (threePapersDraggedOut && !clickedOnStamp && clickedObject.transform.gameObject.name == "Stamp") {
             clickedOnStamp = true;
             Tutorial(4);
         }
     }
 
+    /** ------------------------------ Object Expansion ------------------------------ */
+
+    /**
+    * Expands an object and activates the greyout/makes all other objects non-interactable
+    */
     void ExpandObject() {
         if((clickedObject.transform.gameObject.tag == "Pages") || (clickedObject.transform.gameObject.tag == "Phone")){
             clickedObject.transform.gameObject.SendMessage("StartLookingAt");
             expandedObject = clickedObject;
+
             greyOut.transform.position = new Vector3(0f,0f,-3f);
             if(clickedObject.transform.gameObject.tag != "Phone"){
                 ChangePhoneButtonActivation(false);
@@ -237,10 +286,14 @@ public class LevelManager : MonoBehaviour
         } 
     }
 
+    /**
+    * Puts down an object and deactivates the greyout/makes all other objects interactable again
+    */
     void PutDownExpandedObject() {
         if (clickedObject != expandedObject) {
             expandedObject.transform.gameObject.SendMessage("StopLookingAt");
             expandedObject = null;
+
             if (tutorialActive == -1) {
                 greyOut.transform.position = new Vector3(28f,0f,-3f);
             }
@@ -260,42 +313,11 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    /**
-    * Picks up and moves an object with the mouse
-    */
-    void MouseDrag() {
-        // Code from: https://gamedevbeginner.com/how-to-move-an-object-with-the-mouse-in-unity-in-2d/
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (movingObject == null && clickedObject)
-        {
-            movingObject = clickedObject.transform.gameObject;
-            offset = movingObject.transform.position - mousePosition;
-        }
-        if ((movingObject)&&(movingObject.tag != "Furniture"))
-        {
-            Vector3 oldPos = movingObject.transform.position;
-            movingObject.transform.position = mousePosition + offset;
-            keepInBounds(oldPos);
-        } 
-    }
+    /** ------------------------------ Tutorial ------------------------------ */
 
     /**
-    * A helper function for MouseDrag
-    * Checks if the object is out of bounds and moves it back appropriately if so
+    * A tutorial is ended when the space button is pressed
     */
-    void keepInBounds(Vector3 oldPos) {
-        float xMin = mainCamera.transform.position.x - (mainCamera.orthographicSize * 16/9); // 16/9 used for 16:9 screen scale - if we allow window size changes will need to change
-        float xMax = mainCamera.transform.position.x + (mainCamera.orthographicSize * 16/9);
-        float yMin = mainCamera.transform.position.y - (mainCamera.orthographicSize);
-        float yMax = mainCamera.transform.position.y + (mainCamera.orthographicSize);
-        // If out of bounds horizontally
-        if (movingObject.transform.position.x < xMin || movingObject.transform.position.x > xMax) 
-            movingObject.transform.position = new Vector3(oldPos.x, movingObject.transform.position.y, movingObject.transform.position.z);
-        // If out of bounds vertically
-        if (movingObject.transform.position.y < yMin || movingObject.transform.position.y > yMax)
-            movingObject.transform.position = new Vector3(movingObject.transform.position.x, oldPos.y, movingObject.transform.position.z);
-    }
-
     void EndTutorial() {
         if (Input.GetKeyDown("space") && tutorialActive != -1) {
             greyOut.SendMessage("TutorialClose",tutorialActive);
