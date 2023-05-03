@@ -20,21 +20,18 @@ public class CharacterTrackingScript : MonoBehaviour
         summary = gameObject.GetComponent<SummaryTrackingScript>();
     }
 
-    // Update is called once per frame
+    /**
+     * Update is called once per frame.
+     * Check the name of the day and for that day if no one has been selected
+     * yet, keep checking all the papers to check if the player selected a paper.
+     * Once a paper is selected, we consider that day to be chosen. Then check
+     * which paper was selected and increment the associated counter variables.
+     */
     void Update()
     {
-
-        // So long as no paper has been chosen/stamped, loop through all the papers
-            // If GameObject's name is Paper1, then change using Esmeralda's data
-            // If GameObject'2 name is Paper2, then change using Jinnie's data, etc.
-
-        // Once one paper has been chosen/stamped, this level is over.
-
-
         GameObject[] papers = GameObject.FindGameObjectsWithTag("Pages");
 
         /** Day 1 */
-
         if (SceneManager.GetActiveScene().name == "Day1")
         {
             if (day1Chosen == false)
@@ -86,7 +83,6 @@ public class CharacterTrackingScript : MonoBehaviour
         }
 
         /** Day 2 */
-
         if (SceneManager.GetActiveScene().name == "Day2")
         {
             if (day2Chosen == false)
@@ -138,7 +134,6 @@ public class CharacterTrackingScript : MonoBehaviour
         }
 
         /** Day 3 */
-
         if (SceneManager.GetActiveScene().name == "Day3")
         {
             if (day3Chosen == false)
@@ -190,7 +185,6 @@ public class CharacterTrackingScript : MonoBehaviour
         }
 
         /** Day 4 */
-
         if (SceneManager.GetActiveScene().name == "Day4")
         {
             if (day4Chosen == false)
@@ -242,7 +236,6 @@ public class CharacterTrackingScript : MonoBehaviour
         }
 
         /** Day 5 */
-
         if (SceneManager.GetActiveScene().name == "Day5")
         {
             if (day5Chosen == false)
@@ -294,7 +287,6 @@ public class CharacterTrackingScript : MonoBehaviour
         }
 
         /** Day 6 */
-
         if (SceneManager.GetActiveScene().name == "Day6")
         {
             if (day6Chosen == false)
