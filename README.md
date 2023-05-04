@@ -6,13 +6,11 @@ _Organs, Please_ is a game in which the player makes ethical choices concering o
 
 _Organs, Please_ is currently being developed for Macalester College's class COMP 225 - Software Design and Development. This github contains files for Unity.
 
-## Install Unity
+## Installation Instructions
 
-Install version 2022.2.7f1 of Unity
+1. Install version 2022.2.7f1 of Unity
+2. Clone and download repository from GitHub
+3. When prompted, click 'Yes' to enable git lfs. If not prompted, open a terminal window and enter the `git lfs install`
+4. Open Unity Hubs, click "Open" then "Add project from disk," and select the location where you cloned it from GitHub 
 
-
-## To Play??
-
-How do we get people a build?
-
-
+## Known Issues
