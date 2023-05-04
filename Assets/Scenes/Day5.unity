@@ -902,7 +902,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Time on waitlist: </b> \n2 Years"
+  m_text: "<b>Time on waitlist: </b> \n2 years"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -1774,7 +1774,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Time on waitlist: </b> \n1.5 Years"
+  m_text: "<b>Time on waitlist: </b> \n1 year, 6 months"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -2489,7 +2489,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasCanvas: {fileID: 1934346360}
   myRenderer: {fileID: 0}
-  FolderBottom: {fileID: 1769905632}
   isStamped: 0
 --- !u!212 &892962710
 SpriteRenderer:
@@ -4181,22 +4180,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a99e05438ddab949a5dfdd41d9ace2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 1334460427}
   selectedObject: {fileID: 0}
-  greyOut: {fileID: 1890012792}
-  emailButton: {fileID: 870559663}
-  dictButton: {fileID: 1747756829}
-  backButton: {fileID: 353701137}
   pagesArray:
   - {fileID: 892962707}
   - {fileID: 1927811708}
   - {fileID: 1513156926}
   - {fileID: 1358502399}
   - {fileID: 0}
+  greyOut: {fileID: 1890012792}
   stamper: {fileID: 652610044}
+  emailButton: {fileID: 870559663}
+  dictButton: {fileID: 1747756829}
+  backButton: {fileID: 353701137}
   movingObject: {fileID: 0}
   mainCamera: {fileID: 519420031}
   isDayOne: 0
+  firstClickedOffPhone: 0
+  threePapersDraggedOut: 0
+  clickedOnStamp: 0
+  touchedPapers: []
 --- !u!1 &1358502399
 GameObject:
   m_ObjectHideFlags: 0
@@ -4230,7 +4232,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasCanvas: {fileID: 2112849458}
   myRenderer: {fileID: 0}
-  FolderBottom: {fileID: 1769905632}
   isStamped: 0
 --- !u!212 &1358502402
 SpriteRenderer:
@@ -4920,7 +4921,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasCanvas: {fileID: 706277371}
   myRenderer: {fileID: 0}
-  FolderBottom: {fileID: 1769905632}
   isStamped: 0
 --- !u!212 &1513156929
 SpriteRenderer:
@@ -5228,7 +5228,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Time on waitlist: </b> \n3 Years"
+  m_text: "<b>Time on waitlist: </b> \n3 years"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
@@ -6455,7 +6455,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasCanvas: {fileID: 1510618449}
   myRenderer: {fileID: 0}
-  FolderBottom: {fileID: 1769905632}
   isStamped: 0
 --- !u!212 &1927811711
 SpriteRenderer:
@@ -7597,7 +7596,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Time on waitlist: </b> \n1 Year"
+  m_text: "<b>Time on waitlist: </b> \n1 year"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
   m_sharedMaterial: {fileID: 8710499117259177454, guid: 8de79b1c112c55f408e23f47191d5164, type: 2}
