@@ -10,7 +10,10 @@ _Organs, Please_ is currently being developed for Macalester College's class COM
 
 1. Install version 2022.2.7f1 of Unity
 2. Clone and download repository from GitHub
-3. When prompted, click 'Yes' to enable git lfs. If not prompted, open a terminal window and enter the `git lfs install`
+3. When prompted, click 'Yes' to enable git lfs. If not prompted, open a terminal window and enter `git lfs install`
 4. Open Unity Hubs, click "Open" then "Add project from disk," and select the location where you cloned it from GitHub 
 
 ## Known Issues
+- Stamper is too sensitive (won't stamp all parts of papers)
+- Bar charts overlap top bar on ending screen
+- Phone may try to scroll with mouse, creating weird interactions with dragging
