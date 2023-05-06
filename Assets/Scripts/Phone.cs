@@ -31,7 +31,7 @@ public class Phone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = 1000;
+        timer = 400;
         notifSound = GetComponent<AudioSource>();
         myRenderer = GetComponent<SpriteRenderer>();
         defaultScale = transform.localScale;
